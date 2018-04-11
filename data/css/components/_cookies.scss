@@ -1,0 +1,84 @@
+﻿.cookie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-height: 0;
+    background-color: rgba($brand-info,.8);
+    color: $brand-danger;
+    overflow: hidden;
+    padding: 0 10px;
+    @include transition(max-height 1.5s ease-in-out);
+
+    p {
+        padding: 10px;
+        font: bold .8 Arial;
+        margin: 0.6em 0;
+        display: block;
+    }
+
+    > div {
+        text-align: center;
+    }
+
+    a {
+        color: #000;
+        border-bottom: 1px dashed $brand-success;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .accept {
+        display: block;
+        width: 60px;
+        margin: 10px auto;
+
+        &::-moz-focus-inner {
+            border: none;
+            padding: 0;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        background: transparent;
+        padding: 10px 30px;
+        border: 2px solid $base-red;
+        color: $base-red;
+        text-transform: uppercase;
+        font-size: 11px;
+        transition-property: background,color;
+        transition-duration: .2s;
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover {
+            color: white;
+            background: $base-red;
+            cursor: pointer;
+            transition-property: background,color;
+            transition-duration: .2s;
+        }
+    }
+
+    &.show {
+        max-height: 500px;
+        /*@include opacity(1);*/
+    }
+}
+@include mq(tablet) {
+    .cookie {
+        p {
+            padding-right: 120px;
+        }
+
+        .btn {
+            padding: 8px 10px 8px 30px;
+            position: absolute;
+            top: 40%;
+            right: 10px;
+            @include transform(translateY(-50%));
+        }
+    }
+}

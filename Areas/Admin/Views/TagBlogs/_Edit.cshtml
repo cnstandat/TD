@@ -1,0 +1,29 @@
+﻿@model TD.Models.TagBlog
+
+<div class="collapse collapse-auto-center auto-dispose" id=@("edit_tagblog"+Model.Id)>
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/tagblogs/edit">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-title">
+                Nhãn bài viết
+            </div>
+            <div class="input--sae">
+                <input class="input-text auto-submit" name="FullName" required value="@Model.FullName" data-rule-minlength="4" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Nhãn bài viết</span>
+                </label>
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                <a class="btn delete" title="Xóa nhãn" data-src="/admin/tags/delete/@Model.Id">
+                    <i class="fa fa-eraser"></i>Xóa
+                </a>
+            </div>
+        </form>
+    </div>
+
+</div>

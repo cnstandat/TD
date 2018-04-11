@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TD.Models.Views.VersionFeatureProductView>
+<div>
+    <h4 class="form-title">Chức năng</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+
+            <span class="table-cell">
+                Chức năng
+                <a href="/admin/products/VersionFeatureProductsAdd?ProductId=@ViewBag.ProductId&Version=@(ViewBag.Version)" class="btn left" title="Thêm mới">
+                    Thêm mới
+                </a>
+            </span>
+            <span class="table-cell">
+                Chức năng
+            </span>
+
+        </div>
+        @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                <div class="table-row">
+
+                    <span class="table-cell">
+                        <a href="/admin/products/VersionProductFeaturesEdit?ProductId=@item.ProductId&Version=@(item.Version)&FeatureProductId=@item.FeatureProductId" class="product-slide-link" title="Click vào đây để xem chi tiết">
+                            @item.FeatureProductName
+                        </a>
+                    </span>
+                    <span class="table-cell">
+                        @item.Content
+                    </span>
+
+                </div>
+            }
+        }
+        else
+        {
+            <div class="table-row">
+                <span class="table-cell">Chưa có dữ liệu</span>
+            </div>
+        }
+    </div>
+</div>

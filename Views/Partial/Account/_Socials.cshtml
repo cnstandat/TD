@@ -1,0 +1,22 @@
+﻿
+@using Microsoft.Owin.Security
+<div class="form-title">Mạng xã hội</div>
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() > 0)
+    {
+
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model == null ? null : Model.ReturnUrl }, FormMethod.Post, htmlAttributes: new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            foreach (AuthenticationDescription p in loginProviders)
+            {
+                <button type="submit" class="btn btn-social btn-@p.AuthenticationType.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
+                    <span class="fa fa-@p.AuthenticationType.ToLower()"></span>
+                </button>
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,62 @@
+﻿@model TD.Models.Views.BlogViewModel
+
+<div class="bg-header"></div>
+<div class="main">
+    <div class="wow wow-lazy" data-src="/home/_gettags"></div>
+
+    <div class="blogs">
+        <div class="blog-post-container">
+            <div class="blog-post">
+                <article>
+                    <header>
+                        <div class="post-meta">
+                            <span>
+                                <time class="timeago" datetime="@Model.LastModify.ToUtcString()"></time>
+                            </span>
+                            @if (Model.CommentCount > 0)
+                            {
+                                <span><i class="fa fa-comment"></i> @Model.CommentCount người bình luận</span>
+                            }
+                            @if (Model.Viewed > 0)
+                            {
+                                <span><i class="fa fa-eye"></i> @Model.Viewed lượt xem</span>
+                            }
+                        </div>
+                        <h1>@Model.FullName</h1>
+
+                        <ul class="social-list">
+                            <li><a href="@Model.Twitter" class="p-1 btn btn-social btn-twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="@Model.Facebook" class="p-1 btn btn-social btn-facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="@Model.Google" class="p-1 btn btn-social btn-google"><i class="fa fa-google"></i></a></li>
+                        </ul>
+
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <div class="post-image">
+                                <img src="@Model.Image" alt="Ảnh bài viết">
+                            </div>
+                        }
+                    </header>
+                    <div class="post-contents single">
+                        @Html.Raw(Model.Content)
+                    </div>
+                    <div class="author clearfix lazy" data-src="/home/_getauthor/@Model.Id">                                    </div>
+                    <div class="wow wow-lazy" data-src="/home/_gettagblog/@Model.Id">                                </div>
+                    <div class="wow wow-lazy" data-src="/home/_getnavblog/@Model.Id"></div>
+                    <div class="wow wow-lazy" data-src="/home/_Comments/@Model.Id"></div>
+                    <div class="wow wow-lazy" data-src="/home/_GetCommentForm/@Model.Id"></div>
+                </article>
+            </div>
+        </div>
+        <div class="blog-more">
+            <div class="wow wow-lazy" data-src="/home/_getpopular"></div>
+            <div class="wow wow-lazy" data-src="/home/_getnew"></div>
+            <div class="wow wow-lazy" data-src="/home/_getrelated/@Model.Id"> </div>
+        </div>
+    </div>
+
+
+   
+</div>
+
+

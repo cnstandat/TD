@@ -1,0 +1,496 @@
+﻿@import "../libs";
+
+html.modal-open {
+    overflow: hidden !important;
+    position: relative;
+
+    &::-webkit-scrollbar, &::-webkit-scrollbar-button {
+        width: 0 !important;
+        display: none !important;
+    }
+
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+ 
+}
+
+.wrapper {
+    &.move3d01 {
+        /*transform: perspective(1000px);*/
+        height: 100vh;
+        transition: transform 0.6s;
+        transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+        transform: perspective(1000px) translate3d(0,50vh,0) rotate3d(1,0,0,30deg);
+    }
+}
+
+.collapse-overlay {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+}
+
+.togger {
+    position: relative;
+
+    &.circle {
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        display: block;
+        border-bottom: none !important;
+    }
+
+    &.togger-btn {
+        padding: 5px 0 0 5px;
+        /*background-color: rgba($base-red,.9);*/
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        border: none;
+
+        .svcolor {
+            fill: $base-red;
+        }
+    }
+}
+
+.line {
+    position: relative;
+    width: $bar-span-width;
+    height: $bar-weight;
+    background-color: $white;
+    display: block;
+    @include transition(background-color .2s);
+    left: 50%;
+    top: 50%;
+    /*bottom: auto;*/
+    /*right: auto;*/
+    transform: translate3d(-50%,-50%,0);
+
+    @include before-after() {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        content: '';
+        /*top: 0;
+        left: 0;*/
+        /*backface-visibility: hidden;*/
+        /*animation-delay: 1s;*/
+        transition: transform 0.4s;
+    }
+
+    @include after() {
+        transform: translate3d(0,200%,0);
+    }
+
+    @include before {
+        transform: translate3d(0,-200%,0);
+    }
+
+    &-dark {
+        background-color: $base-dark;
+
+        @include before-after {
+            background-color: $base-dark;
+        }
+    }
+}
+
+.collapse > .collapse-wrap > .togger .line {
+    @include before {
+        transform: translate3d(-50%,-200%,0);
+    }
+
+    @include after {
+        transform: translate3d(-50%,200%,0);
+    }
+}
+
+.togger.togger-left.open {
+    > .line {
+        background-color: #fff;
+        @include translateX(-30%);
+
+        @include before() {
+            @include transform(translate(-50%,-200%) rotate(-45deg));
+        }
+
+        @include after() {
+            @include transform(translate(-50%,200%) rotate(45deg));
+        }
+    }
+
+    circle {
+        stroke-dashoffset: 0;
+        @include transition(stroke-dashoffset .4s .3s);
+    }
+}
+
+.collapse-close {
+    position: fixed;
+    top: 2px;
+    right: 2px;
+    width: 40px;
+    height: 40px;
+
+    &.fa {
+        width: 20px;
+        height: 20px;
+        top: 5px;
+        right: 5px;
+        color:$brand-warning;
+    }
+    /*background: rgba(0,0,0,.8);*/
+    /*box-shadow: inset 0 0 1px #fff,0 0 2px #000;*/
+}
+
+.open {
+    .collapse-close {
+        > .line {
+            background-color: transparent;
+
+            @include before {
+                transform: rotate(45deg);
+            }
+
+            @include after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    > .line {
+        background-color: transparent;
+
+        @include before {
+            transform: rotate(45deg);
+        }
+
+        @include after {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.collapse {
+    display: none;
+    visibility: hidden;
+
+    &-drop {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        overflow: hidden;
+        background-color: rgba($brand-success,.6);
+
+        > a.fast {
+            width: 40px;
+            display: block;
+            border-radius: 0;
+            padding: 0;
+            margin: .5em auto;
+            border: none;
+            line-height: 40px;
+            font-size: 20px;
+            color: #fff;
+            position: relative;
+
+            .fa {
+                position: absolute;
+                top: 10px;
+                right: 0;
+            }
+
+            &:hover {
+                &:before {
+                    border-color: $brand-info;
+                }
+
+                span {
+                    color: #000;
+                }
+            }
+
+            &:before {
+                content: " ";
+                height: 100%;
+                border-left: 2px solid $brand-danger;
+                @include transition(border-color .4s ease-in-out);
+            }
+
+            span {
+                position: absolute;
+                left: -200%;
+                font-size: 12px;
+                @include transition(color .4s ease-in-out);
+                @include text-shadow(0 0 5px #000);
+            }
+        }
+
+        @include transition(height 1s ease-in-out,background-color 1s ease);
+
+        &.open {
+            overflow: visible;
+            height: auto;
+            background-color: rgba($brand-success,.8);
+            padding-bottom: 1em;
+
+            .togger {
+                margin-bottom: .5em;
+                background-color: transparent;
+            }
+        }
+    }
+
+    &.open {
+        visibility: visible;
+        /*background-color: $base-dark;*/
+        @include display-flex();
+        @include flex-direction(column);
+        @include align-items(center);
+        z-index: $zcollapse-open;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /*width: 100vw;*/
+        /*height: 100%;*/
+        animation: collapse-show .4s forwards;
+        overflow-y: auto;
+        overflow-x: hidden;
+        /*color: #fff;*/
+        @include transform(translate3d(0,0,0));
+        /*&.light {
+            background-color: #fff;
+            color: $base-dark;
+        }*/
+        &.block {
+            display: block;
+        }
+
+        &.bw {
+            justify-content: space-between;
+            padding-top: 3rem;
+        }
+
+        &.row {
+            flex-direction: row;
+        }
+
+        &.cen {
+            justify-content: center;
+        }
+    }
+
+    &-slide.open {
+        @include display-flex();
+        @include justify-content(center);
+        @include align-items(center);
+        background-color: $base-medium;
+        z-index: $zcollapse-open;
+        position: fixed;
+        left: initial;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        @include animation(collapse-slide .4s forwards)
+    }
+
+    &-slide-left.open {
+        @include display-flex();
+        @include justify-content(center);
+        @include align-items(center);
+        background-color: $base-dark;
+        z-index: $zcollapse-open;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: initial;
+        /*width: 300px;*/
+        height: 100%;
+        @include animation(collapse-slide-left .8s forwards)
+    }
+
+    &.move3d01 {
+        height: 50%;
+        background-color: transparent;
+    }
+}
+
+.open.collapse-auto-center {
+
+
+    .collapse-overlay {
+        background-color: rgba(#000,.5);
+    }
+
+    align-items: center;
+    justify-content: center;
+
+    .collapse-body {
+        position: relative;
+        display: block;
+        height: auto;
+        width: auto;
+        overflow-x: hidden;
+        overflow-y:auto;
+        right: initial;
+        bottom: initial;
+        padding: 0 1rem;
+        background-color: #fff;
+        box-shadow: 0 0 5px #000;
+        /*transform: translate3d(-50%,-50%,0);*/
+    }
+
+    .form {
+        padding: 0;
+    }
+
+    .form-title {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 1rem;
+        font-weight:$font-weight-bold;
+    }
+
+    .form-btn {
+        border-top: 1px solid #eee;
+        margin-top: 1rem;
+
+        .btn {
+            padding: 4px 10px;
+
+            .fa {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .collapse-close {
+        position: absolute;
+        box-shadow: none;
+    }
+}
+
+.collapse-body {
+    padding-top: 50px;
+}
+
+@include keyframes(collapse-show) {
+    0% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(collapse-slide) {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: auto;
+        opacity: 1;
+    }
+}
+
+@include keyframes(collapse-slide-left) {
+    0% {
+        /*width: 0;*/
+        opacity: 0;
+    }
+
+
+    100% {
+        /*width: 300px;*/
+        opacity: 1;
+    }
+}
+
+.loadpanel > div {
+    display: none;
+
+    &.in {
+        display: block;
+    }
+}
+
+.collapse.collapse-slide.open {
+    height: auto !important;
+    flex-direction: column;
+    padding: 1em 60px 1em 1em;
+
+    .btn {
+        flex: 0 180px 0;
+    }
+}
+
+.collapse-wrap {
+    min-height: 42px;
+
+    &.open {
+        /*padding-top: 42px;*/
+
+        > .collapse-sm {
+            display: flex;
+            overflow: hidden;
+        }
+
+        /*height: 100%;*/
+        /*overflow-x:hidden;
+        overflow-y:visible;*/
+    }
+}
+
+.sidebar {
+
+    .togger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.collapse-sm {
+    display: none;
+}
+
+.togger-left {
+    @include position(relative);
+    z-index: 9999;
+    @include size(3.125rem);
+    float: right;
+    overflow: hidden;
+
+    svg {
+        @include position(absolute, $top: 0, $left: 0);
+    }
+
+    circle {
+        @include transition(stroke-dashoffset .4s 0s);
+    }
+}
+
+@mixin collapse-md {
+    .collapse-sm {
+        display: flex;
+    }
+}

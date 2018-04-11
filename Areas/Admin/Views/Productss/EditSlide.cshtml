@@ -1,0 +1,37 @@
+﻿@model TD.Models.Views.AppGalleryView
+<div class="main">
+   
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+            <a href="/Admin/Apps/Edit/@Model.AppId" class="breadcrumb-item">Cập nhật sản phẩm</a>
+            <a href="/Admin/Apps/EditGallery?id=@Model.AppUploadId&&AppId=@Model.AppId&&GalleryId=@Model.GalleryId" class="breadcrumb-item active">Chỉnh sửa ảnh sản phẩm</a>
+           
+        </div>
+
+      
+            <h4 class="form-title">
+                Chỉnh sửa ảnh sản phẩm @Model.AppName
+            </h4>
+            <form class="form" data-src="/admin/products/editslide">
+
+                <input type="hidden" name="GalleryId" value="@Model.GalleryId" />
+                <input type="hidden" name="AppId" value="@Model.AppId" />
+                <input type="hidden" id="ImageData" name="ImageData" value="" />
+                <input type="hidden" id="AppUploadId" name="AppUploadId" value="@Model.AppUploadId" />
+
+                <figure class="image-fake" data-src="/data/img/slides/@Model.FileName" data-width=@(Model.IsLarge?"600":"400") data-height="600" data-upload="1">
+                    <noscript><img src="/data/img/slides/@Model.FileName" width=@(Model.IsLarge?"600":"400") height="600" /></noscript>
+                </figure>
+                @Html.AntiForgeryToken()
+                <div class="submit-container">
+                    <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                    <a class="btn delete" title="Xóa" data-src="/admin/products/deleteGallery?AppId=@Model.AppId&&AppUploadId=@Model.AppUploadId">
+                        <i class="fa fa-cross"></i>Xóa
+                    </a>
+                </div>
+            </form>
+
+        </div>
+
+    

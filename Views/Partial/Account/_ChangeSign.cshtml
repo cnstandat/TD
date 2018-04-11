@@ -1,0 +1,26 @@
+﻿<div class="form-title">Chữ ký</div>
+<form class="form" data-src="/account/changesign">
+    @Html.AntiForgeryToken()
+    <div class="text-helper">
+        Để thiết đặt chữ ký bạn cần nhập mật khẩu hiện tại của bạn.
+    </div>
+    <div>
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Chữ ký</span>
+        </label>
+        <textarea name="Sign" class="note-editable" value="@ViewBag.Sign" required data-rule-minlength="30">@ViewBag.Sign</textarea>
+    </div>
+    <div class="input--sae">
+        <input type="password" autocomplete="new-password" name="Password" required class="input-text" minlength="4" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mật khẩu hiện tại</span>
+        </label>
+    </div>
+    <div class="form-btn">
+        <a class="btn submit"><i class="fa fa-checkmark"></i>Xác nhận</a>
+    </div>
+</form>
+
+

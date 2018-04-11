@@ -1,0 +1,157 @@
+﻿/* Cordelia (by @vivien_le_neez) */
+.menu-cordelia .item {
+    position: relative;
+}
+
+.menu-cordelia .item-link {
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.menu-cordelia .item-current .item-link {
+    color: $menu-border-color;
+    -webkit-transition: color 0.6s;
+    transition: color 0.6s;
+}
+
+.menu-cordelia .item::before,
+.menu-cordelia .item::after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 2px;
+    background: $menu-border-color;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-animation-fill-mode: initial;
+    animation-fill-mode: initial;
+}
+
+.menu-cordelia .item::before {
+    top: 0;
+    right: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+
+.menu-cordelia .item::after {
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+
+.menu-cordelia .item-current::before {
+    -webkit-animation: anim-cordelia-top 0.6s linear both;
+    animation: anim-cordelia-top 0.6s linear both;
+}
+
+.menu-cordelia .item-current::after {
+    -webkit-animation: anim-cordelia-bottom 0.6s linear both;
+    animation: anim-cordelia-bottom 0.6s linear both;
+}
+
+@-webkit-keyframes anim-cordelia-top {
+    0% {
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+    }
+
+    10% {
+        -webkit-transform: scale3d(0.05, 1, 1);
+        transform: scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        -webkit-transform: translate3d(-95%, 0, 0) scale3d(0.05, 1, 1);
+        transform: translate3d(-95%, 0, 0) scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}
+
+@keyframes anim-cordelia-top {
+    0% {
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+    }
+
+    10% {
+        -webkit-transform: scale3d(0.05, 1, 1);
+        transform: scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        -webkit-transform: translate3d(-95%, 0, 0) scale3d(0.05, 1, 1);
+        transform: translate3d(-95%, 0, 0) scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}
+
+@-webkit-keyframes anim-cordelia-bottom {
+    0% {
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+    }
+
+    10% {
+        -webkit-transform: scale3d(0.05, 1, 1);
+        transform: scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        -webkit-transform: translate3d(95%, 0, 0) scale3d(0.05, 1, 1);
+        transform: translate3d(95%, 0, 0) scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}
+
+@keyframes anim-cordelia-bottom {
+    0% {
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+    }
+
+    10% {
+        -webkit-transform: scale3d(0.05, 1, 1);
+        transform: scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        -webkit-transform: translate3d(95%, 0, 0) scale3d(0.05, 1, 1);
+        transform: translate3d(95%, 0, 0) scale3d(0.05, 1, 1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}

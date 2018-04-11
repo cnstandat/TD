@@ -1,0 +1,39 @@
+﻿.loader-24 {
+	width: .8em;
+	height: 1em;
+	border: .1em currentcolor solid;
+	border-radius: 0px 0px .2em .2em;
+	position: relative;
+	&:after,
+	&:before {
+		position: absolute;
+		content: "";
+	}
+	&:after {
+		width: .2em;
+		height: 50%;
+		border: .1em currentcolor solid;
+		border-left: none;
+		border-radius: 0px .5em .5em 0px;
+		left: calc(100% + .1em);
+		top: .1em;
+	}
+	&:before {
+		width: .1em;
+		height: .3em;
+		background-color: currentcolor;
+		top: -.3em;
+		left: .05em;
+		box-shadow: .2em 0px 0px 0px currentcolor, .2em -.2em 0px 0px currentcolor, .4em 0px 0px 0px currentcolor;
+		animation: loader-24 1s linear infinite alternate;
+	}
+}
+
+@keyframes loader-24 {
+	0% {
+		height: 0px
+	}
+	100% {
+		height: 6px;
+	}
+}

@@ -1,0 +1,58 @@
+﻿@model TD.Models.Views.ManageLoginsViewModel
+@using Microsoft.Owin.Security
+<div class="form-title">
+    Liên kết mạng xã hội
+</div>
+<div class="form-socials">
+
+
+    @{
+        var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+        if (loginProviders.Count() > 0)
+        {
+
+            if (Model.CurrentLogins.Count > 0)
+            {
+                foreach (var account in Model.CurrentLogins)
+                {
+                    <form class="form form-block" data-src="/account/removelogin">
+                        @Html.AntiForgeryToken()
+
+                        @Html.Hidden("loginProvider", account.LoginProvider)
+                        @Html.Hidden("providerKey", account.ProviderKey)
+                        <div class="form-btn">
+                            <a class="btn btn-social-lg submit btn-@account.LoginProvider.ToLower()">
+                                <i class="fa fa-@account.LoginProvider.ToLower()"></i>
+                                Hủy liên kết @account.LoginProvider
+                            </a>
+                        </div>
+
+
+                    </form>
+
+
+                }
+            }
+            if (Model.OtherLogins.Count > 0)
+            {
+                using (Html.BeginForm("LinkLogin", "account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-btn">
+                        @foreach (AuthenticationDescription p in Model.OtherLogins)
+                        {
+                            <button class="btn btn-social-lg btn-@p.AuthenticationType.ToLower()" type="submit" name="provider" value="@p.AuthenticationType">
+                                <i class="fa fa-@p.AuthenticationType.ToLower()"></i>
+                                Liên kết tài khoản @p.AuthenticationType
+                            </button>
+                        }
+                    </div>
+                }
+
+
+
+
+            }
+        }
+    }
+</div>

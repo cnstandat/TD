@@ -1,0 +1,77 @@
+﻿@model TD.Models.AppTask
+<div class="collapse collapse-auto-center auto-dispose" id="createapptask">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/apptasks/create">
+            @Html.AntiForgeryToken()
+            <h4 class="form-title">
+                Thêm mới người dùng
+            </h4>
+            <div class="form-body">
+
+                <div class="left">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-table"></i>
+                            <span class="text">Gắn nhãn</span>
+                        </label>
+                        @Html.ListBox("TagTaskId", null, new { @class = "chosen", multiple = "multiple", data_placeholder = "Gắn nhãn" })
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-star"></i>
+                            <span class="text">Độ ưu tiên</span>
+                        </label>
+                        @Html.EnumDropDownListFor(x => x.Level, null, new { @class = "chosen", count = "1", data_placeholder = "Độ ưu tiên" })
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" autocomplete="new-password" name="Name" required data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-cogs"></i>
+                            <span class="text">Công việc</span>
+                        </label>
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" type="number" autocomplete="new-password" name="MaxStep" value="100" />
+                        <label class="label">
+                            <i class="fa fa-checkmark"></i>
+                            <span class="text">Độ hoàn thành</span>
+                        </label>
+                    </div>
+
+                </div>
+                <div class="right">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-user"></i>
+                            <span class="text">Giao cho</span>
+                        </label>
+                        @Html.ListBox("AcceptId", null, new { @class = "chosen", count = "1", data_placeholder = "Giao cho" })
+                    </div>
+                    <div class="input--sae input--filled">
+                        <input type="date" autocomplete="new-password" class="input-text" name="Expired" />
+                        <label class="label">
+                            <i class="fa fa-table"></i>
+                            <span class="text">Dự kiến hoàn thành</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Ghi chú</span>
+                </label>
+                <textarea name="Note" class="input-text autoExpand"></textarea>
+            </div>
+
+            <div class="form-btn">
+                <a class="btn btn-primary submit"><i class="fa fa-save"></i><span class="text">Lưu thay đổi</span></a>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TD.Models.Views.UserBlogView>
+@if (Model != null && Model.Any())
+{
+    <h4 class="form-title">Danh sách bài viết</h4>
+        <div class="table">
+            <div class="table-row table-row-header">
+                <span class="table-cell">
+                    Tiêu đề
+                </span>
+                <span class="table-cell">
+                    Cập nhật
+                </span>
+                <span class="table-cell">Thảo luận</span>
+                <span class="table-cell">Lượt xem</span>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="table-row">
+                    <span class="table-cell">
+                        @item.FullName
+                    </span>
+                    <span class="table-cell">
+                        @item.LastModifyUtc
+                    </span>
+                    <span class="table-cell">
+                        @item.CommentCount
+                    </span>
+                    <span class="table-cell">
+                        @item.Viewed
+                    </span>
+                </div>
+            }
+            @if (ViewBag.Page != null)
+            {
+                <div class="text-center">
+                    <a data-src="/account/_bloggetmore/@ViewBag.Page" class="btn btn-info load-on-click">
+                        <i class="fa fa-menu"></i> Xem thêm
+                    </a>
+                </div>
+            }
+
+        </div>
+}
+else
+{
+    <h4 class="form-title">Chưa có bài viết</h4>
+}
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+/// Gets a duration value.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function highlight($color, $amount, $threshold: 50%){
+  @if lightness($color) > $threshold{
+    @return darken($color, $amount);
+  }
+  @if lightness($color) <= $threshold{
+    @return lighten($color, $amount);
+  }
+  @return $color;
+}
+@function black-trans-color($transparent:4){
+    @return rbga(0,0,0,$transparent*.05)
+}
+@function black-trans-color2($transparent:.8){
+    @return rbga(0,0,0,$transparent)
+}

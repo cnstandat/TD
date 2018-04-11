@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutSimple.cshtml";
+}
+<div class="main simple">
+    <div class="accordion-wrap">
+        <ul id="accordion" class="accordion left-menu">
+            <li class="open">
+                <div class="link acc-init">
+                    <i class="fa fa-users"></i>
+                    <span class='link-text'>Tài khoản</span>
+                </div>
+                <ul class="submenu">
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_userprofile"
+                           class="link load-click"
+                           data-target="profiles">
+                            <i class="fa fa-info"></i>
+                            <span class='link-text'>Thông tin chung</span>
+                        </a>
+                    </li>
+                    <li class="hide">
+                        <a href="#panelLoad"
+                           data-src="/account/_verifyphone"
+                           class="load-click link"
+                           data-target="verifyphone">
+                            <i class="fa fa-phone"></i>
+                            <span class='link-text'>Xác minh điện thoại</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/ManageLogins"
+                           class="load-click link"
+                           data-target="socials">
+                            <i class="fa fa-facebook"></i>
+                            <span class='link-text'> Mạng xã hội</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_password"
+                           class="load-click link"
+                           data-target="changepw">
+                            <i class="fa fa-key"></i>
+                            <span class='link-text'>Mật khẩu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_deleteaccount"
+                           class="load-click link"
+                           data-target="deleteAccount">
+                            <i class="fa fa-switch"></i>
+                            <span class='link-text'> Xóa tài khoản</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="link acc-init">
+                    <i class="fa fa-comment"></i>
+                    <span class='link-text'>Bài viết</span>
+                </div>
+                <ul class="submenu">
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_blog"
+                           class="link load-click"
+                           data-target="userblogs">
+                            <i class="fa fa-comment"></i>
+                            <span class='link-text'> Bài viết</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_likeblog"
+                           class="link load-click"
+                           data-target="likeblogs">
+                            <i class="fa fa-link"></i>
+                            <span class='link-text'>Theo dõi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_comment"
+                           class="link load-click"
+                           data-target="usercomment">
+                            <i class="fa fa-commenting"></i>
+                            <span class='link-text'>Thảo luận</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="link acc-init">
+                    <i class="fa fa-app"></i>
+                    <span class='link-text'>Ứng dụng</span>
+                </div>
+                <ul class="submenu">
+                    <li>
+                        <a href="#panelLoad"
+                           data-src="/account/_apps"
+                           class="link load-click"
+                           data-target="userapps">
+                            <i class="fa fa-list-ol"></i>
+                            <span class='link-text'> Danh sách</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div id="panelLoad" class="accordion-content">
+            <div class="in" id="profiles">
+                <div class="lazy" data-src="/account/_userprofile"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

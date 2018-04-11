@@ -1,0 +1,39 @@
+﻿<div class="main">
+    
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Config" class="breadcrumb-item">Cấu hình</a>
+            <a href="/Admin/createpage" class="breadcrumb-item active">Thêm mới trang</a>
+        </div>
+      
+            <h4 class="form-title">
+                Thêm trang
+            </h4>
+            <form class="form">
+                @Html.AntiForgeryToken()
+              
+                <div>
+                    <div>
+                        <div class="input--sae">
+                            <i class="fa fa-edit fa-fix"></i>
+                            <input class="input-text" name="Id" placeholder="Tên" />
+                        </div>
+                    </div>
+                    <div >
+                        <div class="input--sae">
+                            <i class="fa fa-edit fa-fix"></i>
+                            <input class="input-text" name="Name" placeholder="Tiêu đề" />
+                        </div>
+                    </div>
+                </div>
+                <textarea class="note-editable" name="Content"></textarea>
+
+                <div class="form-btn">
+                    <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                </div>
+            </form>
+        </div>
+
+
+
+   

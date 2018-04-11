@@ -1,0 +1,52 @@
+﻿@model TD.Models.Views.ImageView
+@if (Model == null)
+{<div class="collapse collapse-auto-center auto-dispose" id="editImage">
+        <div class="collapse-overlay"></div>
+        <div class="collapse-body">
+            <h4 class="form-title">Không có dữ liệu</h4>
+        </div>
+    </div>
+}
+
+
+else
+{
+    <div class="collapse collapse-auto-center auto-dispose" id="editImage">
+        <div class="collapse-overlay"></div>
+        <div class="collapse-body">
+            <a class="collapse-close fa fa-cross"></a>
+            <form class="form" data-src="/admin/appfiles/editimage">
+                <input type="hidden" id="ImageData" name="ImageData" />
+                <input type="hidden" name="Id" value="@Model.Id" />
+                @Html.AntiForgeryToken()
+                <h3 class="form-title">
+                    Cập nhật ảnh
+                </h3>
+                <figure class="image-fake"
+                        data-src="@Model.FullPath"
+                        data-width="300"
+                        data-height="200"
+                        data-upload="1">
+                    <noscript><img src="/data/site_svg/noavatar.png" width="300" height="200" /></noscript>
+                </figure>
+                <div>
+                    <input type="checkbox" class="ck" title="Là ảnh chính" name="IsMain" value=@(Model.IsMain?"true":"false")>
+                </div>
+
+                <div class="form-btn">
+                    <a class="btn delete" data-src="/admin/appfiles/delete/@Model.Id">
+                        <i class="fa fa-eraser"></i>
+                        Xóa ảnh
+                    </a>
+                    <a class="btn submit btn-primary">
+                        <i class="fa fa-checkmark"></i>
+                        <span class="text">Xác nhận</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+
+

@@ -1,0 +1,57 @@
+﻿/* tantalid Styles */
+
+.menu-tantalid .item-link {
+    color: $menu-item-link-hover-color;
+    position: relative;
+    /*overflow: hidden;*/
+    -webkit-transition: color .4s ease-in;
+    transition: color .4s ease-in;
+}
+
+.menu-tantalid .item-link:hover {
+    color: #fff;
+}
+
+.menu-tantalid .item-current .item-link {
+    color: $menu-border-color;
+    overflow: visible;
+}
+
+.menu-tantalid .item-link::before,
+.menu-tantalid .item-link::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    border: 2px solid $menu-border-color;
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.3s, width 0.4s;
+    transition: transform .4s, opacity 0.3s, width .4s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.menu-tantalid .item-link::before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+    -webkit-transform: translate3d(-150%, 70%, 0) rotate(-30deg);
+    transform: translate3d(-150%, 70%, 0) rotate(-30deg);
+}
+
+.menu-tantalid .item-link::after {
+    right: 0;
+    bottom: 0;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: translate3d(150%, -70%, 0) rotate(-30deg);
+    transform: translate3d(150%, -70%, 0) rotate(-30deg);
+}
+
+.menu-tantalid .item-current .item-link::before,
+.menu-tantalid .item-current .item-link::after {
+    width: 80%;
+    height: 80%;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
+}

@@ -1,0 +1,105 @@
+﻿@model TD.Models.Views.BlogEditModel
+@if (Model == null)
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Blogs" class="breadcrumb-item">Bài viết</a>
+        </div>
+        <h4 class="form-title">Không có dữ liệu</h4>
+    </div>
+
+}
+else
+{
+    <div class="main">
+        <div class="tools">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/Blogs" class="breadcrumb-item">Bài viết</a>
+                <a href="/Admin/Blogs/Edit?Id=@Model.Id" class="breadcrumb-item active">@Model.FullName</a>
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/tags" title="Danh sách nhãn">Nhãn</a>
+                <a class="btn btn-success" href="/admin/blogs/create" title="Thêm mới sản phẩm">Thêm mới</a>
+            </div>
+        </div>
+        <form class="form form-block">
+           
+            @Html.AntiForgeryToken()
+            <h3 class="form-title">
+                Cập nhật bài viết <a class="btn submit btn-success" title="Lưu bài viết"><i class="fa fa-save"></i></a>
+                <a class="btn delete" title="Xóa sản phẩm" data-src="/admin/blogs/delete/@Model.Id">
+                    <i class="fa fa-eraser"></i>Xóa
+                </a>
+            </h3>
+            <div class="form-body">
+                <div class="left">
+                    <div class="input--sae">
+
+                        <input class="input-text" name="FullName" value="@Model.FullName" required data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Tiêu đề</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Bài viết liên kết</span>
+                        </label>
+                        @Html.ListBox("ParentId", null, new { @class = "chosen", count = "1", data_placeholder = "Chọn bài viết liên kết" })
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Gắn nhãn</span>
+                        </label>
+                        @Html.ListBox("TagBlogId", null, new { @class = "chosen", multiple = "multiple" })
+                    </div>
+
+
+                    <div class="input--sae">
+
+                        <input class="input-text" name="ReasonModify" value="@Model.ReasonModify" data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Lý do chỉnh sửa</span>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="Closed" class="ck" title="Cho phép trả lời bài viết" value="@(Model.Closed?"false":"true")" />
+                    </div>
+
+                </div>
+                <div class="right edit">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Nội dung</span>
+                        </label>
+                        <textarea name="Content" class="note-editable" style="margin-top:20px" required data-rule-minlength="30">@Model.Content</textarea>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <ul class="accordion">
+            <li>
+                <div class="link acc-init"><i class="fa fa-image"></i> Hình ảnh</div>
+                <div class="submenu">
+                    <div class="wow wow-lazy" data-src="/admin/appfiles/Index?BlogId=@Model.Id"></div>
+                </div>
+            </li>
+            <li>
+                <a class="link acc-init"><i class="fa fa-comment"></i> Thảo luận</a>
+                <div class="submenu">
+                    <div class="wow wow-lazy" data-src="/admin/comments/index?BlogId=@Model.Id"></div>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+}
+

@@ -1,0 +1,100 @@
+﻿@import "libs";
+@import 'compass/_reset.scss';
+@import "../fonts/_icomoon.scss";
+@import '../libs/_animated.scss';
+@import "components/core.scss";
+@import 'components/FE/_Froala_Fix.scss';
+/*#region Critial */
+body {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAAAAAA7suyFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAFjSURBVDjLfZTdisIwEEa/TJp0mlrbIOz7v9pqa1dExD8Cu7TuRaom1XbuMhy+w8xAxB5RyaRVRdwCxU8ht1/ZaZYR/LPoSnOaYaReG3O/VCMoZITcVnkHGkMUi3QHvEE0EvlmDNFINHRvIURj0VBhEj1ENQ+ioX+xT8gzIqmXRZACgK5PiLyorThGAJwfOgIguDb6DQHdhiQCpF4v8js+1NUnEYRul6bDx/LTkeDG8AQy7CnR68kUnyT+ktqmMwjotFKU3zBXffp7plV6kDOI1vWNnOWDmESUakpFcDY7yikka/MEBLgqm9Axf+epv4WreP9B10u5KRWGmzprjuJdxG2R4MHAWR7req3XmcKLgbMmnq5XsilThAyc5VDXK955UcDAWX6toNd6M4hCBs6+plOyKVK8M3DW+KRe8q5Q+MQ8pus1N1mAxH+Cv52WmzzFFANn+ZjISARAjP6x7IBOp3HvH1oygPqGt3nXAAAAAElFTkSuQmCC') /*/data/site_svg/bg001.png*/;
+}
+
+
+
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: $base-red;
+    z-index: $ztop-menu;
+    border-bottom: 1px solid #fff;
+    @include box-shadow(0 0 5px #000);
+    @include display-flex();
+    // justify-content:space-between;
+    > .flex-end {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        line-height: 40px;
+        color: $brand-warning;
+
+        .fa {
+            color: #fff;
+            margin-right: 5px;
+        }
+    }
+
+    .menu-item {
+        line-height: 40px;
+        color: #fff;
+        padding: 0 10px;
+
+        .fa {
+            margin-right: 5px;
+        }
+
+        @include transition(color .3s linear);
+
+        &:hover, &.active, &:focus {
+            color: $brand-warning;
+        }
+    }
+
+    .nav {
+        display: none;
+        width: 40px;
+        position: fixed;
+        padding-top: 40px;
+    }
+
+    &.open {
+        .togger {
+            color: #fff;
+            flex: 0 0 40px;
+            border-bottom: 1px solid;
+            z-index: $ztop-menu + 1;
+        }
+
+        @include flex-direction(col);
+
+        .nav {
+            top: 0;
+            left: 0;
+            border-right: 1px solid #fff;
+            @include box-shadow(0 0 5px);
+            /*bottom:0;*/
+            background: inherit;
+            z-index: $ztop-menu -1;
+            @include display-flex();
+            @include flex-direction(column);
+            opacity: 0;
+            animation: fadeIn 1.3s ease-in-out forwards;
+
+            .menu-item {
+                flex: 0 0 40px;
+                border-bottom: 1px solid;
+
+                .fa {
+                }
+            }
+
+            .menu-text {
+                display: none;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TD.Models.Views.BlogViewModel>
+
+<section class="section section-news">
+    <div class="container">
+        <h3 class="text-center text-uppercase wp" data-wp="shake">Bài viết <span class="text-success">nổi bật</span></h3>
+    </div>
+    @if (Model != null)
+    {
+        bool odd = true;
+        string className = "", contentClassName = "";
+        <div class="container wp" data-wp="flipInX">
+            <h3 class="sr-only">News</h3>
+            <div class="bg-inverse">
+                @foreach (var item in Model)
+                {
+                    className = odd ? "p-r-0" : "push-md-6 p-l-0";
+                    contentClassName = odd ? "p-l-0" : "pull-md-6 p-r-0";
+                    odd = !odd;
+                    <div class="row">
+                        <div class="col-md-6 @className">
+                            <figure class="has-light-mask m-b-0 image-effect">
+                                <img src="/data/img/blogs/@item.Image" alt="Article thumbnail" class="img-fluid">
+                            </figure>
+                        </div>
+                        <div class="col-md-6 @contentClassName">
+                            <article class="center-block">
+                                <span class="label label-info"><span class="fa fa-clock"></span> <time class="timeago" datetime="@item.UtcLastModify"></time></span>
+                                <br>
+                                <h5><a href="/viewpost/@item.Name">@item.Title <span class="fa fa-a-right"></span></a></h5>
+                                <p class="m-b-0">
+                                    @foreach (var t in item.Tags)
+                                    {
+                                        <a href="/blogs/@t.Name"><span class="label label-default"><span class="fa fa-price-tags"></span> @t.FullName</span></a>
+                                    }
+
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+
+                }
+                @*<input type="hidden" id="curPage" value="2" />
+                    <div class="load-more align-center" id="panelLoadMore">
+                        <a id="buttonLoadMore" class="btn btn-success-outline load-more-button"><i class="fa fa-eye"></i>Load More</a>
+                    </div>*@
+            </div>
+        </div>
+    }
+
+</section>

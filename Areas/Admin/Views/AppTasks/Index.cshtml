@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TD.Models.AppTask>
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/AppTasks" class="breadcrumb-item active">Công việc</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/tagTasks" title="Danh sách nhãn">Nhãn</a>
+            <a class="btn btn-success togger togger-lazy" href="#createapptask" data-src="/admin/apptasks/create" title="Thêm mới ">Thêm mới</a>
+        </div>
+    </div>
+    <h4 class="form-title">Công việc</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Công việc
+            </span>
+            <span class="table-cell">
+                Người thực hiện
+            </span>
+            <span class="table-cell">
+                Dự kiến hoàn thành
+            </span>
+            <span class="table-cell">
+                Nhãn
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+        {
+        <div class="table-row">
+            <input type="radio" name="expand" />
+            <span class="table-cell primary">
+                <a data-src="/admin/apptasks/edit/@item.Id" title="Chỉnh sửa" class="togger togger-lazy" href="#editapptask">
+                    <i class="fa fa-edit"></i>   @item.Name
+                </a>
+            </span>
+            <span class="table-cell">
+                @item.Accept.UserName
+            </span>
+            <span class="table-cell">
+                @(item.Expired != null ? item.Expired.Value.ToString("dd/MM") : "")
+            </span>
+            <span class="table-cell">
+                @item.TaskTags.Select(x=>x.TagTask.Name).Aggregate((i,j)=>i+" "+j)
+            </span>
+        </div>
+        }
+    </div>
+</div>

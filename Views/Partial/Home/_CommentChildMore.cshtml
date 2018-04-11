@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TD.Models.Views.CommentViewModel>
+@if (Model != null && Model.Any())
+{
+
+    foreach (var item in Model)
+    {
+        <li class='comment parent'>
+            <div class='comment-body'>
+                <figure class='comment-author-avatar'>
+                    <img src="@item.CreatorAvatar" alt='@item.Creator'>
+                </figure>
+                <div class='comment-contents'>
+                    <div class='comment-header clearfix'>
+                        <h4 class='comment-author'>
+                            <a href=@("/Account/profile/" + @item.Creator )>  @item.Creator </a>
+                        </h4>
+                        <time class="timeago" datetime="@item.CreatedUtc"></time>
+                        <a href='#comment-form' class='open-comment-form' data-id='@item.Id'><i class='fa fa-comment'></i>Trả lời</a>
+                    </div>
+                    <div class='comment-text'>
+                        @(Html.Raw(item.Content))
+                    </div>
+                    @if (item.HasChild)
+                    {
+                        <div class="text-center">
+                            <a class="btn load-on-click" data-src="/home/_commentchild?id=@item.Id">Xem thêm</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </li>
+    }
+    if (ViewBag.HasMore)
+    {
+        <li class="text-center">
+            <a class='load-on-click btn btn-info' data-src="/home/_commentchildmore?id=@ViewBag.Id&Page=@ViewBag.Page"> Xem thêm </a>
+        </li>
+    }
+
+
+
+
+}
+
+

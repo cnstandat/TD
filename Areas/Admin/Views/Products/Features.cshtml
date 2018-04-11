@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TD.Models.FeatureApp>
+<div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/FeatureApps" class="breadcrumb-item">Chức năng</a>
+        </div>
+        <div class="collapse-drop">
+            <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+            <a class="fast" href="/admin/products"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+            <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            <div class="form-title">
+                Danh sách chức năng
+            </div>
+            <div class="table">
+                <div class="table-row table-row-header">
+                    <span class="table-cell">
+                        Chức năng
+                        <a href="/admin/products/FeatureAppsAdd" class="btn left" title="Thêm mới">
+                            Thêm mới
+                        </a>
+                    </span>
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <span class="table-cell">
+                        <a href="/admin/products/FeatureAppsEdit/@item.Id" title="Click vào đây để xem chi tiết">
+                            @item.Name
+                        </a>
+                    </span>
+                }
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,43 @@
+﻿
+.s-google-map {
+    &,
+    .s-google-container {
+        @include position(relative);
+        height: 400px;
+    }
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div {
+    background-color: $color-white !important;
+    box-shadow: none !important;
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div {
+    background-color: $color-white !important;
+    box-shadow: none !important;
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div:first-child {
+    display: none;
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img {
+    display: none;
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
+    overflow: inherit !important;
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child:after {
+    @include position(absolute, $top: 0, $right: 0);
+    font:'icomoon' 12px;
+    color: $color-text;
+    content: $fa-cross;
+}
+
+
+.gm-style-iw {
+    top: 1.375rem !important;
+    left: 1.375rem !important;
+}

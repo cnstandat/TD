@@ -1,0 +1,46 @@
+﻿
+<div class="form-title">
+    Đổi email
+</div>
+<form class="form form-sm" data-src="/account/changeemail">
+    @Html.AntiForgeryToken()
+    <div class="text-helper">
+        Để đổi/thiết đặt email , bạn vui lòng nhập đúng địa chỉ email và nhập mật khẩu hiện tại của bạn.
+        <br />
+        Một email yêu cầu kích hoạt lại email sẽ được gửi vào email mới của bạn.
+    </div>
+    <div class="input--sae">
+
+        <input type="email" autocomplete="new-password" name="Email" value="@ViewBag.Email" required class="input-text" minlength="4" data-email="true" data-rule-remote="/pub/EmailCheckExist" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Email</span>
+        </label>
+    </div>
+
+    <div class="input--sae">
+        <input type="password" autocomplete="new-password" name="Password" required class="input-text" minlength="4" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mật khẩu hiện tại</span>
+        </label>
+    </div>
+    <div class="form-btn">
+        <a class="btn submit btn-success"><i class="fa fa-email"></i>Đổi Email</a>
+    </div>
+</form>
+
+@if (!ViewBag.Confirmed)
+{
+    <form class="form" data-src="/account/ResendActiveEmail">
+        <div class="form-title">
+            Xác thực tài khoản
+        </div>
+        @Html.AntiForgeryToken()
+        <div class="form-btn">
+            <a class="btn submit  btn-info"><i class="fa fa-email"></i>Gửi lại mail xác thực</a>
+        </div>
+    </form>
+}
+
+

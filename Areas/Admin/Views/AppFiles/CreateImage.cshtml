@@ -1,0 +1,31 @@
+﻿
+
+<div class="collapse collapse-auto-center auto-dispose" id="createImage">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/appfiles/createimage">
+            <input type="hidden" id="ImageData" name="ImageData" />
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="GalleryId" value="@ViewBag.GalleryId" />
+            <h4 class="form-title">Thêm mới ảnh</h4>
+            <figure class="image-fake"
+                    data-src=""
+                    data-width="300"
+                    data-height="185"
+                    data-upload="1">
+                <noscript><img src="/data/site_svg/noavatar.png" width="300" height="185" /></noscript>
+            </figure>
+            <div>
+                <input type="checkbox" class="ck" title="Hình ảnh chính" name="IsMain" value="false">
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-primary">
+                    <i class="fa fa-checkmark"></i>
+                    <span class="text">Xác nhận</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,224 @@
+﻿
+.image-cropper {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin: 5px auto;
+
+    .custom {
+        .jcrop-vline,
+        .jcrop-hline {
+            background: yellow;
+        }
+
+        .jcrop-handle {
+            border-color: transparent;
+            background-color: #C7BB00;
+            border-radius: 3px;
+        }
+    }
+
+    .solid-line {
+        .jcrop-vline, .jcrop-hline {
+            background: #FFF;
+        }
+    }
+}
+
+.jcrop-holder {
+    margin: 0 auto;
+}
+
+.jcrop-vline, .jcrop-hline {
+    font-size: 0;
+    position: absolute !important;
+    background: white url('data:image/gif;base64,R0lGODlhCAAIAPABAAAAAKqqqiH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCgABACwAAAAACAAIAAACDYQRGadrzVRMB9FZ5SwAIfkECQoAAQAsAAAAAAgACAAAAg8MDqGYaudeW9ChyOyltQAAIfkECQoAAQAsAAAAAAgACAAAAg9MgGCXm+rQYtC0WGl9oQAAIfkECQoAAQAsAAAAAAgACAAAAg+MgWCRernaYmjCWLF7qAAAIfkECQoAAQAsAAAAAAgACAAAAg2MAwmna81UTAfRWeUsACH5BAkKAAEALAAAAAAIAAgAAAIPRB6gmGrnXlvQocjspbUAACH5BAkKAAEALAAAAAAIAAgAAAIPBIJhl5vq0GLQtFhpfaAAACH5BAUKAAEALAAAAAAIAAgAAAIPhINhkHq52mJowlixe6gAADs=') /*/data/images/_crop.gif*/ top left repeat;
+}
+
+.jcrop-vline {
+    height: 100%;
+    width: 1px !important;
+
+    &.right {
+        right: 0;
+    }
+}
+
+.jcrop-hline {
+    height: 1px !important;
+    width: 100%;
+
+    &.bottom {
+        bottom: 0;
+    }
+}
+
+.jcrop-tracker {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+}
+
+.jcrop-handle {
+    background-color: transparent;
+    border: 1px #EEE solid;
+    font-size: 1px;
+    height: 7px;
+    width: 7px;
+
+    &.ord-n {
+        left: 50%;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 0;
+    }
+
+    &.ord-s {
+        bottom: 0;
+        left: 50%;
+        margin-bottom: -4px;
+        margin-left: -4px;
+    }
+
+    &.ord-e {
+        margin-right: -4px;
+        margin-top: -4px;
+        right: 0;
+        top: 50%;
+    }
+
+    &.ord-w {
+        left: 0;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 50%;
+    }
+
+    &.ord-nw {
+        left: 0;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 0;
+    }
+
+    &.ord-ne {
+        margin-right: -4px;
+        margin-top: -4px;
+        right: 0;
+        top: 0;
+    }
+
+    &.ord-se {
+        bottom: 0;
+        margin-bottom: -4px;
+        margin-right: -4px;
+        right: 0;
+    }
+
+    &.ord-sw {
+        bottom: 0;
+        left: 0;
+        margin-bottom: -4px;
+        margin-left: -4px;
+    }
+}
+
+.modal-crop {
+    
+
+    .modal-body {
+        width: auto;
+        background: rgba(#212121,.2);
+        padding: 0;
+    }
+
+    &.show {
+        z-index: 9999 !important;
+        min-height: 100vh;
+        min-height: 100%;
+        height: auto;
+    }
+}
+
+.modal-open .modal.modal-crop {
+    overflow-x: auto;
+}
+
+.jcrop-dragbar {
+    &.ord-n, &.ord-s {
+        height: 7px;
+        width: 100%;
+    }
+
+    &.ord-e, &.ord-w {
+        height: 100%;
+        width: 7px;
+    }
+
+    &.ord-n {
+        margin-top: -4px;
+    }
+
+    &.ord-s {
+        bottom: 0;
+        margin-bottom: -4px;
+    }
+
+    &.ord-e {
+        margin-right: -4px;
+        right: 0;
+    }
+
+    &.ord-w {
+        margin-left: -4px;
+    }
+}
+
+
+
+
+
+.jcrop-light {
+    .jcrop-vline, .jcrop-hline {
+        background: #FFF;
+        opacity: .7;
+    }
+
+    .jcrop-handle {
+        background-color: transparent;
+        border-color: #FFF;
+        border-radius: 3px;
+    }
+}
+
+
+
+.jcrop-dark {
+    .jcrop-vline, .jcrop-hline {
+        background: #000;
+        opacity: .7;
+    }
+
+    .jcrop-handle {
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        background-color: #FFF;
+        border-color: transparent;
+        border-radius: 3px;
+    }
+}
+
+.jcrop-holder img, img.jcrop-preview {
+    max-width: none;
+}
+
+#preview {
+    visibility: hidden;
+    z-index: -1;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background: transparent;
+}

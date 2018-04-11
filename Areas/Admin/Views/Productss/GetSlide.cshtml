@@ -1,0 +1,37 @@
+﻿@model TD.Models.Views.AppGallerys
+<h4 class="form-title">
+    Ảnh sản phẩm
+</h4>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Hình ảnh
+            <a href="/admin/products/createslide/@Model.AppId" class="btn left" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+    </div>
+
+    @foreach (var item in Model.Gallerys)
+    {<div class="table-row">
+        <span class="table-cell">
+            <a href="/admin/products/EditGallery?id=@item.AppUploadId&&GalleryId=@item.GalleryId&&AppId=@item.AppId" class="product-slide-link" title="Click vào đây để xem chi tiết">
+
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    @Html.Raw("<img src='/data/site_svg/noavatar.png' class='product-slide'></img>")
+                }
+                else
+                {
+                    @Html.Raw("<img src='/data/img/slides/" + item.FileName + "' class='product-slide'></img>")
+                }
+                <span class="product-slide-path">
+                    -
+                </span>
+                @*//@(string.IsNullOrEmpty(item.FileName) ? "-" : )*@
+            </a>
+        </span>
+    </div>
+
+    }
+</div>

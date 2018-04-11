@@ -1,0 +1,11 @@
+﻿@model IEnumerable<TD.Models.Views.TagBlogViewModel>
+<div class="tags-container">
+
+    <h6>Nhãn: </h6>
+    <ul>
+        @foreach (var item in Model)
+            {
+            <li><a href="/Blog/@item.Name">@item.FullName <span>@item.BlogCount</span></a></li>
+        }
+    </ul>
+</div>

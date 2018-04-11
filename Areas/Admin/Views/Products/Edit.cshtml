@@ -1,0 +1,103 @@
+﻿@model TD.Models.Views.AppEditModel
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Apps" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/Admin/Apps/Edit/@Model.Id" class="breadcrumb-item active">@Model.Name</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/products/FeatureApps" title="Danh sách chức năng"><i class="fa fa-cogs"></i><span>Chức năng</span></a>
+            <a class="btn btn-success" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            <a class="btn" href="/admin/products/create" title="Thêm mới ứng dụng"><i class="fa fa-plus"></i><span>Thêm mới</span></a>
+        </div>
+    </div>
+
+
+    <form class="form fix-300">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" id="ImageData" name="ImageData" />
+        @Html.AntiForgeryToken()
+
+
+        <h4 class="form-title">
+
+            Thông tin ứng dụng <a class="btn submit" title="Lưu ứng dụng"><i class="fa fa-save"></i></a>
+            <a class="btn delete" title="Xóa ứng dụng" data-src="/admin/products/delete/@Model.Id">
+                <i class="fa fa-cross"></i>Xóa
+            </a>
+        </h4>
+        <div class="form-body">
+            <div class="left">
+                <figure class="image-fake"
+                        data-class="auto-height"
+                        data-src="@Model.Image"
+                        data-width="@CData.AppConfig.AppW" data-height="@CData.AppConfig.AppH"
+                        data-upload="1">
+                    <noscript><img src="/data/site_svg/noavatar.png" width="@CData.AppConfig.AppW" height="@CData.AppConfig.AppH" /></noscript>
+                </figure>
+            </div>
+            <div class="right edit">
+                <div class="input--sae">
+                    <input class="input-text" name="Name" value="@Model.Name" placeholder="Sản phẩm" required data-rule-minlength="3" />
+                </div>
+                <div class="input--sae">
+                    @Html.ListBoxFor(x => x.CategoryId, Model.Categories, new { @class = "input-text chosen", count = 1, data_placeholder = "Nhóm sản phẩm" })
+                </div>
+
+                <div class="input--sae">
+                    @Html.DropDownListFor(x => x.AppType, Model.AppTypes, new { @class = "input-text chosen", count = 1, data_placeholder = "Phân loại" })
+                </div>
+                <div class="input--sae">
+                    @Html.ListBoxFor(m => m.AppType, Model.AppTypes, new { @class = "chosen", multiple = "multiple", data_placeholder = "Chọn nền tảng" })
+                </div>
+
+                <div class="input--sae">
+                    <input class="input-text" name="Link" value="@Model.Link" placeholder="Liên kết" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </form>
+
+    <ul class="accordion">
+        <li>
+            <div class="link acc-init">
+                Bài viết
+            </div>
+            <div class="submenu">
+                <div class="lazy" data-src="/admin/products/blogs/@Model.Id"></div>
+            </div>
+        </li>
+        <li>
+            <div class="link acc-init">
+                Chức năng
+            </div>
+            <div class="submenu">
+                <div class="lazy" data-src="/admin/products/AppFeatures/@Model.Id"></div>
+            </div>
+        </li>
+        <li>
+            <div class="link acc-init">
+                Phiên bản
+            </div>
+            <div class="submenu">
+                <div class="lazy" data-src="/admin/products/Appversions/@Model.Id"></div>
+            </div>
+        </li>
+        <li>
+            <div class="link acc-init">
+                Khách hàng
+            </div>
+            <div class="submenu">
+                <div class="lazy" data-src="/admin/clientapps?id=@Model.Id"></div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+

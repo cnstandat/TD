@@ -1,0 +1,69 @@
+﻿@model TD.Models.Views.AppInfoView
+
+@if (Model != null)
+{
+    <div class="main">
+     
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+                <a href="/Admin/Apps/Edit/@Model.AppId" class="breadcrumb-item">@Model.AppName</a>
+                <a href="/Admin/Apps/CreateInfo/@Model.AppId" class="breadcrumb-item active">Thêm mới thông số</a>
+                @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+                {
+                <input type="text" name="Search" value="@ViewBag.Search" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                }
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/products/info" title="Danh sách thông số">Thông số</a>
+            </div>
+          
+                <div class="form-title">
+                    Thêm mới thông tin @Model.AppName
+                </div>
+                <form class="form">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="AppId" value="@Model.AppId" />
+                    <div>
+                        @Html.ListBoxFor(x => x.Selected, Model.AllInfo, new { @class = "chosen", count = 1, data_placeholder = "Chọn thông số" })
+                    </div>
+                    <div class="input--sae">
+                        <i class="fa fa-edit fa-fix"></i>
+                        <input class="input-text" name="Value" placeholder="Giá trị thông số" />
+                    </div>
+                    <div class="submit-container">
+                        <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                    </div>
+                </form>
+            </div>
+
+
+
+       
+}
+else
+{
+    <div class="main">
+       
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+                <a href="/Admin/Apps/Edit" class="breadcrumb-item active">Cập nhật</a>
+                @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+                {
+                    <input type="text" name="Search" value="@ViewBag.Search" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                }
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/products/info" title="Danh sách kiểu sản phẩm">Kiểu sản phẩm</a>
+            </div>
+           
+                <div class="form-title">
+                    Không tìm thấy sản phẩm
+                </div>
+
+            </div>
+
+
+
+       

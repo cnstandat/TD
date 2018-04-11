@@ -1,0 +1,39 @@
+﻿@model TD.Models.Views.DPageViewModel
+@if (Model == null)
+{
+    <div id="@ViewBag.Name" class="collapse">
+        <a class="collapse-close"><span class="line"></span></a>
+        <h4 class="form-title">
+            <span>Dữ liệu trống (@ViewBag.Name)</span>
+            @if (ViewBag.Admin)
+                {
+                <a href="/admin/config/@ViewBag.Name" class="btn btn-success"><i class="fa fa-plus"></i>Thêm trang mới</a>
+            }
+            else
+            {
+                <span>Bạn không có quyền cập nhật dữ liệu</span>
+            }
+        </h4>
+    </div>
+}
+else
+{
+    <div id="@Model.Id" class="collapse block">
+        <a class="collapse-close"><span class="line"></span></a>
+
+        <div class="collapse-body">
+            <h4 class="form-title">
+                <span>@Model.Name</span>
+                @if (ViewBag.Admin)
+                {
+                    <a href="/admin/config/@Model.Id" class="btn btn-edit" title="Chỉnh sửa nội dung">
+                        <i class="fa fa-edit"></i>
+                        <span class="hide-sm">Chỉnh sửa nội dung</span>
+                    </a>
+                }
+            </h4>
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+}
+

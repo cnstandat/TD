@@ -1,0 +1,68 @@
+﻿@model TD.Models.Views.ProductFeatureView
+@if (Model != null)
+{
+    <div class="main">
+       
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/edit/@Model.ProductId" class="breadcrumb-item">@Model.ProductName</a>
+                <a href="/admin/products/ProductFeaturesAdd/@Model.ProductId" class="breadcrumb-item active">Thêm mới chức năng</a>
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/products/afeatures" title="Danh sách chức năng">Chức năng</a>
+            </div>
+            
+               
+                <form class="form form-center">
+                    <h4 class="form-title">
+                        Thêm mới thông tin @Model.ProductName
+                    </h4>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ProductId" value="@Model.ProductId" />
+
+                    <div class="input--sae">
+                        <i class="fa fa-list fa-fix"></i>
+                        <input class="input-text" type="number" name="Order" value="@Model.Order" placeholder="Thứ tự" />
+                    </div>
+                    <div>
+                        @Html.DropDownListFor(x => x.Selected, Model.FeatureProducts, new { @class = "chosen", count = "1", data_placeholder = "Chọn chức năng" })
+                    </div>
+                    <div class="input--sae">
+                        <i class="fa fa-edit fa-fix"></i>
+                        <input class="input-text" type="text" name="Content" placeholder="Giá trị thông số" />
+                    </div>
+                    <div class="form-btn">
+                        <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+
+                    </div>
+                </form>
+            </div>
+
+
+
+        
+}
+else
+{ <div class="main">
+      
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/edit" class="breadcrumb-item active">Chức năng</a>
+
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/products/afeatures" title="Danh sách chức năng">Chức năng</a>
+            </div>
+            
+                <div class="form-title">
+                    Không có dữ liệu
+                </div>
+
+            </div>
+
+
+
+        
+}

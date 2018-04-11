@@ -1,0 +1,143 @@
+﻿@model IEnumerable<TD.Admin.Views.MyArea>
+<div class="main">
+    <div class="tools">
+        <div></div>
+        <div class="more-action">
+            <a href="/admin/users" class="btn btn-sm"><i class="fa fa-user"></i>Quản lý người dùng</a>
+            <a href="/admin/blogs" class="btn btn-sm btn-danger"><i class="fa fa-edit"></i>Quản lý bài viết</a>
+            <a href="/admin/home/config" class="btn btn-sm btn-success"><i class="fa fa-cogs"></i>Cấu hình</a>
+        </div>
+    </div>
+
+
+    <h3 class="model-title">Công cụ</h3>
+
+    <div class="form-body">
+        <div class="left">
+            <form class="form edit" data-src="/admin/home/gendata">
+                @Html.AntiForgeryToken()
+                <h4 class="form-title">Tạo dữ liệu mẫu</h4>
+                <div>
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Chức năng</span>
+                    </label>
+                    @Html.ListBox("modelName", new TD.ViewHelper().GenData(), new { @class = "chosen input-text", count = "1", data_placeholder = "Chọn chức năng" })
+                </div>
+                <div class="input--sae">
+                    <input class="input-text" type="number" name="count" value="10" />
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Số lượng dữ liệu</span>
+                    </label>
+                </div>
+                <div class="text-center">
+                    <a class="btn submit btn-sm btn-success">
+                        <i class="fa fa-checkmark"></i>
+                        Xác nhận
+                    </a>
+                </div>
+
+            </form>
+        </div>
+        <div class="right">
+            <form class="form" data-src="/admin/home/optimizerimage">
+                @Html.AntiForgeryToken()
+                <div class="text-center">
+                    <a class="btn submit btn-primary btn-sm">
+                        <i class="fa fa-image"></i>
+                        Tối ưu hình ảnh
+                    </a>
+                </div>
+
+            </form>
+            <form class="form" data-src="/admin/home/optimizerimage">
+                @Html.AntiForgeryToken()
+                <div class="text-center">
+                    <a class="btn submit btn-primary btn-sm">
+                        <i class="fa fa-image"></i>
+                        Kiểm tra dữ liệu
+                    </a>
+                </div>
+
+            </form>
+            <div>
+                <a href="/fileManager" class="btn btn-success btn-sm">
+                    <i class="fa fa-image"></i>
+                    <span class="text">Quản lý File</span>
+                </a>
+
+            </div>
+
+            <a href="https://www.bitcoingrowthbot.io/#roadmap?mwr=5946-641dfe56">https://www.bitcoingrowthbot.io</a>
+            <a href="http://moondoge.co.in/?ref=1e49b503fb19">MoonDoge</a>
+            <a href="http://moonliteco.in/?ref=9113881de22a">MoonLite</a>
+            <a href=http://moondash.co.in/?ref =A0038826C78F">MoonDash</a>
+            <a href="http://welovefaucets.com/free-bitcoin-1/?ref=198htVmNZQHMRqQRsEDhuamehHxt9sPYz1">10'</a>
+            <a href="http://welovefaucets.com/free-bitcoin-2/?ref=198htVmNZQHMRqQRsEDhuamehHxt9sPYz1">10'</a>
+            <a href="http://welovefaucets.com/free-bitcoin-3/?ref=198htVmNZQHMRqQRsEDhuamehHxt9sPYz1">5'</a>
+            <a href="http://www.starbits.io/?r=198htVmNZQHMRqQRsEDhuamehHxt9sPYz1">5'</a>
+            <a href=" https://bitkong.com/vi?r=yG6SwUP8">BitKong</a>
+            <a href="https://sphere.social/?ref_code=5309-154afd2a">Spere</a>
+            <a href="https://buxfire.com/?r=codervn">BuxFire</a>
+            <a href="http://bonusbitcoin.co/?ref=E373A9AD4880">BonusBitcoin</a>
+            <a href="http://faucethub.io/r/25401999">faucethub.io</a>
+
+        </div>
+    </div>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Namespace
+            </span>
+            <span class="table-cell">
+                Area
+            </span>
+            <span class="table-cell">
+                Controller
+            </span>
+            <span class="table-cell">
+                Action
+            </span>
+            <span class="table-cell">
+                Post
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+
+        {
+            foreach (var controller in item.MyControllers)
+            {
+                foreach (var action in controller.MyActions)
+                {
+                    <div class="table-row">
+                        <input type="radio" name="expand" />
+                        <span class="table-cell primary">
+                            @item.Namespace.FirstOrDefault()
+                        </span>
+                        <span class="table-cell">
+                            @item.Name
+                        </span>
+                        <span class="table-cell">
+                            @controller.Name
+                        </span>
+                        <span class="table-cell">
+                            @action.Name
+                        </span>
+                        <span class="table-cell">
+                            @action.IsHttpPost
+                        </span>
+                    </div>
+                }
+
+            }
+
+        }
+    </div>
+
+
+
+
+
+</div>

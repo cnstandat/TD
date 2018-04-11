@@ -1,0 +1,35 @@
+﻿.loader-31 {
+	box-shadow: 0 0 2em currentcolor;
+	background-color: currentcolor;
+	position: relative;
+	border-radius: 50%;
+	transform: rotateX(-60deg) perspective(1000px);
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: inherit;
+		height: inherit;
+		border-radius: inherit;
+		animation: 1s loader-31 ease-out infinite;
+	}
+	&:after {
+		animation-delay: .4s;
+	}
+}
+
+@keyframes loader-31 {
+	0% {
+		opacity: 1;
+		transform: rotate(0deg);
+		box-shadow: 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor, 0 0 0 -.5em currentcolor;
+	}
+	100% {
+		opacity: 0;
+		transform: rotate(180deg);
+		box-shadow: -1em -1em 0 -.35em currentcolor, 0 -1.5em 0 -.35em currentcolor, 1em -1em 0 -.35em currentcolor, -1.5em 0 0 -.35em currentcolor, 1.5em -0 0 -.35em currentcolor, -1em 1em 0 -.35em currentcolor, 0 1.5em 0 -.35em currentcolor, 1em 1em 0 -.35em currentcolor;
+	}
+}

@@ -1,0 +1,52 @@
+﻿.loader-28 {
+	position: relative;
+	animation: 2s loader-28-1 infinite;
+	&:before {
+		content: '';
+		display: block;
+		width: inherit;
+		height: inherit;
+		border-radius: 80% 20%;
+		border: .1em solid currentcolor;
+		transform: rotate(45deg);
+		border-width: .1em .05em .05em .1em;
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: .2em;
+		height: .2em;
+		position: absolute;
+		top: .4em;
+		left: 50%;
+		border-radius: 50%;
+		box-shadow: -.07em .07em 0 .1em currentcolor;
+		animation: 2s loader-28-2 linear infinite;
+	}
+}
+
+@keyframes loader-28-1 {
+	0%,
+	100% {
+		transform: scaleY(1);
+	}
+	10% {
+		transform: scaleY(0);
+	}
+	20% {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes loader-28-2 {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	30% {
+		transform: translateX(-100%);
+	}
+	50% {
+		transform: transalteX(200%);
+	}
+}

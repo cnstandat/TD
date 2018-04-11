@@ -1,0 +1,128 @@
+﻿@-ms-viewport {
+    width: device-width;
+}
+
+/*#region Base */
+
+html, html a, body {
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    overflow-x: hidden;
+    font-size: 16px;
+    -webkit-tap-highlight-color: rgba(#000,0);
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $font-family-primary;
+    font-size: 16px;
+    color: $color-body;
+    line-height: $line-height;
+    background-color: $b-body;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    line-height: 1.62em;
+}
+
+p {
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none !important;
+}
+.a {
+    color: #fff;
+    font-weight: $font-weight-bold;
+    letter-spacing: .1em;
+    padding-bottom: .4em;
+    text-transform: uppercase;
+
+
+    &-danger {
+        color: $brand-danger;
+
+        @include hover {
+            color: $brand-danger;
+
+            @include after {
+                border-bottom-color: $brand-danger;
+            }
+        }
+    }
+
+    &-success {
+        color: $brand-success;
+
+        @include hover {
+            color: $brand-success;
+
+            @include after {
+                border-bottom-color: $brand-success;
+            }
+        }
+    }
+
+    &-warning {
+        color: $brand-warning;
+
+        @include hover {
+            color: $brand-warning;
+
+            @include after {
+                border-bottom-color: $brand-warning;
+            }
+        }
+    }
+}
+
+//reset style
+ul, ol, menu, dir {
+    -webkit-padding-start: 0px;
+    list-style: none;
+}
+
+@mixin wow() {
+    .wow:first-child {
+        visibility: hidden;
+        min-height: 1px;
+    }
+}
+
+.circle {
+    border-radius: 50%;
+}
+.text-right {
+    text-align: right;
+}
+@mixin base-md {
+    .a {
+        @include hover {
+            color: $color-primary;
+            position: relative;
+
+            @include after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                content: ' ';
+                border-bottom: 2px solid $color-primary;
+                width: 0;
+                /*@include transition(width .3s $cub);*/
+                animation: change_width .3s $cub forwards;
+            }
+        }
+    }
+}
+
+@include selection($color-white, $color-primary);

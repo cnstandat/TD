@@ -1,0 +1,24 @@
+﻿
+<div class="form-title">
+    Xóa tài khoản
+</div>
+<form class="form" data-src="/Account/DeleteAccount">
+    @Html.AntiForgeryToken()
+    <p class="text-danger text-helper">
+        Khi bạn xóa tài khoản, tất cả các dữ liệu liên quan đến tài khoản của bạn , bao gồm : dữ liệu hình ảnh, bài viết , ứng dụng ...
+        sẽ bị đánh dấu xóa và tự động xóa trong vòng 1 tuần. Dữ liệu đã xóa <b>không thể phục hồi</b>. Bạn xác nhận xóa tài khoản này ?
+    </p>
+
+    <div class="input--sae">
+        <input type="password" class="input-text" id="dapw" name="Password" required data-rule-rangelength="4,30" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mật khẩu hiện tại</span>
+        </label>
+    </div>
+    <div class="form-btn">
+        <a class="btn btn-success submit">
+            <i class="fa fa-switch"></i> Xác nhận xóa tài khoản
+        </a>
+    </div>
+</form>

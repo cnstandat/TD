@@ -1,0 +1,33 @@
+﻿.loader-20 {
+	background-color: transparent;
+	box-shadow: inset 0px 0px 0px .1em currentcolor;
+	border-radius: 50%;
+	position: relative;
+	&:after,
+	&:before {
+		position: absolute;
+		content: "";
+		background-color: currentcolor;
+		top: .5em;
+		left: .5em;
+		height: .1em;
+		transform-origin: left center;
+	}
+	&:after {
+		width: .4em;
+		animation: loader-20 2s linear infinite;
+	}
+	&:before {
+		width: .3em;
+		animation: loader-20 8s linear infinite;
+	}
+}
+
+@keyframes loader-20 {
+	0% {
+		transform: rotate(0deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}

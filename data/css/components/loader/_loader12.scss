@@ -1,0 +1,33 @@
+﻿.loader-12 {
+	position: relative;
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		background-color: currentcolor;
+		left: 50%;
+		right: 0;
+		top: 0;
+		bottom: 50%;
+		box-shadow: -.5em 0 0 currentcolor;
+		animation: loader-12 1s linear infinite;
+	}
+	&:after {
+		top: 50%;
+		bottom: 0;
+		animation-delay: .25s;
+	}
+}
+
+@keyframes loader-12 {
+	0%,
+	100% {
+		box-shadow: -.5em 0 0 transparent;
+		background-color: currentcolor;
+	}
+	50% {
+		box-shadow: -.5em 0 0 currentcolor;
+		background-color: transparent;
+	}
+}

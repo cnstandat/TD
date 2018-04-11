@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TD.Models.UserApp>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Khách hàng
+            <a href="/admin/products/RegisterUserUsingApp?ClientId=@ViewBag.ClientId&AppId=@ViewBag.AppId" class="btn left" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+        <span class="table-cell">
+             Quyền hạn
+        </span>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="table-row">
+                <span class="table-cell">
+                    <a href="/admin/products/ChangeUserUsingApp?AppId=@item.AppId&ClientId=@item.ClientId&UserId=@item.UserId" class="product-slide-link" title="Click vào đây để xem chi tiết">
+                        @item.User.FullName
+                    </a>
+                </span>
+                <span class="table-cell small">
+                   @item.User.AppRoles.FirstOrDefault(x => x.ClientId == item.ClientId && x.AppId == item.AppId).Role.Name
+                </span>
+                
+            </div>
+        }
+    }
+    else
+    {
+        <div class="table-row">
+            <span class="table-cell">Chưa có dữ liệu</span>
+        </div>
+    }
+
+</div>

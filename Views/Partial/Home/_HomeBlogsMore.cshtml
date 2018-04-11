@@ -1,0 +1,30 @@
+﻿@model IEnumerable<TD.Models.Views.BlogViewModel>
+
+@foreach (var item in Model)
+{
+    <article class="post">
+        @if (!string.IsNullOrEmpty(item.Image))
+                {
+            <img src=@(item.Image) class="post-image" alt="Image">
+        }
+
+        <div class="post-body">
+            <a class="post-title" href="/ViewPost/@item.Name">
+                @item.FullName
+            </a>
+            <div class="post-content">
+                @Html.Raw(item.LongSummary)
+            </div>
+        </div>
+    </article>
+}
+@if (ViewBag.HasMore)
+{
+    <div>
+        <a class="load-on-click btn btn-primary" data-src="/home/_homeblogs/@ViewBag.Page">Xem thêm</a>
+    </div>
+}
+
+
+
+

@@ -1,0 +1,71 @@
+﻿/* bagot (by @RplusTW) */
+.menu-bagot .item {
+    position: relative;
+}
+
+.menu-bagot .item-link {
+    position: relative;
+    /*min-width: 7rem;
+    height: 50px;
+    padding: 1em 1.5em;*/
+    text-align: center;
+    opacity: 0.7;
+    color: $menu-item-link-hover-color;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.menu-bagot .item::before,
+.menu-bagot .item::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: $menu-border-color;
+    border-style: solid;
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+    transition: transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+}
+
+.menu-bagot .item::before {
+    border-width: 2px 0 0;
+    -webkit-transform: translateY(calc(100% - 2px));
+    transform: translateY(calc(100% - 2px));
+}
+
+.menu-bagot .item::after {
+    right: -1px;
+    left: -1px; /* for border-collapse */
+    border-width: 0 2px;
+    -webkit-transform: scale(1, 0);
+    transform: scale(1, 0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.menu-bagot .item.item-current::before {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+    transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+}
+
+.menu-bagot .item.item-current::after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+    transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+}
+
+.menu-bagot .item-current .item-link,
+.menu-bagot .item-link:hover,
+.menu-bagot .item-link:focus {
+    opacity: 1;
+}
+
+.menu-bagot .item-current .item-link {
+    color: $menu-border-color;
+}

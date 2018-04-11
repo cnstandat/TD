@@ -1,0 +1,21 @@
+﻿@model TD.Models.Views.CommentAddModel
+
+<div class="comment-form-container">
+    <header class="section-title style3">
+        <h3>Cùng <span>thảo luận</span></h3>
+    </header>
+    <form class="comment-form form form-custom" data-src="/home/addcomment" id="comment-form">
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="blogId" name="BlogId" value="@Model.BlogId" />
+        <input type="hidden" id="parentId" name="ParentId" value="@Model.ParentId" />
+        <div class="input--sae">
+            <textarea id="ctmes" name="Content" class="note-editable" required data-rule-minlength="30" placeholder="Nội dung thảo luận , tối thiểu 30 ký tự"></textarea>
+        </div>
+        <div class="form-btn">
+            <a class="btn submit">
+                <i class="fa fa-comment"></i>
+                Gửi thảo luận
+            </a>
+        </div>
+    </form>
+</div>

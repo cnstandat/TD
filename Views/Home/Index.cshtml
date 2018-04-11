@@ -1,0 +1,227 @@
+﻿@model IEnumerable<TD.Models.Gallery>
+@{
+    Layout = "~/Views/Shared/_LayoutMegakit.cshtml";
+}
+@if (Model != null && Model.Any())
+{
+    <div class="sw sw-one sw-init">
+        <div class="swiper-wrapper">
+            @{bool first = true;}
+            @foreach (var item in Model)
+            {
+                if (!first)
+                {
+                    <div class="swiper-slide swiper-lazy bg-center" data-background='@(item.AppFiles.First().FullPath)'>
+                        <div class="sw-text">
+                            <h1>
+                                @Html.Raw(string.IsNullOrEmpty(item.Name) ? "Tấn Đạt" : item.Name)
+
+                            </h1>
+                            <h3>
+                                @Html.Raw((string.IsNullOrEmpty(item.Subtitle) ? "Providing Complete IT Solutions" : item.Subtitle))
+                            </h3>
+                            @if (!string.IsNullOrEmpty(item.VideoLink))
+                        {
+                                <a class="btn-link popup-video btn-primary btn btn-circle" href="@item.VideoLink" title="@item.VideoLink">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn-link btn-primary btn" href="@item.Link" title="@item.Link">
+                                    <i class="fa fa-checkmark"></i>
+                                    @Html.Raw(item.ButtonText)
+                                </a>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    first = false;
+                    <div class="swiper-slide bg-center" style='background-image: url(@item.AppFiles.First().FullPath)'>
+                        <div class="sw-text">
+                            <h1>
+                                @Html.Raw(string.IsNullOrEmpty(item.Name) ? "Tấn Đạt" : item.Name)
+
+                            </h1>
+                            <h3>
+                                @Html.Raw((string.IsNullOrEmpty(item.Subtitle) ? "Providing Complete IT Solutions" : item.Subtitle))
+                            </h3>
+                            @if (!string.IsNullOrEmpty(item.VideoLink))
+                        {
+                                <a class="btn-link popup-video btn-primary btn btn-circle" href="@item.VideoLink" title="@item.VideoLink">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn-link btn-primary btn" href="@item.Link" title="@item.Link">
+                                    <i class="fa fa-checkmark"></i>
+                                    @Html.Raw(item.ButtonText)
+                                </a>
+                            }
+
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <a href="#" class="btn btn-circle btn-primary btn-next"><i class="fa fa-chevron-right"></i></a>
+        <a href="#" class="btn btn-circle btn-primary btn-prev"><i class="fa fa-chevron-left"></i></a>
+        <a href="#scr-promo" class="scrollTo scrollTo-init f">
+            <span class="color-white fa fa-angle-double-down"></span>
+        </a>
+    </div>
+                }
+
+<section class="promo wow wow-bg" data-bg="url(@CData.AppConfig.PromoImage)" id="scr-promo">
+    <div class="left wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+        <img class="wow wow-img" data-src="/data/logo-text.png" />
+    </div>
+    <div class="text">
+        <p>
+            @Html.Raw(CData.AppConfig.PromoText)
+        </p>
+    </div>
+</section>
+<section class="services wow wow-bg s-section-parallax" data-bg="url(@CData.AppConfig.ServiceImage)">
+    <div class="title">
+        <h3>Tấn đạt</h3>
+        <h2>Cung cấp trọn gói giải pháp công nghệ</h2>
+    </div>
+    <div class="services-wrap">
+        <div class="service">
+            <h3>
+                <i class="wow fadeInLeft fa fa-code" data-wow-duration=".3" data-wow-delay=".1s"></i>
+                Lập trình ứng dụng
+            </h3>
+            <p>Lập trình ứng dụng Window - Android - iOS Windows - Phone</p>
+            <a href="/app" class="btn btn-success">
+                <i class="fa fa-app"></i>
+                Xem ứng dụng
+            </a>
+        </div>
+        <div class="service">
+            <h3>
+                <i class="wow fadeInLeft fa fa-display" data-wow-duration=".3" data-wow-delay=".1s"></i>
+                Lập trình Web
+            </h3>
+            <p>Lập trình Website - Full Stack</p>
+            <a href="/webtemp" class="btn btn-primary">
+                <i class="fa fa-display"></i>
+                Xem mẫu Web
+            </a>
+        </div>
+        <div class="service">
+            <h3>
+                <i class="wow fadeInLeft fa fa-printer" data-wow-duration=".3" data-wow-delay=".1s"></i>
+                Cung cấp linh kiện
+            </h3>
+            <p>Cung cấp linh kiện Laptop - thiết bị văn phòng</p>
+            <a href="/shop" class="btn btn-info"><i class="fa fa-shopping-bag"></i>Cửa hàng</a>
+        </div>
+        <div class="service">
+            <h3><i class="wow fadeInLeft fa fa-shield" data-wow-duration=".3" data-wow-delay=".1s"></i> Camera</h3>
+            <p>Cung cấp các giải pháp an ninh - camera </p>
+            <a href="/shop" class="btn"><i class="fa fa-shopping-bag"></i>Cửa hàng</a>
+        </div>
+    </div>
+
+
+</section>
+<section class="projects">
+    <h2 class="title">Ứng dụng</h2>
+    <div class="wow wow-lazy cbp" data-src="/home/_project"></div>
+</section>
+<div class="testimonials s-section-parallax wow wow-bg" data-bg="url(@CData.AppConfig.TalkImage)">
+    <h4 class="title">Góp ý</h4>
+    <div class="lazy" data-src="/home/_testimonials"></div>
+</div>
+<div class="sw sw-clients wow wow-lazy" data-src="/home/_Partner"></div>
+<div id="scr-subs" class="subs s-section-parallax wow wow-bg" data-bg="url(@CData.AppConfig.SubImage)">
+    <div class="title">
+        <h3>Đăng ký nhận tin</h3>
+    </div>
+    <form class="form light" data-src="/home/subs">
+        <div class="input--sae">
+            <input class="input-text" type="email" required name="Email" />
+            <label class="label">
+                <i class="fa fa-edit"></i>
+                <span class="text">Nhập email của bạn</span>
+            </label>
+        </div>
+
+    </form>
+</div>
+<div class="home-blogs wow wow-lazy" data-src="/home/_homeblogs"></div>
+<section class="counter-statics s-section-parallax wow wow-bg" data-bg="url(@CData.AppConfig.CounterImage)">
+    <div class="counter-wrap">
+        <p class="counter  wow counter-init" data-count="6">0</p>
+        <span class="counter-unit wow fadeInDownBig" data-wow-delay=".7s">k</span>
+        <hr />
+        <h4 class="counter-name">Bài viết</h4>
+    </div>
+
+    <div class="counter-wrap">
+        <p class="counter wow counter-init" data-count="8">0</p>
+        <span class="counter-unit wow fadeInDownBig" data-wow-delay=".7s">k</span>
+        <hr />
+        <h4 class="counter-name">Lượt bình luận</h4>
+    </div>
+
+    <div class="counter-wrap">
+
+        <p class="counter wow counter-init" data-count="60">0</p>
+        <span class="counter-unit wow fadeInDownBig" data-wow-delay=".7s">+</span>
+        <hr />
+        <h4 class="counter-name">Ứng dụng</h4>
+    </div>
+
+    <div class="counter-wrap">
+        <p class="counter wow counter-init" data-count="60">0</p>
+        <span class="counter-unit wow fadeInDownBig" data-wow-delay=".7s">+</span>
+        <hr />
+        <h4 class="counter-name">Mẫu Web</h4>
+    </div>
+</section>
+<div class="contact" id="scr-contact">
+    <h2 class="title">
+        Góp ý
+    </h2>
+    <form class="form" id="contact-form" data-src="/home/addcontact">
+        @Html.AntiForgeryToken()
+        <div class="sm success row">
+            <div class="input--sae input--sae-oval">
+                <input name="Name" class="input-text" required />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Họ tên</span>
+                </label>
+            </div>
+            <div class="input--sae input--sae-oval">
+                <input type="email" class="input-text" name="Email" required />
+                <label class="label">
+                    <i class="fa fa-email"></i>
+                    <span class="text">Email</span>
+                </label>
+            </div>
+            <div class="input--sae input--sae-oval">
+                <input type="number" class="input-text" name="Phone" required />
+                <label class="label">
+                    <i class="fa fa-phone"></i>
+                    <span class="text">Điện thoại</span>
+                </label>
+            </div>
+        </div>
+        <textarea class="autoExpand" name="Content" required data-rule-minlength="30"></textarea>
+        <div class="form-btn">
+            <a class="btn btn-success submit">
+                <i class="fa fa-email"></i>
+                Gửi
+            </a>
+        </div>
+    </form>
+</div>
+<section class="s-google-map"><div id="google-map" class="s-google-container wow wow-map"></div></section>
+

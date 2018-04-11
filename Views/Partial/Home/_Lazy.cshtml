@@ -1,0 +1,20 @@
+﻿@model TD.Models.Views.EditViewModel
+@if (Model == null)
+{
+    <h4>
+        <span>Dữ liệu trống (@ViewBag.Name)</span>
+        @if (ViewBag.Admin)
+        {
+            <a href="/admin/config/@ViewBag.Name" class="btn btn-success"><i class="fa fa-plus"></i>Thêm trang mới</a>
+        }
+        else
+        {
+            <span>Bạn không có quyền cập nhật dữ liệu</span>
+        }
+    </h4>
+}
+else
+{
+    @Html.Raw(Model.Content)
+}
+

@@ -1,0 +1,71 @@
+﻿@model TD.Models.Views.BlogEditModel
+<div class="main">
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/Blogs" class="breadcrumb-item">Bài viết</a>
+        <a href="/Admin/Blogs/Create" class="breadcrumb-item active">Viết bài</a>
+    </div>
+    @if (Model == null)
+    {
+        <h4 class="form-title">Không có dữ liệu sản phẩm</h4>
+    }
+    else
+    {
+        <form class="form">
+            <input type="hidden" name="AppId" value="@Model.AppId" />
+            <input type="hidden" id="ImageData" name="ImageData" />
+            @Html.AntiForgeryToken()
+            <h4 class="form-title">
+                Viết bài
+                @if (Model.AppId != null)
+                {
+                    @Model.AppName
+                }
+              
+                <a class="btn submit btn-success" title="Lưu bài viết"><i class="fa fa-save"></i></a>
+            </h4>
+            <div class="form-body">
+                <div class="left">
+                    <figure class="image-fake" data-width="600" data-height="400" data-upload="1">
+                        <noscript><img src="/data/site_svg/noavatar.png" width="600" height="400" /></noscript>
+                    </figure>
+                </div>
+                <div class="right edit">
+                    <div class="input--sae">
+                        <input class="input-text" name="FullName" required data-rule-remote="/pub/blogcheck" data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Tiêu đề</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Bài viết liên kết</span>
+                        </label>
+                        @Html.ListBox("ParentId", null, new { @class = "chosen", count = "1", data_placeholder = "Chọn bài viết liên kết" })
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Gắn nhãn</span>
+                        </label>
+                        @Html.ListBox("TagBlogId", null, new { @class = "chosen", multiple = "multiple" })
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="Closed" class="ck" title="Cho phép trả lời bài viết" value="@(Model.Closed?"false":"true")" />
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Nội dung</span>
+                        </label>
+                        <textarea name="Content" class="note-editable" required data-rule-minlength="30"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</div>

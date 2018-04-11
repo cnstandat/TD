@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutSimple.cshtml";
+}
+<div class="main">
+    <form class="form form-sm" data-src="/account/login">
+        @Html.AntiForgeryToken()
+        <h3 class='form-title'>
+            <span>Đăng nhập</span>
+        </h3>
+        <div class='input--sae'>
+            <input id="lu" name="UserName" data-rule-rangelength="4,30" type='text' class="input-text" autocomplete="new-password">
+            <label class="label">
+                <i class="fa fa-user"></i>
+                <span class="text">Tên đăng nhập</span>
+            </label>
+        </div>
+        <div class='input--sae'>
+            <input id="lp" name="Password" data-rule-rangelength="6,30" required type='password' class="input-text enter-submit" autocomplete="new-password">
+            <label class="label">
+                <i class="fa fa-key"></i>
+                <span class="text">Mật khẩu</span>
+            </label>
+        </div>
+        <div class='form-btn'>
+            <a class="btn submit btn-success"><i class="fa fa-checkmark"></i> Đăng nhập</a>
+        </div>
+    </form>
+    <div class="social-list">
+        @Html.Partial("_ExternalLoginsList")
+    </div>
+
+</div>
+
+
+

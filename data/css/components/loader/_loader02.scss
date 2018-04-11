@@ -1,0 +1,16 @@
+﻿.loader-02 {
+	border: .2em solid transparent;
+	border-left-color: currentcolor;
+	border-right-color: currentcolor;
+	border-radius: 50%;
+	animation: 1s loader-02 linear infinite;
+}
+
+@keyframes loader-02 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

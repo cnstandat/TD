@@ -1,0 +1,72 @@
+﻿<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Tấn Đạt</title>
+<meta name="description" content="TD Template">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="57x57" href="/data/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/data/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/data/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/data/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/data/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/data/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/data/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/data/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/data/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/data/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/data/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/data/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/data/favicon/favicon-16x16.png">
+<link rel="manifest" href="/data/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/data/favicon/mbtn-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<style>
+    .loader-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999;
+        background: #343547;
+    }
+
+    .loader {
+        content: '';
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        -webkit-animation: rotate .8s infinite linear;
+        animation: rotate .8s infinite linear;
+        border-left: 3px solid rgba(114,144,182,.15);
+        border-right: 3px solid rgba(114,144,182,.15);
+        border-bottom: 3px solid rgba(114,144,182,.15);
+        border-top: 3px solid rgba(114,144,182,.8);
+        border-radius: 100%;
+    }
+
+    @@keyframes rotate {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<link href="~/data/megakit.css" rel="stylesheet" />
+@*@if (HttpContext.Current.IsDebuggingEnabled)
+{
+    <link href="~/data/megakit.css" rel="stylesheet" />
+}
+else
+{
+    <link href="~/data/megakit.min.css" rel="stylesheet" />
+}*@

@@ -1,0 +1,26 @@
+﻿@model TD.Models.TagBlog
+<div class="collapse auto-dispose collapse-auto-center" id="create_tagblog">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/tagblogs/create">
+            @Html.AntiForgeryToken()
+            <div class="form-title">
+                Thêm mới nhãn bài viết
+            </div>
+            <div class="input--sae">
+                <input class="input-text auto-submit" name="FullName" required data-rule-remote="/check/tagblog" data-rule-minlength="4" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Nhãn bài viết</span>
+                </label>
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

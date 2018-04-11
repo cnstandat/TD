@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TD.Models.Views.BlogViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="blog-post">
+        <article>
+            <header>
+                <div class="post-meta">
+
+                    <span class="fa fa-user"> @item.Creator</span>
+                    <span>
+                        đăng <time class="timeago" datetime="@item.LastModify.ToUtcString()"></time>
+                    </span>
+                    @if (item.CommentCount > 0)
+                    {
+                        <span><i class="fa fa-comment"></i> @item.CommentCount lượt bình luận</span>
+                    }
+                    @if (item.Viewed > 0)
+                    {
+                        <span><i class="fa fa-eye"></i> @item.Viewed lượt xem</span>
+
+                    }
+                </div>
+                <h1><a href="/ViewPost/@item.Name">@item.FullName</a></h1>
+
+                <ul class="flexbox p-b-1">
+                    <li><a href="@item.TwitterLink" class="p-1 btn btn-social btn-twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="@item.FacebookLink" class="p-1 btn btn-social btn-facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="@item.GoogleLink" class="p-1 btn btn-social btn-google"><i class="fa fa-google"></i></a></li>
+                </ul>
+                @if (!string.IsNullOrEmpty(item.Image))
+                {
+                    <div class="post-image">
+                        <img src='@item.Image' class="wow" alt="Ảnh bài viết">
+                    </div>
+                }
+            </header>
+            <div class="post-contents">
+                @Html.Raw(item.Summary)
+                <div class="p-1 text-center">
+                    <a href="/ViewPost/@item.Name" class="btn btn-success read-more">Chi tiết <i class="fa fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </article>
+    </div>
+}
+@if (ViewBag.HasMore)
+{
+    <div class="text-center">
+        <a data-src="/home/_HomeBlog/@ViewBag.Page" class="btn btn-info load-on-click"><i class="fa fa-checkmark"></i>Xem thêm</a>
+    </div>
+}

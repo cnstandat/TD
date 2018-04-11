@@ -1,0 +1,44 @@
+﻿.js-btt {
+    @include position(fixed, $bottom: -3.125rem, $right: 3.125rem);
+    display: block;
+    @include size(1.875rem, 3rem);
+    z-index: 9999;
+    background: $color-primary;
+    @include border-radius(3.125rem);
+    text-align: center;
+    @include transition(all .3s $cub);
+
+    @include before {
+        display: block;
+        font-family:'icomoon';
+        color: $color-white;
+        line-height: 3rem;
+        content: $fa-arrow-up;
+        @include transition(all .3s $cub);
+    }
+
+    @include hover {
+        background: $color-white;
+
+        @include before {
+            color: $color-primary;
+        }
+    }
+
+    @include hover-focus {
+        text-decoration: none;
+    }
+
+    &.-is-visible {
+        bottom: 3.125rem;
+        opacity: .8;
+
+        @include hover {
+            opacity: 1;
+        }
+    }
+
+    &.-zoom-out {
+        opacity: .6;
+    }
+}

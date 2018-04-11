@@ -1,0 +1,74 @@
+﻿@model TD.Models.Gallery
+@*<div class="main">
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/config" class="breadcrumb-item">Cấu hình</a>
+        <a href="/Admin/EditMS/@Model.Id" class="breadcrumb-item active">Chỉnh sửa ảnh</a>
+
+    </div>
+  
+
+</div>*@
+
+<div class="collapse collapse-auto-center auto-dispose" id="editMainSlide">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/galleries/edit">
+            <h4 class="form-title">
+                Chỉnh sửa ảnh sản phẩm
+            </h4>
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="AppFileId" value="@ViewBag.AppFileId" />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <input type="hidden" id="ImageData" name="ImageData" value="" />
+            <figure class="image-fake" data-src=@(ViewBag.Image) data-width="1100" data-height="600" data-upload="1" data-auto="1">
+                <noscript><img src="/data/site_svg/noavatar.png" width="1100" height="600" /></noscript>
+            </figure>
+            <div class="input--sae">
+                <input class="input-text" name="Name" value="@Model.Name" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Title</span>
+                </label>
+            </div>
+            <div class="input--sae">
+                <input class="input-text" name="Subtitle" value="@Model.Subtitle" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Subtitle</span>
+                </label>
+            </div>
+            <div class="input--sae">
+                <input class="input-text" name="ButtonText" value="@Model.ButtonText" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Nút bấm</span>
+                </label>
+            </div>
+            <div class="input--sae">
+                <input class="input-text" name="Link" value="@Model.Link" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Liên kết</span>
+                </label>
+            </div>
+            <div class="input--sae">
+                <input class="input-text" name="VideoLink" value="@Model.VideoLink" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Video</span>
+                </label>
+            </div>
+            <div>
+                <input type="checkbox" name="InHome" class="ck" title="Đưa lên trang chủ" value="@(Model.InHome?"true":"false")" />
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                <a class="btn delete" title="Xóa Gallery" data-src="/admin/deleteMS/@Model.Id">
+                    <i class="fa fa-cross"></i>Xóa
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

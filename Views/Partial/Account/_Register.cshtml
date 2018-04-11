@@ -1,0 +1,57 @@
+﻿
+<div id="signup">
+    <form class="form form-sm" data-src="/account/register">
+        @Html.AntiForgeryToken()
+        <h3 class="form-title">
+            <span>Đăng ký tài khoản</span>
+        </h3>
+        <div class="input--sae">
+
+            <input type="text" name="UserName" id="regn" required class="input-text" minlength="4" data-rule-remote="/pub/UserCheck" autocomplete="new-password" />
+            <label class="label">
+                <i class="fa fa-key"></i>
+                <span class="text">Tên đăng nhập</span>
+            </label>
+        </div>
+        <div class="input--sae">
+
+            <input type="email" name="Email" id="regem" data-rule-required="true" data-rule-email="true" class="input-text" data-rule-remote="/pub/EmailCheckExist" autocomplete="new-password" />
+            <label class="label">
+                <i class="fa fa-key"></i>
+                <span class="text">Email</span>
+            </label>
+        </div>
+        <div class="input--sae">
+
+            <input type="password" name="Password" id="regpw" required class="input-text" minlength="6" autocomplete="new-password" />
+            <label class="label">
+                <i class="fa fa-key"></i>
+                <span class="text">Mật khẩu</span>
+            </label>
+        </div>
+        <div class="input--sae">
+
+            <input data-val="true" required data-rule-equalto="#regpw" id="regpw2" name="ConfirmPassword" type="password" class="input-text" autocomplete="new-password">
+            <label class="label">
+                <i class="fa fa-key"></i>
+                <span class="text">Xác nhận mật khẩu</span>
+            </label>
+        </div>
+        <p class="form-text">
+            Khi tạo tài khoản , tôi đã hiểu rõ và chấp nhận <a href="#policies" class="togger-lazy togger a a-warning" data-toggle="policies" data-src="/home/_config/policies">
+                điều khoản sử dụng
+            </a>
+        </p>
+        <div class="form-btn">
+            <a class="btn submit btn-primary"><i class="fa fa-checkmark"></i>Tạo tài khoản</a>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+
+
+

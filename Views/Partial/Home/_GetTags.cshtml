@@ -1,0 +1,16 @@
+﻿@model IEnumerable<TD.Models.Views.TagBlogViewModel>
+@if (Model != null)
+{
+    int i = 1;
+    <div class="tags-container">
+        <ul class="tags">
+            @foreach (var item in Model)
+            {
+                i = i + 1;
+                <li class="wow fadeInDownBig" data-wow-delay="@(i *0.2)s">
+                    <a href="/Blog/@item.Name">@item.FullName <span>@item.BlogCount</span></a>
+                </li>
+            }
+        </ul>
+    </div>
+}

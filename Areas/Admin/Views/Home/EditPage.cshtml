@@ -1,0 +1,56 @@
+﻿@model TD.Models.Views.EditViewModel
+@if (Model != null)
+{
+    <div class="main">
+     
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/config" class="breadcrumb-item">Cấu hình</a>
+                <a href="/Admin/editpage/@Model.Id" class="breadcrumb-item active">@Model.Name</a>
+            </div>
+            <div class="more-action">
+                <a href="/Admin/createpage" class="btn btn-success">Thêm trang</a>
+            </div>
+         
+
+                <form class="form form-block">
+                    <h4 class="form-title">
+                        Cập nhật nội dung trang
+                    </h4>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="input--sae">
+                        <i class="fa fa-edit fa-fix"></i>
+                        <input class="input-text" name="Name" value="@Model.Name" placeholder="Title" />
+                    </div>
+                    <input class="ck" type="checkbox" value=@(Model.isPage?"true":"false") title="Hiển thị trên trang chủ" name="isPage" />
+                    <textarea class="note-editable" name="Content">@Model.Content</textarea>
+                    <div class="form-btn">
+                        <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                        <a class="btn delete" title="Xóa trang" data-src="/admin/deletepage/@Model.Id">
+                            <i class="fa fa-cross"></i>Xóa
+                        </a>
+                    </div>
+                </form>
+                @*<div id="preview-content" class="fr-view">
+                    <p>Start typing and you can preview the content of the WYSIWYG HTML editor as you type below the editing box.</p>
+                </div>*@
+            </div>
+
+       
+}
+else
+{
+    <div class="main">
+      
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/config" class="breadcrumb-item">Cấu hình</a>
+                <a href="/Admin/editpage" class="breadcrumb-item active">Chỉnh sửa trang</a>
+            </div>
+           
+                <h4 class="form-title">Không có dữ liệu</h4>
+            </div>
+
+       
+}

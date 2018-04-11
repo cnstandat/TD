@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_Head")
+</head>
+<body class="apps">
+    <div class="main-menu collapse-wrap sticky" id="main-menu">
+        <a class="togger only-xs self" data-togger="main-menu"><span class="line"></span></a>
+        <div class="nav">
+            <a class="menu-item" href="/">
+                <i class="fa fa-home"></i>
+                <span class="menu-text">
+                    Tấn Đạt
+                </span>
+            </a>
+            <a class="menu-item" href="/Shop">
+                <i class="fa fa-shopping-bag"></i>
+                <span class="menu-text">
+                    Shop
+                </span>
+            </a>
+            <a class="menu-item" href="/App">
+                <i class="fa fa-user"></i>
+                <span class="menu-text">
+                    Ứng dụng
+                </span>
+            </a>
+            <a class="menu-item" href="/Blog">
+                <i class="fa fa-edit"></i>
+                <span class="menu-text">
+                    Bài viết
+                </span>
+            </a>
+
+        </div>
+      
+    </div>
+
+    <div class="wrapper" id="wrapper">
+        @RenderBody()
+    </div>
+    <footer class="footer wow wow-bg" data-bg="url('/data/img/megakit/widgets/worldmap.png')">
+        <ul class="menu">
+            <li><a href="/" class="a">Trang chủ</a></li>
+            <li><a href="/blog" class="a">Bài viết</a></li>
+            <li><a href="/shop" class="a">Cửa hàng</a></li>
+            <li><a href="/app" class="a">Ứng dụng</a></li>
+            <li><a href="/webtemp" class="a">mẫu web</a></li>
+            <li><a href="/account" class="a">Tài khoản</a></li>
+        </ul>
+        <ul class="menu">
+            <li><a class="togger togger-lazy a" href="#about" data-src="/home/_config/about">Giới thiệu</a></li>
+            <li><a class="togger togger-lazy a" href="#policies" data-src="/home/_config/policies">Điều khoản sử dụng</a></li>
+            <li><a class="togger togger-lazy a" href="#payment" data-src="/home/_config/payment">Vận chuyển & thanh toán</a></li>
+            <li><a class="togger togger-lazy a" href="#quantity" data-src="/home/_config/quantity">Cam kết chất lượng</a></li>
+            <li><a class="togger togger-lazy a" href="#event" data-src="/home/_config/event">Sự kiện</a></li>
+            <li><a class="togger togger-lazy a" href="#faq" data-src="/home/_config/faq">Câu hỏi thường gặp</a></li>
+        </ul>
+        <ul class="menu socials">
+            <li><a class="scrollTo a" href="#scr-subs">Đăng ký nhận tin</a></li>
+            <li><a class="scrollTo a" href="#scr-contact">Liên hệ</a></li>
+            <li><a href="#" class="a">Twitter</a></li>
+            <li><a href="#" class="a">Facebook</a></li>
+            <li><a href="#" class="a">Google</a></li>
+            <li><a href="#" class="a">YouTube</a></li>
+        </ul>
+        <p class="last-logo">
+            <span>&copy; by</span>   Tấn Đạt &trade;
+        </p>
+    </footer>
+    <div class="cookie">
+        <p>Chúng tôi đang sử dụng <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" rel="nofollow" target="_blank">cookie</a> để thống kê số liệu giúp chúng tôi cung cấp cho bạn trải nghiệm tốt nhất trên trang web của chúng tôi. Bạn có thể tìm hiểu thêm hoặc tắt chúng nếu muốn. Tuy nhiên, bằng cách tiếp tục sử dụng trang web mà không thay đổi cài đặt, bạn đồng ý sử dụng cookie của chúng tôi.</p>
+        <div><a class='accept'>Đồng ý</a></div>
+    </div>
+    @Html.Partial("_End")
+</body>
+</html>

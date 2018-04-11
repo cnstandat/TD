@@ -1,0 +1,271 @@
+$input-btn-padding-y:       .5rem !default;
+$input-btn-padding-x:       .75rem !default;
+$input-btn-line-height:     1.25 !default;
+
+$input-btn-padding-y-sm:    .25rem !default;
+$input-btn-padding-x-sm:    .5rem !default;
+$input-btn-line-height-sm:  1.5 !default;
+
+$input-btn-padding-y-lg:    .5rem !default;
+$input-btn-padding-x-lg:    1rem !default;
+$input-btn-line-height-lg:  1.5 !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:   1.25rem !default;
+$font-size-sm:   .875rem !default;
+
+$font-weight-light: 300 !default;
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
+$border-radius:          .25rem !default;
+$border-radius-lg:       .3rem !default;
+$border-radius-sm:       .2rem !default;
+$white:  #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:  #000 !default;
+$border-width: 1px !default;
+$border-color: $gray-200 !default;
+$btn-focus-box-shadow:           0 0 0 3px rgba($base-red, .25) !default;
+$input-bg:                       $white !default;
+$input-disabled-bg:              $gray-200 !default;
+
+$input-color:                    $gray-700 !default;
+$input-border-color:             rgba($black,.15) !default;
+$input-btn-border-width:         $border-width !default; // For form controls and buttons
+$input-box-shadow:               inset 0 1px 1px rgba($black,.075) !default;
+
+$input-border-radius:            $border-radius !default;
+$input-border-radius-lg:         $border-radius-lg !default;
+$input-border-radius-sm:         $border-radius-sm !default;
+
+$input-focus-bg:                 $input-bg !default;
+$input-focus-border-color:       lighten($base-red, 25%) !default;
+$input-focus-box-shadow:         $input-box-shadow, $btn-focus-box-shadow !default;
+$input-focus-color:              $input-color !default;
+
+$input-placeholder-color:        $gray-600 !default;
+
+$input-height-border:           $input-btn-border-width * 2 !default;
+
+$input-height-inner:            ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
+$input-height:                  calc(#{$input-height-inner} + #{$input-height-border}) !default;
+
+$input-height-inner-sm:         ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm:               calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+
+$input-height-inner-lg:         ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg:               calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+
+$input-transition:               border-color ease-in-out .15s, box-shadow ease-in-out .15s !default;
+
+
+
+$input-group-addon-color:        $input-color !default;
+$input-group-addon-bg:           $gray-200 !default;
+$input-group-addon-border-color: $input-border-color !default;
+$input-group-btn-border-color:   $input-border-color !default;
+//
+// Base styles
+//
+$btn-font-weight:                $font-weight-normal !default;
+$btn-box-shadow:                 inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075) !default;
+
+$btn-active-box-shadow:          inset 0 3px 5px rgba($black,.125) !default;
+.input-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  .form-control {
+    // Ensure that the input is always above the *appended* addon button for
+    // proper border colors.
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    // Add width 1% and flex-basis auto to ensure that button will not wrap out
+    // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+    width: 1%;
+    margin-bottom: 0;
+
+    // Bring the "active" form control to the front
+    @include hover-focus-active {
+      z-index: 3;
+    }
+  }
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  // Vertically centers the content of the addons within the input group
+  display: flex;
+  align-items: center;
+
+  &:not(:first-child):not(:last-child) {
+    @include border-radius(0);
+  }
+}
+
+.input-group-addon,
+.input-group-btn {
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+}
+
+
+// Sizing options
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn {
+  @extend .form-control-lg;
+}
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn {
+  @extend .form-control-sm;
+}
+
+
+//
+// Text input groups
+//
+
+.input-group-addon {
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  font-size: $font-size-base; // Match inputs
+  font-weight: $font-weight-normal;
+  line-height: $input-btn-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  background-color: $input-group-addon-bg;
+  background-clip: padding-box;
+  border: $input-btn-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+
+  // Sizing
+  &.form-control-sm {
+    padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+    font-size: $font-size-sm;
+    @include border-radius($input-border-radius-sm);
+  }
+
+  &.form-control-lg {
+    padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
+    font-size: $font-size-lg;
+    @include border-radius($input-border-radius-lg);
+  }
+
+  // scss-lint:disable QualifyingElement
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+  // scss-lint:enable QualifyingElement
+}
+
+
+//
+// Reset rounded corners
+//
+
+.input-group .form-control:not(:last-child),
+.input-group-addon:not(:last-child),
+.input-group-btn:not(:last-child) > .btn,
+.input-group-btn:not(:last-child) > .btn-group > .btn,
+.input-group-btn:not(:last-child) > .dropdown-toggle,
+.input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
+  @include border-right-radius(0);
+}
+.input-group-addon:not(:last-child) {
+  border-right: 0;
+}
+.input-group .form-control:not(:first-child),
+.input-group-addon:not(:first-child),
+.input-group-btn:not(:first-child) > .btn,
+.input-group-btn:not(:first-child) > .btn-group > .btn,
+.input-group-btn:not(:first-child) > .dropdown-toggle,
+.input-group-btn:not(:last-child) > .btn:not(:first-child),
+.input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
+  @include border-left-radius(0);
+}
+.form-control + .input-group-addon:not(:first-child) {
+  border-left: 0;
+}
+
+//
+// Button input groups
+//
+
+.input-group-btn {
+  position: relative;
+  // Jankily prevent input button groups from wrapping with `white-space` and
+  // `font-size` in combination with `inline-block` on buttons.
+  font-size: 0;
+  white-space: nowrap;
+
+  // Negative margin for spacing, position for bringing hovered/focused/actived
+  // element above the siblings.
+  > .btn {
+    position: relative;
+    background-clip: padding-box;
+    border: $input-btn-border-width solid $input-group-btn-border-color;
+
+    + .btn {
+      margin-left: (-$input-btn-border-width);
+    }
+
+    // Bring the "active" button to the front
+    @include hover-focus-active {
+      z-index: 3;
+    }
+  }
+
+  // Negative margin to only have a single, shared border between the two
+  &:not(:last-child) {
+    > .btn,
+    > .btn-group {
+      margin-right: (-$input-btn-border-width);
+    }
+  }
+  &:not(:first-child) {
+    > .btn,
+    > .btn-group {
+      z-index: 2;
+      margin-left: (-$input-btn-border-width);
+      // Because specificity
+      @include hover-focus-active {
+        z-index: 3;
+      }
+    }
+  }
+}
+.input-group-btn button {
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-size: 2rem;
+    line-height: 3.375rem;
+    color: $brand-success;
+    background-color: rgba(#fff,.4);
+
+    @include hover() {
+        background-color: rgba(255,255,255,.8);
+        color: $brand-danger;
+    }
+}

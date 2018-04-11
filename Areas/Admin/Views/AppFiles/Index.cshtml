@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TD.Models.AppFile>
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/config" class="breadcrumb-item active">Cấu hình</a>
+        </div>
+        <div class="more-action">
+            <a href="/admin/users" class="btn btn-sm"><i class="fa fa-user"></i>Quản lý người dùng</a>
+            <a href="/admin/blogs" class="btn btn-sm btn-danger"><i class="fa fa-edit"></i>Quản lý bài viết</a>
+            <a href="/admin/config" class="btn btn-sm btn-success"><i class="fa fa-cogs"></i>Cấu hình</a>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Tiêu đề
+                <a href="/admin/createslide" class="btn left" title="Thêm mới">
+                    Thêm mới
+                </a>
+            </span>
+            <span class="table-cell">
+                Subtile
+            </span>
+            <span class="table-cell">
+                Liên kết
+            </span>
+            <span class="table-cell">
+                Nút bấm
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+            {
+            <div class="table-row">
+                <span class="table-cell">
+                    <a href="/admin/EditGallery/@item.Id" class="product-slide-link" title="Click vào đây để xem chi tiết">
+                        <i class="fa fa-edit"></i>   @item.Name
+                    </a>
+                </span>
+                <span class="table-cell">
+                    @item.Subtitle
+                </span>
+                <span class="table-cell">
+                    @item.Link
+                </span>
+                <span class="table-cell">
+                    @item.ButtonText
+                </span>
+            </div>
+
+        }
+    </div>
+
+</div>

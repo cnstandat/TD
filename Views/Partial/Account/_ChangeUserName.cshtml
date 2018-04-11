@@ -1,0 +1,21 @@
+﻿@model TD.Models.Views.ChangeUserNameView
+<div class="form-title">Đổi tên đăng nhập</div>
+<form class="form form-sm" data-src="/account/changeusername">
+    @Html.AntiForgeryToken()
+
+    <div class="text-helper">
+        Để thay đổi tên đăng nhập bạn cần phải nhập mật khẩu để xác minh
+    </div>
+    <div class="input--sae">
+        <input type="text" autocomplete="new-password" name="UserName" value="@Model.UserName" required placeholder="Tên đăng nhập" class="input-text" minlength="4" data-rule-remote="/pub/UserCheck" />
+    </div>
+
+    <div class="input--sae">
+        <input type="password" autocomplete="new-password" name="Password" required placeholder="Mật khẩu hiện tại" class="input-text" minlength="4" />
+    </div>
+    <div class="form-btn">
+        <a class="btn submit btn-success"><i class="fa fa-user"></i>Đổi tên đăng nhập</a>
+    </div>
+</form>
+
+

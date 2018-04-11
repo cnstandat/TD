@@ -1,0 +1,23 @@
+﻿@model TD.Models.TagBlog
+
+<div class="main">
+
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/tagblogs" class="breadcrumb-item">Nhãn</a>
+        <a href="/Admin/tagblogs/Edit/@Model.Id" class="breadcrumb-item active">Cập nhật</a>
+    </div>
+    <form class="form">
+        @Html.AntiForgeryToken()
+        <div class="form-title">
+            Nhãn bài viết
+            <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i></a>
+            <a class="btn delete" title="Xóa nhãn" data-src="/admin/tags/delete/@Model.Id">
+                <i class="fa fa-cross"></i>Xóa
+            </a>
+        </div>
+        <div class="input--sae">
+            <input class="input-text" name="Name" placeholder="Nhãn bài viết" required data-rule-remote="/pub/tagcheck" data-rule-minlength="4" />
+        </div>
+    </form>
+</div>

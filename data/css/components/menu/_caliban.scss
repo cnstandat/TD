@@ -1,0 +1,60 @@
+﻿/* Caliban */
+/*.menu-caliban .item {
+    margin: 0.5em 0;
+}*/
+
+.menu-caliban .item-link {
+    position: relative;
+    display: block;
+    /*width: 140px;*/
+    /*margin: 0 1em;*/
+    color: $menu-item-link-color;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.menu-caliban .item-link:hover,
+.menu-caliban .item-link:focus {
+    color: $menu-item-link-hover-color;
+}
+
+.menu-caliban .item-current .item-link {
+    color: $menu-border-color;
+}
+
+.menu-caliban .item-link::before,
+.menu-caliban .item-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $menu-border-color;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.menu-caliban .item-link::before {
+    border-width: 2px;
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+
+.menu-caliban .item-link::after {
+    border-width: 2px;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.menu-caliban .item-current .item-link::before,
+.menu-caliban .item-current .item-link::after {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}

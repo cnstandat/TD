@@ -1,0 +1,438 @@
+@import "variables";
+
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('#{$icomoon-font-path}/icomoon.ttf') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="fa-"], [class*=" fa-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-app {
+  &:before {
+    content: $fa-app;
+  }
+}
+.fa-key {
+  &:before {
+    content: $fa-key;
+  }
+}
+.fa-locked {
+  &:before {
+    content: $fa-locked;
+  }
+}
+.fa-mouse-pointer {
+  &:before {
+    content: $fa-mouse-pointer;
+  }
+}
+.fa-paint-brush {
+  &:before {
+    content: $fa-paint-brush;
+  }
+}
+.fa-home {
+  &:before {
+    content: $fa-home;
+  }
+}
+.fa-edit {
+  &:before {
+    content: $fa-edit;
+  }
+}
+.fa-pencil {
+  &:before {
+    content: $fa-pencil;
+  }
+}
+.fa-tint {
+  &:before {
+    content: $fa-tint;
+  }
+}
+.fa-image {
+  &:before {
+    content: $fa-image;
+  }
+}
+.fa-video {
+  &:before {
+    content: $fa-video;
+  }
+}
+.fa-video-camera {
+  &:before {
+    content: $fa-video-camera;
+  }
+}
+.fa-folder {
+  &:before {
+    content: $fa-folder;
+  }
+}
+.fa-phone {
+  &:before {
+    content: $fa-phone;
+  }
+}
+.fa-printer {
+  &:before {
+    content: $fa-printer;
+  }
+}
+.fa-display {
+  &:before {
+    content: $fa-display;
+  }
+}
+.fa-rotate-left {
+  &:before {
+    content: $fa-rotate-left;
+  }
+}
+.fa-undo {
+  &:before {
+    content: $fa-undo;
+  }
+}
+.fa-rotate-right {
+  &:before {
+    content: $fa-rotate-right;
+  }
+}
+.fa-redo {
+  &:before {
+    content: $fa-redo;
+  }
+}
+.fa-comment {
+  &:before {
+    content: $fa-comment;
+  }
+}
+.fa-commenting {
+  &:before {
+    content: $fa-commenting;
+  }
+}
+.fa-user {
+  &:before {
+    content: $fa-user;
+  }
+}
+.fa-users {
+  &:before {
+    content: $fa-users;
+  }
+}
+.fa-quote-left {
+  &:before {
+    content: $fa-quote-left;
+  }
+}
+.fa-quotes-right {
+  &:before {
+    content: $fa-quotes-right;
+  }
+}
+.fa-search {
+  &:before {
+    content: $fa-search;
+  }
+}
+.fa-fullscreen {
+  &:before {
+    content: $fa-fullscreen;
+  }
+}
+.fa-expand {
+  &:before {
+    content: $fa-expand;
+  }
+}
+.fa-cogs {
+  &:before {
+    content: $fa-cogs;
+  }
+}
+.fa-magic {
+  &:before {
+    content: $fa-magic;
+  }
+}
+.fa-shield {
+  &:before {
+    content: $fa-shield;
+  }
+}
+.fa-switch {
+  &:before {
+    content: $fa-switch;
+  }
+}
+.fa-list-ol {
+  &:before {
+    content: $fa-list-ol;
+  }
+}
+.fa-list-ul {
+  &:before {
+    content: $fa-list-ul;
+  }
+}
+.fa-upload {
+  &:before {
+    content: $fa-upload;
+  }
+}
+.fa-file-o {
+  &:before {
+    content: $fa-file-o;
+  }
+}
+.fa-save {
+  &:before {
+    content: $fa-save;
+  }
+}
+.fa-link {
+  &:before {
+    content: $fa-link;
+  }
+}
+.fa-star {
+  &:before {
+    content: $fa-star;
+  }
+}
+.fa-smile-o {
+  &:before {
+    content: $fa-smile-o;
+  }
+}
+.fa-plus {
+  &:before {
+    content: $fa-plus;
+  }
+}
+.fa-minus {
+  &:before {
+    content: $fa-minus;
+  }
+}
+.fa-info {
+  &:before {
+    content: $fa-info;
+  }
+}
+.fa-cross {
+  &:before {
+    content: $fa-cross;
+  }
+}
+.fa-checkmark {
+  &:before {
+    content: $fa-checkmark;
+  }
+}
+.fa-checkmark2 {
+  &:before {
+    content: $fa-checkmark2;
+  }
+}
+.fa-play {
+  &:before {
+    content: $fa-play;
+  }
+}
+.fa-arrow-up {
+  &:before {
+    content: $fa-arrow-up;
+  }
+}
+.fa-arrow-right {
+  &:before {
+    content: $fa-arrow-right;
+  }
+}
+.fa-arrow-down {
+  &:before {
+    content: $fa-arrow-down;
+  }
+}
+.fa-arrow-left {
+  &:before {
+    content: $fa-arrow-left;
+  }
+}
+.fa-arrows-alt {
+  &:before {
+    content: $fa-arrows-alt;
+  }
+}
+.fa-font {
+  &:before {
+    content: $fa-font;
+  }
+}
+.fa-text-height {
+  &:before {
+    content: $fa-text-height;
+  }
+}
+.fa-bold {
+  &:before {
+    content: $fa-bold;
+  }
+}
+.fa-underline {
+  &:before {
+    content: $fa-underline;
+  }
+}
+.fa-italic {
+  &:before {
+    content: $fa-italic;
+  }
+}
+.fa-strikethrough {
+  &:before {
+    content: $fa-strikethrough;
+  }
+}
+.fa-superscript {
+  &:before {
+    content: $fa-superscript;
+  }
+}
+.fa-subscript {
+  &:before {
+    content: $fa-subscript;
+  }
+}
+.fa-table {
+  &:before {
+    content: $fa-table;
+  }
+}
+.fa-paragraph {
+  &:before {
+    content: $fa-paragraph;
+  }
+}
+.fa-align-left {
+  &:before {
+    content: $fa-align-left;
+  }
+}
+.fa-align-right {
+  &:before {
+    content: $fa-align-right;
+  }
+}
+.fa-align-justify {
+  &:before {
+    content: $fa-align-justify;
+  }
+}
+.fa-indent {
+  &:before {
+    content: $fa-indent;
+  }
+}
+.fa-outdent {
+  &:before {
+    content: $fa-outdent;
+  }
+}
+.fa-code {
+  &:before {
+    content: $fa-code;
+  }
+}
+.fa-google {
+  &:before {
+    content: $fa-google;
+  }
+}
+.fa-facebook {
+  &:before {
+    content: $fa-facebook;
+  }
+}
+.fa-twitter {
+  &:before {
+    content: $fa-twitter;
+  }
+}
+.fa-angle-double-down {
+  &:before {
+    content: $fa-angle-double-down;
+  }
+}
+.fa-chevron-right {
+  &:before {
+    content: $fa-chevron-right;
+  }
+}
+.fa-chevron-left {
+  &:before {
+    content: $fa-chevron-left;
+  }
+}
+.fa-shopping-bag {
+  &:before {
+    content: $fa-shopping-bag;
+  }
+}
+.fa-exchange {
+  &:before {
+    content: $fa-exchange;
+  }
+}
+.fa-eraser {
+  &:before {
+    content: $fa-eraser;
+  }
+}
+.fa-trash {
+  &:before {
+    content: $fa-trash;
+  }
+}
+.fa-compress {
+  &:before {
+    content: $fa-compress;
+  }
+}
+.fa-email {
+  &:before {
+    content: $fa-email;
+  }
+}
+.fa-envelope {
+  &:before {
+    content: $fa-envelope;
+  }
+}
+

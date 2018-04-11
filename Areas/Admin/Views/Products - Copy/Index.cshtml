@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TD.Models.Product>
+
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Products" class="breadcrumb-item active">Ứng dụng</a>
+
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/products/FeatureProducts" title="Danh sách chức năng">Chức năng</a>
+            <a class="btn" href="/admin/Partners" title="Danh sách khách hàng">Khách hàng</a>
+            <a class="btn btn-success" href="/admin/products/create" title="Thêm mới ứng dụng">Thêm mới</a>
+        </div>
+    </div>
+    <h4 class="form-title">Danh sách ứng dụng</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Ứng dụng
+            </span>
+            <span class="table-cell">
+                Liên kết
+            </span>
+            <span class="table-cell">
+                Khách hàng
+            </span>
+            <span class="table-cell">
+                Phiên bản
+            </span>
+            <span class="table-cell">
+                Chức năng
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="table-row">
+                <input type="radio" name="expand" />
+                <span class="table-cell primary">
+                    <a href="/Admin/Products/Edit/@item.Id" data-label="Ứng dụng" class="text">@(string.IsNullOrEmpty(item.Name) ? "-" : item.Name)</a>
+                </span>
+                <span class="table-cell" data-label="Liên kết">
+                    @item.Link
+                </span>
+                <span class="table-cell" data-label="Khách hàng">
+                    <span>@item.Partners.Count() </span>
+                </span>
+                <span class="table-cell" data-label="Phiên bản">
+                    @item.Versions.Count()
+                </span>
+                <span class="table-cell" data-label="Chức năng">
+                    @item.Features.Count()
+                </span>
+            </div>
+
+        }
+
+    </div>
+
+
+</div>

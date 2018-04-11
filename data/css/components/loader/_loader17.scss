@@ -1,0 +1,38 @@
+﻿.loader-17 {
+	position: relative;
+	background-color: currentcolor;
+	border-radius: 50%;
+	&:after,
+	&:before {
+		content: "";
+		position: absolute;
+		width: .25em;
+		height: .25em;
+		border-radius: 50%;
+		opacity: .8;
+	}
+	&:after {
+		left: -.5em;
+		top: -.25em;
+		background-color: currentcolor;
+		transform-origin: .75em 1em;
+		animation: loader-17 1s linear infinite;
+		opacity: .6;
+	}
+	&:before {
+		left: -1.25em;
+		top: -.75em;
+		background-color: currentcolor;
+		transform-origin: 1.5em 1em;
+		animation: loader-17 2s linear infinite;
+	}
+}
+
+@keyframes loader-17 {
+	0% {
+		transform: rotateZ(0deg) translate3d(0, 0, 0);
+	}
+	100% {
+		transform: rotateZ(360deg) translate3d(0, 0, 0);
+	}
+}

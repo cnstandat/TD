@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TD.Models.Views.AppEditModel>
+<div class="filter-options filter-text">
+    <div data-group="all" class="cbp-filter-item">Tất cả</div>
+    <div data-group="windows" class="cbp-filter-item">Windows</div>
+    <div data-group="website" class="cbp-filter-item">Website</div>
+    <div data-group="mobile" class="cbp-filter-item">Mobile</div>
+</div>
+<div id="grid-project" class="cbp cbp-init">
+    @foreach (var item in Model)
+    {
+        <figure class="cbp-item" data-groups='[@item.strAppTypes]'>
+            <div class="cbp-item__inner">
+                <img src=@(item.Image) alt="@item.Name Image" />
+                <div class="cbp-item-caption">
+                    <div>
+                        <a href="@item.Link">@item.Name </a>
+                    </div>
+                    <ul class="flex-box">
+                        <li>
+                            <a href=@(item.Image) class="cbp-lightbox btn btn-circle" data-title="@item.Name">
+                                <i class="fa-fullscreen"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@item.Link" class="btn btn-circle">
+                                <i class="fa-link"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </figure>
+    }
+    @*<div class="grid-project-sizer-element"></div>*@
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TD.Models.AppFile>
+
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Tiêu đề
+            <a data-src="/admin/appfiles/createImage?@ViewBag.CreateLink" href="#createImage" class="togger togger-lazy btn left" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+        <span class="table-cell">
+            Đưa lên trang chủ
+        </span>
+
+    </div>
+
+    @foreach (var item in Model)
+            {
+        <div class="table-row">
+            <span class="table-cell">
+                <a data-src="/admin/appfiles/editimage/@item.Id" class="togger togger-lazy" href="#editImage" title="Click vào đây để chỉnh sửa">
+                    <i class="fa fa-edit"></i>   @item.FileName
+                </a>
+            </span>
+            <span class="table-cell">
+                <input type="checkbox" class="ck" value=@(item.IsMain?"true":"false")>
+            </span>
+
+        </div>
+
+    }
+    <a class="btn btn-primary load-on-click" data-src="/admin/appfiles/index?@ViewBag.CreateLink"><i class="fa fa-redo"></i>Nạp lại dữ liệu</a>
+</div>
+
+

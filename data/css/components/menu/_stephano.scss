@@ -1,0 +1,91 @@
+﻿/* Stephano */
+.menu-stephano .item {
+    position: relative;
+    margin: 0 1em;
+}
+
+.menu-stephano .item-link {
+    position: relative;
+    min-width: 105px;
+    text-align: center;
+    color: $menu-item-link-color;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.menu-stephano .item-link:hover,
+.menu-stephano .item-link:focus {
+    color: $menu-item-link-hover-color;
+}
+
+.menu-stephano .item-current .item-link {
+    color: $menu-border-color;
+}
+
+.menu-stephano .item::before,
+.menu-stephano .item-link::before,
+.menu-stephano .item-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 2px;
+    opacity: 0;
+    background: $menu-border-color;
+}
+
+/* flipped sides */
+.menu-stephano .item-link::before,
+.menu-stephano .item-link::after {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-stephano .item-current .item-link::before,
+.menu-stephano .item-current .item-link::after {
+    opacity: 1;
+}
+
+/* left flip */
+.menu-stephano .item-link::before {
+    left: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+}
+
+.menu-stephano .item-current .item-link::before {
+    -webkit-transform: rotate3d(0, 0, 1, -90deg);
+    transform: rotate3d(0, 0, 1, -90deg);
+}
+
+/* right flip */
+.menu-stephano .item-link::after {
+    right: 0;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+}
+
+.menu-stephano .item-current .item-link::after {
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    transform: rotate3d(0, 0, 1, 90deg);
+}
+
+/* bottom line */
+.menu-stephano .item::before {
+    left: 0;
+    width: 100%;
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-stephano .item-current::before {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
+    transition: transform 0.3s, opacity 0.1s;
+}

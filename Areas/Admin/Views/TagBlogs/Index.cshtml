@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TD.Models.TagBlog>
+<div class="main">
+
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/TagBlogs" class="breadcrumb-item active">Danh sách nhãn bài viết</a>
+        </div>
+        <div class="more-action">
+            <a class="togger togger-lazy btn btn-primary" data-src="/admin/tagblogs/_create" href="#create_tagblog">Thêm mới</a>
+            <a class="btn" href="/admin/blogs" title="Danh sách bài viết">Bài viết</a>
+        </div>
+    </div>
+    <h4 class="form-title">Danh sách nhãn</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                <a title="Tiêu đề" class="sortable" href='/Admin/tagblogs?Sort=@(ViewBag.Sort==null?"1":null)'>
+                    <span class="table-title">Tiêu đề</span>
+                    @if (ViewBag.Sort != null)
+                    {
+                        <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng theo A->Z"></span>
+                    }
+                    else
+                    {
+                        <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ Z->A"></span>
+                    }
+                </a>
+            </span>
+            <span class="table-cell">
+                <a title="Số bài viết" class="sortable" href="/admin/tagblogs?SortCount=@(ViewBag.SortCount==null?"1":null)">
+                    <span class="table-title"> Số bài viết</span>
+                    @if (ViewBag.SortCount != null)
+                    {
+                        <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng theo A->Z"></span>
+                    }
+                    else
+                    {
+                        <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ Z->A"></span>
+                    }
+                </a>
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+        { <div class="table-row">
+            <span class="table-cell">
+                <a data-src="/Admin/tagblogs/_Edit/@item.Id" href=@("#edit_tagblog"+@item.Id) class="togger togger-lazy text">
+                    <i class="fa fa-edit"></i>
+                    @item.FullName
+                </a>
+            </span>
+            <span class="table-cell text-right">
+                <span>@item.BlogTags.Count</span>
+            </span>
+        </div>
+        }
+
+    </div>
+</div>
+

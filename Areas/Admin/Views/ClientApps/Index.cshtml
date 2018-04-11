@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TD.Models.ClientApp>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Khách hàng
+            <a href="/admin/clientapps/create/@ViewBag.AppId" class="btn left" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+        <span class="table-cell">
+            Ngày sử dụng
+        </span>
+        <span class="table-cell">
+            Ngày hết hạn
+        </span>
+        <span class="table-cell">
+            Bản quyền
+        </span>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="table-row">
+                <span class="table-cell">
+                    <a href="/admin/clientapps/edit?AppId=@item.AppId&&ClientId=@item.ClientId" class="product-slide-link" title="Click vào đây để xem chi tiết">
+                        @item.Client.Name
+                    </a>
+                </span>
+                <span class="table-cell small">
+                    @item.Start.ToString("dd/MM/yy")
+                </span>
+                <span class="table-cell small">
+                    @(item.Expires != null ? item.Expires.Value.ToString("dd/MM/yy") : "")
+                </span>
+                <span class="table-cell text-center">
+                    @item.LicenseType.GetEnumDescription()
+                </span>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="table-row">
+            <span class="table-cell">Chưa có dữ liệu</span>
+        </div>
+    }
+
+</div>

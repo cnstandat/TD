@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_Head")
+</head>
+<body class="apps">
+    @RenderSection("Menu", false)
+    <div class="wrapper" id="wrapper">
+        @RenderSection("Body", false)
+    </div>
+    <footer class="footer wow wow-bg" data-bg="url(@CData.AppConfig.FooterImage)">
+        <ul class="menu">
+            <li><a href="/" class="a">Trang chủ</a></li>
+            <li><a href="/blog" class="a">Bài viết</a></li>
+            <li><a href="/shop" class="a">Cửa hàng</a></li>
+            <li><a href="/app" class="a">Ứng dụng</a></li>
+            <li><a href="/webtemp" class="a">mẫu web</a></li>
+            <li><a href="/account" class="a">Tài khoản</a></li>
+        </ul>
+        <ul class="menu">
+            <li><a class="togger togger-lazy a" href="#about" data-src="/home/_config/about">Giới thiệu</a></li>
+            <li><a class="togger togger-lazy a" href="#policies" data-src="/home/_config/policies">Điều khoản sử dụng</a></li>
+            <li><a class="togger togger-lazy a" href="#payment" data-src="/home/_config/payment">Vận chuyển & thanh toán</a></li>
+            <li><a class="togger togger-lazy a" href="#quantity" data-src="/home/_config/quantity">Cam kết chất lượng</a></li>
+            <li><a class="togger togger-lazy a" href="#event" data-src="/home/_config/event">Sự kiện</a></li>
+            <li><a class="togger togger-lazy a" href="#faq" data-src="/home/_config/faq">Câu hỏi thường gặp</a></li>
+        </ul>
+        <ul class="menu socials">
+            <li><a class="scrollTo a" href="#scr-subs">Đăng ký nhận tin</a></li>
+            <li><a class="scrollTo a" href="#scr-contact">Liên hệ</a></li>
+            <li><a href="@CData.AppConfig.TwitterLink" class="a">Twitter</a></li>
+            <li><a href="@CData.AppConfig.FacebookLink" class="a">Facebook</a></li>
+            <li><a href="@CData.AppConfig.GoogleLink" class="a">Google</a></li>
+            <li><a href="@CData.AppConfig.YoutubeLink" class="a">YouTube</a></li>
+        </ul>
+        <p class="last-logo">
+            <span>&copy; by</span>   Tấn Đạt &trade;
+        </p>
+    </footer>
+    @RenderSection("Cookie", false)
+    @Html.Partial("_End")
+</body>
+</html>

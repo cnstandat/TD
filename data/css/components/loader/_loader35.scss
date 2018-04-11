@@ -1,0 +1,33 @@
+﻿.loader-35 {
+	margin: 0 .5em;
+	position: relative;
+	&:before {
+		border-radius: 50%;
+		background-color: currentcolor;
+		animation: loader-35 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+		content: '';
+		width: inherit;
+		height: inherit;
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+}
+
+@keyframes loader-35 {
+	0% {
+		transform: translateX(0) scale(1)
+	}
+	25% {
+		transform: translateX(-100%) scale(0.3)
+	}
+	50% {
+		transform: translateX(0) scale(1)
+	}
+	75% {
+		transform: translateX(100%) scale(0.3)
+	}
+	100% {
+		transform: translateX(0) scale(1)
+	}
+}

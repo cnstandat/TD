@@ -1,0 +1,55 @@
+﻿<section class="section section-signup bg-faded wp" data-wp="bounceIn">
+   
+        <h3 class="m-b-3 text-center text-uppercase wp" data-wp="shake"><span class="text-success">Sign up</span> <em>to get more</em>  <b class="text-info">expensive!</b></h3>
+        <form class="form-valid m-b-3" id="fastregister" data-src="/Account/RegisterFast" autocomplete="nope" style="width:300px;margin:0 auto">
+            @Html.AntiForgeryToken()
+            <div class="form-group m-b-2">
+                <div class="input-group wp" data-wp="fadeInLeft">
+                    <label class="sr-only" for="inputName">User Name</label>
+                    <i class="fa fa-user input-group-addon"></i>
+                    <input type="text" class="form-control"
+                           data-rule-required="true"
+                           data-rule-remote="/Account/CheckName"
+                           data-rule-rangelength="4,30"
+                           id="fru" name="UserName" placeholder="Your name" autocomplete="new-password">
+                </div>
+            </div>
+
+            <div class="form-group m-b-2">
+                <div class="input-group wp" data-wp="fadeInUp">
+                    <label class="sr-only" for="inputEmail">Email address</label>
+                    <i class="fa fa-email input-group-addon"></i>
+                    <input type="email" class="form-control" id="frem" data-rule-required="true" data-rule-email="true" data-rule-remote="/Account/CheckEmail" name="Email" placeholder="Email address" autocomplete="new-password">
+                </div>
+            </div>
+
+
+            <div class="form-group m-b-2">
+                <div class="input-group wp" data-wp="fadeInRight">
+                    <label class="sr-only" for="inputPassword">Enter a password</label>
+                    <i class="input-group-addon fa fa-key"></i>
+                    <input type="password" class="form-control" id="frpw" required name="Password" data-rule-rangelength="6,30" placeholder="Enter a password" autocomplete="new-password">
+                </div>
+            </div>
+
+
+
+
+
+            <div class="text-center">
+                <a class="btn btn-custom btn-outline-success submit">
+                    <i class="fa fa-checkmark2"></i>Signup!
+                </a>
+            </div>
+
+
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" name="Agree">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description"> I agree to TD’s <a href="/Policies" class="text-success">terms of service</a></span>
+            </label>
+        </form>
+   
+</section>
+
+

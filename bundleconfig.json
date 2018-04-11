@@ -1,0 +1,86 @@
+[
+  {
+    "outputFileName": "data/chat.js",
+    "inputFiles": [
+      "data/libs/jquery.signalR-2.2.2.js"
+    ]
+  },
+  {
+    "outputFileName": "data/editor.js",
+    "inputFiles": [
+      "data/libs/codemirror.js",
+      "data/libs/xml.js",
+      "data/libs/at.js/jquery.atwho.js",
+      "data/libs/froala-editor/js/froala.js",
+      "data/libs/froala-editor/js/plugins/char_counter.js",
+      "data/libs/froala-editor/js/plugins/code_beautifier.js",
+      "data/libs/froala-editor/js/plugins/code_view.js",
+      "data/libs/froala-editor/js/plugins/colors.js",
+      "data/libs/froala-editor/js/plugins/draggable.js",
+      "data/libs/froala-editor/js/plugins/emoticons.js",
+      "data/libs/froala-editor/js/plugins/entities.js",
+      "data/libs/froala-editor/js/plugins/file.js",
+      "data/libs/froala-editor/js/plugins/font_family.js",
+      "data/libs/froala-editor/js/plugins/font_size.js",
+      "data/libs/froala-editor/js/plugins/forms.js",
+      "data/libs/froala-editor/js/plugins/fullscreen.js",
+      "data/libs/froala-editor/js/plugins/image_min.js",
+      "data/libs/froala-editor/js/plugins/image_manager.js",
+      "data/libs/froala-editor/js/plugins/inline_style.js",
+      "data/libs/froala-editor/js/plugins/line_breaker.js",
+      "data/libs/froala-editor/js/plugins/link.js",
+      "data/libs/froala-editor/js/plugins/lists.js",
+      "data/libs/froala-editor/js/plugins/paragraph_format.js",
+      "data/libs/froala-editor/js/plugins/paragraph_style.js",
+      "data/libs/froala-editor/js/plugins/quick_insert.js",
+      "data/libs/froala-editor/js/plugins/quote.js",
+      "data/libs/froala-editor/js/plugins/save.js",
+      "data/libs/froala-editor/js/plugins/table.js",
+      "data/libs/froala-editor/js/plugins/url.js",
+      "data/libs/froala-editor/js/plugins/video.js",
+      "data/libs/froala-editor/js/languages/vi.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "preserveImportantComments": false
+    }
+  },
+  {
+    "outputFileName": "data/megakit.js",
+    "inputFiles": [
+      "data/libs/underscore.js",
+      "data/libs/classie.js",
+      "data/libs/js-cookies.js",
+      "data/libs/imagesloaded.pkgd.min.js",
+      "data/libs/shuffle.js",
+      "data/libs/jquery/3.2.1.js",
+      "data/libs/magnific-popup/jquery.magnific-popup.js",
+      "data/libs/swiper/swiper.jquery.js",
+      "data/libs/timeago/jquery.timeago.js",
+      "data/libs/wow/wow.js",
+      "data/js/megakit.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "preserveImportantComments": false
+    }
+  },
+  {
+    "outputFileName": "data/admin.js",
+    "inputFiles": [
+      "data/libs/jquery.validate_custom.js",
+      "data/libs/chosen.jquery.js",
+      "data/libs/jquery.jcrop.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "preserveImportantComments": false
+    }
+  },
+  {
+    "outputFileName": "data/megakit.min.css",
+    "inputFiles": [
+      "data/megakit.css"
+    ]
+  }
+]

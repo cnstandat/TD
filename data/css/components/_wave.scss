@@ -1,0 +1,63 @@
+﻿.wave {
+    opacity: .4;
+    position: absolute;
+    top: 3%;
+    /*left: 50%;*/
+    background: #0af;
+    width: 160%;
+    height: 160%;
+    /*margin-left: -80%;
+    margin-top: -80%;*/
+    transform-origin: 50% 48%;
+    border-radius: 48%;
+    animation: drift 3000ms infinite linear;
+
+    &-three {
+        animation: drift 5000ms infinite linear;
+    }
+
+    &-two {
+        animation: drift 7000ms infinite linear;
+        opacity: .1;
+        background: yellow;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
+        z-index: -1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &-title {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        line-height: 300px;
+        text-align: center;
+        transform: translate3d(0, 0, 0);
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: .4em;
+        font-size: 24px;
+        text-shadow: 0 1px 0 rgba(black, .1);
+        text-indent: .3em;
+    }
+}
+
+@include keyframes (drift) {
+    from {
+        transform: rotate(0deg);
+    }
+
+    from {
+        transform: rotate(360deg);
+    }
+}

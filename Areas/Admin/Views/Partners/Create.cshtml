@@ -1,0 +1,46 @@
+﻿<div class="main">
+   
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/partners" class="breadcrumb-item">Khách hàng</a>
+            <a href="/Admin/partners/create" class="breadcrumb-item active">Thêm mới</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/products" title="Danh sách ứng dụng">Ứng dụng</a>
+        </div>
+     
+            <form class="form w-300-min center-ab">
+                <h4 class="form-title">
+                    Thông tin Khách hàng
+                </h4>
+                <input type="hidden" id="ImageData" name="ImageData" />
+                <figure class="image-fake" data-class="auto-height" data-width="200" data-height="100" data-upload="1">
+                    <noscript><img src="/data/site_svg/noavatar.png" width="200" height="100" /></noscript>
+                </figure>
+                @Html.AntiForgeryToken()
+                <div class="input--sae">
+                    <i class="fa fa-edit fa-fix"></i>
+                    <input class="input-text" name="Name" placeholder="Tên khách hàng" required data-rule-remote="/pub/partnerCheck" type="text" />
+                </div>
+                <div class="input--sae">
+                    <i class="fa fa-phone fa-fix"></i>
+                    <input class="input-text" name="Phone" placeholder="Điện thoại" type="number" />
+                </div>
+                <div class="input--sae">
+                    <i class="fa fa-info fa-fix"></i>
+                    <input class="input-text" name="Address" placeholder="Địa chỉ" type="text" />
+                </div>
+                <div class="input--sae">
+                    <i class="fa fa-email fa-fix"></i>
+                    <input class="input-text" name="Email" placeholder="Email" type="email" />
+                </div>
+                <div class="input--sae">
+                    <i class="fa fa-code fa-fix"></i>
+                    <input class="input-text" name="TaxNumber" placeholder="Mã số thuế" type="number" />
+                </div>
+                <div class="form-btn">
+                    <a class="btn submit btn-success" title="Lưu khách hàng"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+   

@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<TD.Models.Comment>
+
+<form class="form" data-src="/admin/comments/gen?@ViewBag.CreateLink">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="AppId" value="@ViewBag.AppId" />
+    <input type="hidden" name="BlogId" value="@ViewBag.BlogId" />
+    <div class="input--sae">
+        <input class="input-text" name="Count" required />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Số lượng dữ liệu mẫu cần tạo</span>
+        </label>
+    </div>
+    <div class="form-btn">
+        <a class="btn submit btn-primary">
+            <i class="fa fa-comment"></i>
+            Tạo dữ liệu mẫu
+        </a>
+    </div>
+</form>
+
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Thảo luận
+        </span>
+        <span class="table-cell">
+            Người đăng
+        </span>
+        <span class="table-cell">
+            Thời gian
+        </span>
+        <span class="table-cell">
+            Trả lời
+        </span>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="table-row">
+            <input class="ignore" type="radio" name="expand" />
+            <span class="table-cell primary">
+                <a data-src="/admin/comments/edit/@item.Id" class="togger togger-lazy" href="#editcomment">
+                    <i class="fa fa-edit"></i>
+                    @Html.Raw(item.Content)
+                </a>
+            </span>
+            <span class="table-cell" data-label="Người đăng">
+                @item.User.UserName
+            </span>
+            <span class="table-cell" data-label="Thời gian">
+                @item.Created.ToString("dd/MM/yy HH:mm")
+            </span>
+            <span class="table-cell" data-label="Thảo luận">
+                @item.Children.Count
+            </span>
+
+        </div>
+
+    }
+@if (ViewBag.HasMore)
+{
+    <div class="load-more-container">
+      
+       
+            <a class="btn load-on-click" data-src="/admin/comments/index?@ViewBag.CreateLink&Page=@ViewBag.Page">
+                Xem thêm
+            </a>
+      
+    </div>
+
+
+}
+
+</div>

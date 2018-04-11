@@ -1,0 +1,8 @@
+﻿@model IEnumerable<TD.Models.Views.AppFeatureView>
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <li> @item.Content </li>
+    }
+}

@@ -1,0 +1,35 @@
+﻿.loader-18 {
+	position: relative;
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+		border: .1em solid transparent;
+		border-bottom-color: currentcolor;
+		top: 0;
+		left: 0;
+		animation: 1s loader-18 linear infinite;
+	}
+	&:before {
+		width: 1em;
+		height: 1em;
+	}
+	&:after {
+		width: .8em;
+		height: .8em;
+		top: .1em;
+		left: .1em;
+		animation-direction: reverse;
+	}
+}
+
+@keyframes loader-18 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,85 @@
+﻿@model TD.Models.Views.AppFeatureView
+
+
+@if (Model != null)
+            {
+
+    <div class="main">
+
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/Edit/@Model.AppId" class="breadcrumb-item">@Model.AppName</a>
+            <a href="/admin/products/AppFeaturesEdit?FeatureAppId=@Model.FeatureAppId&AppId=@Model.AppId" class="breadcrumb-item active">Chức năng ứng dụng</a>
+
+        </div>
+        @*<div class="more-action">
+                <a class="btn" href="/admin/products/features" title="Danh sách chức năng"><i class="only-xs fa fa-list-ol"></i> <span class="hide-xs">Chức năng</span> </a>
+            </div>*@
+        <div class="collapse-drop only-tablet">
+            <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+            <a class="fast" href="/admin/products/features" title="Danh sách chức năng"><i class="fa fa-list-ul"></i><span> Chức năng</span></a>
+            @*<a class="fast" href="/admin/products"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+                <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>*@
+        </div>
+
+        <form class="form form-center form-chosen">
+
+            <div class="form-title">
+                Cập nhật thông tin @Model.AppName
+            </div>
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="AppId" value="@Model.AppId" />
+
+
+            <div class="input--sae">
+                <i class="fa fa-list-ol fa-fix"></i>
+                <input class="input-text" type="number" name="Order" value="@Model.Order" placeholder="Thứ tự" />
+            </div>
+            <div class="input--sae">
+                @Html.DropDownListFor(x => x.Selected, Model.FeatureApps, new { @class = "chosen", count = 1, data_placeholder = "Chọn chức năng" })
+            </div>
+            <div class="input--sae">
+                <i class="fa fa-edit fa-fix"></i>
+                <input class="input-text" type="text" value="@Model.Content" name="Content" placeholder="Giá trị thông số" />
+            </div>
+
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                <a class="btn delete" title="Xóa chức năng" data-src="/admin/products/FeatureAppsD?AppId=@Model.AppId&FeatureAppId=@Model.FeatureAppId">
+                    <i class="fa fa-cross"></i>Xóa
+                </a>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+
+}
+else
+{
+    <div class="main">
+       
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/Edit/" class="breadcrumb-item">Chức năng</a>
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/products/afeatures" title="Danh sách chức năng">Chức năng</a>
+            </div>
+            
+
+                <h4 class="form-title">Không tìm thấy ứng dụng</h4>
+
+            </div>
+
+
+
+        
+
+}

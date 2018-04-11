@@ -1,0 +1,26 @@
+﻿@model TD.Models.Views.AuthorViewModel
+<div class="author clearfix">
+    <figure class="author-avatar">
+        <img src="@Model.Image" alt="@Model.Name">
+    </figure>
+    <div class="author-info">
+        <div class="info">
+            <a class="author-name" href="@Model.ProfileLink">@Model.Name</a>
+            <h5 class="author-other">Gia nhập từ @Model.JoinTime</h5>
+            @if (Model.BlogCount > 0)
+            {
+                <a href="@Model.BlogCreatedLink/" class="author-other">
+                    <span> Đã viết @Model.BlogCount bài</span>
+                </a>
+            }
+            @if (Model.CommentCount > 0)
+            {
+                <a href="@Model.BlogCommentedLink" class="author-other">
+                    <span> Đã bình luận @Model.CommentCount lần</span>
+                </a>
+            }
+        </div>
+
+        <div class="sign"> @Html.Raw(Model.Sign)</div>
+    </div>
+</div>

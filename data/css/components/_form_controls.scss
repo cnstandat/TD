@@ -1,0 +1,459 @@
+﻿.form {
+    padding: 1rem 0;
+
+    &.inline {
+        padding: 0;
+    }
+
+    &-sm {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    &-btn {
+        .btn {
+            padding: 4px 16px;
+
+            .fa {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.more-action {
+    .btn {
+        padding: 4px 16px;
+
+        .fa {
+            margin-right: 10px;
+        }
+    }
+}
+
+.btn {
+    &.delete, &.cancel, &.delete-active {
+        padding: 4px 16px;
+
+        .fa {
+            margin-right: 10px;
+        }
+    }
+}
+
+@import "../libs";
+
+.form-text {
+    font-size: .8em;
+    font-weight: $font-weight-bold;
+    font-style: italic;
+    text-align: justify;
+}
+
+.social-list {
+    display: flex;
+    justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    font-size: .8em;
+    font-style: italic;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: color 9999s ease-out, background-color 9999s ease-out,background-image 9999s ease-out;
+}
+
+.sm {
+    font-size: .8rem;
+}
+
+.lg {
+    font-size: 1.4rem;
+}
+
+.autoExpand {
+    display: block;
+    width: 100%;
+    line-height: 20px;
+    padding: 5px 10px;
+    resize: vertical;
+    border: 1px solid $color-primary;
+}
+
+.info {
+    border-color: $brand-info;
+    color: $brand-info;
+}
+
+.success {
+    border-color: $brand-success;
+    color: $brand-success;
+}
+
+.primary {
+    border-color: $color-primary;
+    color: $color-primary;
+}
+
+.light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.input-container {
+    position: relative;
+    margin: 10px auto;
+    display: block;
+    font-size: 1em;
+
+    &.has-success {
+        .input-text {
+            background-image: $form-icon-success;
+        }
+    }
+
+    &.has-danger {
+        .input-text {
+            background-image: $form-icon-danger;
+        }
+    }
+
+    + .input-container {
+        margin-top: 10px;
+    }
+
+    .fa-fix {
+        position: absolute;
+        z-index: 1;
+        left: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        font-weight: bold;
+        opacity: .5;
+        color: inherit;
+    }
+
+
+
+    &-circle {
+
+        .input-text {
+            border-width: 2px;
+            border-radius: 2em;
+        }
+    }
+
+    &-oval {
+        .input-text {
+            border-radius: 2em;
+        }
+    }
+
+    .btn {
+        position: absolute;
+        right: 0;
+        top: 2px;
+        line-height: 2em;
+        font-size: 1em;
+        padding: .5em 1em;
+        border-width: 0 2px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+
+        @include hover-focus {
+            background: $base-red;
+            color: #fff;
+        }
+    }
+}
+
+/*.input-text {
+    color: inherit;
+    width: 100%;
+    background-color: transparent !important;
+    line-height: 2em;
+    font-size: 1em;
+    padding: .5em 0;
+    text-indent: 3em;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: inherit;
+    outline: none;
+    box-shadow: none;
+    background-repeat: no-repeat;
+    background-position: center right 8px;
+    background-size: 20px 20px;
+}*/
+.input-text {
+    background-repeat: no-repeat;
+    background-position: bottom 8px right 8px;
+    background-size: 20px 20px;
+}
+
+textarea.input-text {
+    max-height: 100%;
+}
+
+.error {
+    position: absolute;
+    top: -37px;
+    left: 20px;
+    background: rgba(red,.8);
+    border-radius: 5px;
+    @include transition(opacity .3s ease);
+    padding: 1px 7px;
+    color: #fff;
+    z-index: 2001;
+    display: block;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+
+    &:after {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        left: 50%;
+        top: 32px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid rgba(red,.8);
+        transform: translateX(-50%);
+    }
+}
+
+.form-btn {
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    .btn {
+        margin: 10px auto;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.input-text[type="number"] {
+    text-align: right;
+}
+
+.label {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.model-title {
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-primary;
+}
+
+.form-title {
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-primary;
+    font-size: 1rem;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eee;
+    padding: 1rem;
+
+    .left, .right {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: .5rem;
+    }
+
+    .right {
+        border-top: 1px solid #eee;
+        padding-top: 1rem;
+    }
+}
+
+@mixin form-md {
+    .form-body {
+        flex-direction: row;
+
+        .left, .right {
+            flex: 1 1 50%;
+        }
+
+        .right {
+            border-top: none;
+            padding-top: 0;
+            border-left: 1px solid #eee;
+            padding-left: 1rem;
+        }
+    }
+}
+
+.edit {
+    .input-container {
+        .input-text {
+            border: none;
+            text-indent: 5px;
+        }
+    }
+}
+
+.chosen-search-input {
+    font-style: italic;
+}
+
+.input--sae {
+    overflow: hidden;
+    width: 100%;
+    /*font-size: 14px;*/
+    margin: .5em 0;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    vertical-align: top;
+    color: $color-primary;
+    text-align: left;
+
+    .input-text {
+        -webkit-appearance: none;
+        border: none;
+        border-radius: 0;
+        position: relative;
+        display: block;
+        float: right;
+        background-color: transparent;
+        width: 100%;
+        padding: 2em 0 .5em;
+        font-weight: bolder;
+        line-height: initial;
+        text-indent: 0;
+    }
+
+
+
+    .label {
+        display: inline-block;
+        float: right;
+        /*font-weight: bold;*/
+        /*font-size: 70.25%;*/
+        user-select: none;
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        height: 100%;
+        text-align: left;
+        /*color: #7771ab;*/
+        pointer-events: none;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: $color-primary;
+            bottom: 0;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+        }
+    }
+
+    .fa {
+        color: $base-red;
+        position: absolute;
+        bottom: 10px;
+        margin-right: 0;
+        opacity: 0.5;
+        right: 1.5em;
+        font-size: 1em;
+        font-weight: bold;
+        margin-right: 0;
+        pointer-events: none;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        -webkit-transition: -webkit-transform 0.3s;
+        transition: transform 0.3s;
+    }
+
+    .text {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        font-size: 1.1em;
+        display: inline-block;
+        vertical-align: bottom;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: translate3d(0, 1.6em, 0);
+        transform: translate3d(0, 1.6em, 0);
+        -webkit-transition: -webkit-transform 0.3s;
+        transition: transform 0.3s;
+    }
+
+    &.input--filled .label, .input-text:focus + .label {
+        .text {
+            transform: translate3d(0, 0, 0) scale3d(0.9, 0.9, 1);
+        }
+
+        .fa {
+            transform: translate3d(3em, 0, 0);
+        }
+    }
+
+    &.has-danger {
+        .error {
+            top: 0;
+        }
+
+        .input-text {
+            background-image: $form-icon-danger;
+        }
+    }
+
+    &.has-success {
+        .input-text {
+            background-image: $form-icon-success;
+        }
+    }
+    /*&.has-danger {
+       
+    }*/
+}
+.depth {
+  display: block;
+  border: 1px solid silver;
+  background: linear-gradient(#eee, #fff);
+  transition: all 0.3s ease-out;
+  padding: 5px;
+  color: #555;
+}
+
+.depth:focus {
+  outline: none;
+  background-position: 0 -1.7em;
+}
+	

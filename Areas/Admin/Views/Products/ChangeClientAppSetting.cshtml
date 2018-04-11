@@ -1,0 +1,66 @@
+﻿@model TD.Models.Views.ClientAppEditModel
+@if (Model != null)
+{
+    <div class="main">
+        <div class="tools">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/Edit/@Model.AppId" class="breadcrumb-item">@Model.AppName</a>
+                <a href="/admin/products/PartnerAppsU?PartnerId=@Model.ClientId&AppId=@Model.AppId" class="breadcrumb-item active">@Model.ClientName</a>
+            </div>
+            <div class="collapse-drop">
+                <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+                <a class="fast" href="/admin/products"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+                <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            </div>
+        </div>
+
+        <h3 class="model-title">Ứng dụng: @Model.AppName</h3>
+        <h4 class="model-title">Khách hàng: @Model.ClientName</h4>
+        <div class="form-body">
+            <div class="left">
+                <form class="form edit">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="AppId" value="@Model.AppId" />
+                    <input type="hidden" name="ClientId" value="@Model.ClientId" />
+                    <div class="form-title">
+                        Cập nhật thông tin
+                        <a class="btn submit" title="Lưu"><i class="fa fa-save"></i></a>
+                        <a class="btn delete" title="Xóa khách hàng" data-src="/admin/products/RemoveClientUsingApp?AppId=@Model.AppId&ClientId=@(Model.ClientId)">
+                            <i class="fa fa-cross"></i>Xóa
+                        </a>
+                    </div>
+                    <div class="input--sae">
+                        @Html.DropDownListFor(x => x.LicenseType, Model.LicenseTypes, new { @class = "chosen", count = "1", data_placeholder = "Chọn phiên bản" })
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" type="date" name="Start" value="@Model.Start.ToString("yyyy-MM-dd")" placeholder="Bắt đầu sử dụng" />
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" type="date" name="Expires" value="@(Model.Expires!=null?Model.Expires.Value.ToString("yyyy-MM-dd"):"")" placeholder="Hết hạn" />
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <div class="lazy" data-src="/admin/products/GetUserUsingApps?ClientId=@Model.ClientId&AppId=@Model.AppId"></div>
+            </div>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/Edit/" class="breadcrumb-item">Khách hàng</a>
+        </div>
+        <div class="form-title">
+            Không có dữ liệu
+        </div>
+    </div>
+}
+
+

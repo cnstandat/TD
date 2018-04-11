@@ -1,0 +1,83 @@
+﻿/*@import '../libs/bs4/css/_mixins.scss';*/
+@import "../fonts/variables.scss";
+@import '_compass.scss';
+@import "_mq.scss";
+@import "vars";
+@import "functions";
+@import "mixins";
+
+@import "components/_bg.scss";
+@mixin nice_a() {
+    letter-spacing: .15em;
+    border-bottom: none;
+    position: relative;
+    font-size: .8em;
+
+
+    @include mq(tablet) {
+        font-size: 1em;
+    }
+
+    &:before,
+    &:after {
+        border-radius: 0.2em;
+        bottom: 0;
+        content: '';
+        height: 0.2em;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+
+    &:before {
+        background: lighten($base-red, 5);
+    }
+
+    &:after {
+        @include background-image(linear-gradient(to right, $base-red, $color-gold));
+        @include transition(max-width .4s ease);
+        max-width: 0;
+    }
+
+    &:hover {
+        color: _palette(fg);
+
+        &:after {
+            max-width: 100%;
+        }
+    }
+
+    &.active {
+        color: #fff;
+
+        &:after {
+            max-width: 100%;
+        }
+    }
+
+    @include mq(desktop) {
+        @include transition(color .3s ease);
+        border: 0;
+        color: #fff;
+        display: block;
+        line-height: 1.75;
+        outline: 0;
+        padding: 1.35em 0;
+        position: relative;
+        font-size: 1.2em;
+
+        &:before,
+        &:after {
+            border-radius: 0.2em;
+            bottom: 0;
+            content: '';
+            height: 0.2em;
+            position: absolute;
+            right: 0;
+            width: 100%;
+        }
+
+       
+    }
+}
+/*@import "data/fonts/icomoon";*/

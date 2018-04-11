@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TD.Models.UserApp>
+@if (Model != null && Model.Any())
+{
+    <h4 class="form-title">Danh sách ứng dụng</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Ứng dụng
+            </span>
+
+            <span class="table-cell">Quản trị</span>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="table-row">
+                <span class="table-cell">
+                    <a href="@item.App.Link">
+                        @item.App.Name
+                    </a>
+                </span>
+                <span class="table-cell">
+                    @item.Role.Name
+                </span>
+
+            </div>
+        }
+
+
+    </div>
+}
+else
+{
+    <h4 class="form-title">Chưa sử dụng ứng dụng nào</h4>
+}
+
+
+
+
+
+

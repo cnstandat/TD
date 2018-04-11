@@ -1,0 +1,35 @@
+﻿.loader-wrap{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:99999;
+    background:#343547;
+}
+.loader {
+    content: '';
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include animation(rotate .8s infinite linear);
+    border-left: 3px solid rgba(114,144,182,0.15);
+    border-right: 3px solid rgba(114,144,182,0.15);
+    border-bottom: 3px solid rgba(114,144,182,0.15);
+    border-top: 3px solid rgba(114,144,182,0.8);
+    border-radius: 100%;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,50 @@
+﻿@model TD.Models.Views.UserInfoView
+<div class="form-title">
+    Hồ sơ người dùng
+</div>
+<form class="form form-block user-profile" data-src="/account/setavatar">
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="ImageData" name="ImageData" />
+    <div class="user-avatar">
+        <figure class="image-fake" data-src="@Model.Avatar" data-auto="1" data-width="80" data-height="80" data-upload="1">
+            <noscript><img src="@Model.Avatar" class="user-avatar" width="60" height="60" /></noscript>
+        </figure>
+        <span class="user-created">Gia nhập từ : @Model.Created.ToString("dd/MM/yy")</span>
+        <div class="user-avatar-submit">
+            <a class="btn submit btn-success"><i class="fa fa-image"></i><span class="text">Cập nhật avatar</span></a>
+        </div>
+    </div>
+
+    <div class="user-others">
+        <a class="user-fullname load-click @Model.NameClass" href="#panelLoad" data-src="/account/_changename" data-target="changename">Họ tên : @Model.FullName</a>
+        <a class="user-name load-click @Model.UserNameClass" href="#panelLoad" data-src="/account/_changeusername" data-target="changeus">Tên đăng nhập : @Model.UserName</a>
+        <a class="user-phone load-click @Model.PhoneClass" href="#panelLoad" data-src="/account/_changephone" data-target="changephone">Điện thoại :@Model.Phone</a>
+        <a class="user-email load-click @Model.EmailClass" href="#panelLoad" data-src="/account/_changeemail" data-target="changeem">Email :@Model.Email</a>
+    </div>
+
+    <ul class="accordion">
+        <li>
+            <div class="link acc-init">
+                Chữ ký
+            </div>
+            <div class="submenu text-center">
+                <a class="btn btn-success load-click" href="#panelLoad" data-src="/account/_changesign" data-target="changesign">
+                    <i class="fa fa-edit"></i> <span>Cài đặt</span>
+                </a>
+                @if (!string.IsNullOrEmpty(Model.Sign))
+                {
+                <div class="user-sign">
+                    @Html.Raw(Model.Sign)
+                </div>
+                }
+            </div>
+        </li>
+    </ul>
+</form>
+
+<form class="form" data-src="/account/_logoff">
+    @Html.AntiForgeryToken()
+    <div class="form-btn"><a class="btn submit"><i class="fa fa-switch"></i><span class="text">Thoát tài khoản</span></a></div>
+</form>
+
+

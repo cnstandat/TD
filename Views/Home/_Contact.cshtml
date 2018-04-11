@@ -1,0 +1,62 @@
+﻿<div class="contact" id="contact">
+    <div class="lienhe wow fadeInDownBig"></div>
+    <section id="cd-google-map">
+        <div id="google-container"></div>
+        <div id="cd-zoom-in"></div>
+        <div id="cd-zoom-out"></div>
+        <div class="address">
+            <a href="/" class="name">Cty TNHH Công Nghệ Số Tấn Đạt</a>
+            <p class="add"><i class="fa fa-home"></i>14B Đường Phạm Đình Toái</p>
+            <p class="cỉty"><i class="fa fa-bookmark"></i>Phường Hà Huy Tập - TP.Vinh - Nghệ An</p>
+            <p class="phone"><i class="fa fa-phone"></i>+84 02383-551-888</p>
+            <p class="phone hot"><i class="fa fa-phone"></i>+84 985-569-705</p>
+            <p class="email"><i class="fa fa-email"></i><a href="mailto:support@cnstandat.net">support@cnstandat.net</a></p>
+            <a class="togger btn btn-sm btn-info" data-toggle="contact-form" href="#contact-form">
+                <i class="fa fa-email"></i> Gửi Email
+            </a>
+        </div>
+    </section>
+</div>
+<form class="form form-custom collapse" data-src="/home/contact" id="contact-form">
+    <a class="collapse-close"><span class="line"></span></a>
+    <div class="form-title">
+        Gửi góp ý cho chúng tôi
+    </div>
+    @Html.AntiForgeryToken()
+    <div >
+        <div>
+            <div class="input--sae">
+                <i class="fa fa-user fa-fix"></i>
+                <input class="input-text" placeholder="Tên" id="ctu" name="Name" type="text" required autocomplete="new-password" />
+            </div>
+        </div>
+        <div >
+            <div class="input--sae">
+                <i class="fa fa-email fa-fix"></i>
+                <input class="input-text" type="email" required autocomplete="new-password" id="ctem" data-rule-email="true" name="Email" placeholder="Email" />
+            </div>
+        </div>
+        <div >
+            <div class="input--sae">
+                <i class="fa fa-phone fa-fix"></i>
+                <input class="input-text" type="number" autocomplete="new-password" id="ctph" name="Phone" placeholder="Điện thoại" />
+            </div>
+        </div>
+    </div>
+
+    <div class="input--sae">
+        <textarea id="ctmes" name="Content" class="note-editable" required data-rule-minlength="30" placeholder="Nội dung"></textarea>
+    </div>
+
+    <div class="submit-container">
+        <a class="btn submit">
+            <i class="fa fa-envelope"></i>
+            Gửi tin nhắn
+        </a>
+    </div>
+</form>
+
+
+
+
+

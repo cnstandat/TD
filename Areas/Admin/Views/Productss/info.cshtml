@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TD.Models.AppInfo>
+
+<div class="main">
+  
+        <div class="breadcrumb">
+            <a href="/admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Sản phẩm</a>
+            <a href="/admin/products/info" class="breadcrumb-item active">Thông số</a>
+            @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+            {
+                <input type="text" name="Search" value="@ViewBag.CurrentFilter" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                @*@Html.TextBox("Search", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "search-input", @placeholder = "Tìm kiếm bài viết" })*@
+            }
+        </div>
+      
+
+
+            <h4 class="form-title">Thông số sản phẩm</h4>
+
+            <div class="table">
+                <div class="table-row table-row-header">
+                    <span class="table-cell">
+                        Tên
+                        <a href="/admin/products/createnewinfo" title="Thêm mới" class="btn left">
+                            Thêm mới
+                        </a>
+                    </span>
+
+                </div>
+
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="table-row">
+                            <span class="table-cell">
+                                <a href="/admin/products/editinfo/@item.Id" title="Click vào đây để xem chi tiết">
+                                    @item.Name
+                                </a>
+                            </span>
+
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+   

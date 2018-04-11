@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@section Menu{
+   <div class="loader-wrap" id="loader"><div class="loader"></div></div>
+<header class="main-menu-2 sticky">
+    <a href="/" class="logo-link">
+        <img class="logo-img" src="data:image/png;base64,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" alt="Tấn Đạt Logo">
+    </a>
+    <a class="togger togger-left" data-togger="main-mnu">
+        <span class="line"></span>
+        <svg x="0rem" y="0rem" width="3.125rem" height="3.125rem" viewbox="0 0 54 54">
+            <circle fill="transparent" stroke="#fff" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+        </svg>
+    </a>
+    <div class="collapse cen" id="main-mnu">
+        <nav class="main-nav">
+            <ul class="main-nav-menu right">
+                <li class="menu-item">
+                    <a class="item-link divider active" href="/">Trang chủ</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider" href="/blog">Bài viết</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider" href="/shop">Cửa hàng</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider" href="/app">Ứng dụng</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider" href="/webtemp">Mẫu web</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider" href="/account">Tài khoản</a>
+                </li>
+            </ul>
+            <ul class="main-nav-menu left">
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/about" href="#about">Giới thiệu</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/policies" href="#policies">Điều khoản sử dụng</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/payment" href="#payment">Vận chuyển & thanh toán</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/quantity" href="#quantity">Cam kết chất lượng</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/event" href="#event">Sự kiện</a>
+                </li>
+                <li class="menu-item">
+                    <a class="item-link divider togger togger-lazy" data-src="/home/_config/faq" href="#faq">Câu hỏi thường gặp</a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="sec-nav">
+
+            <ul class="menu-action">
+                <li class="menu-action-item"><a class="menu-action-link -is-active" href="#">Vi</a></li>
+                <li class="menu-action-item"><a class="menu-action-link" href="/?language=en">En</a></li>
+            </ul>
+            <ul class="menu-action">
+                <li class="menu-action-item">
+                    <a class="menu-action-link" href="#">
+                        <i class="p-r-5 fa-facebook"></i>
+                        <span class="dis-none dis-inline-block-sm">Facebook</span>
+                    </a>
+                </li>
+                <li class="menu-action-item">
+                    <a class="menu-action-link" href="#">
+                        <i class="p-r-5 fa-twitter"></i>
+                        <span class="dis-none dis-inline-block-sm">Twitter</span>
+                    </a>
+                </li>
+                <li class="menu-action-item">
+                    <a class="menu-action-link" href="#">
+                        <i class="p-r-5 fa-google"></i>
+                        <span class="dis-none dis-inline-block-sm">Google</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</header>
+}
+
+@section Body{
+    @RenderBody()
+}
+
+@section Cookie{
+   
+}
+

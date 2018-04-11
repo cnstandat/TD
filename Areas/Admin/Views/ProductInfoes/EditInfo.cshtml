@@ -1,0 +1,42 @@
+﻿@model TD.Models.AppInfo
+
+<div class="main">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+            <a href="/Admin/Apps/info" class="breadcrumb-item">Thông số</a>
+            <a href="/Admin/Apps/EditInfo" class="breadcrumb-item active">Chỉnh sửa thông số</a>
+            @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+            {
+                <input type="text" name="SearchString" value="@ViewBag.CurrentFilter" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                @*@Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "search-input", @placeholder = "Tìm kiếm bài viết" })*@
+            }
+        </div>
+        <form class="form form-block" data-url="/Admin/Apps/Create">
+            @Html.AntiForgeryToken()
+            <a class="collapse-close">
+                <span class="line"></span>
+            </a>
+            <div class="form-title">
+                Cập nhật thông số sản phẩm
+            </div>
+
+            <div class="input--sae">
+                <i class="fa fa-edit fa-fix"></i>
+                <input class="input-text" name="Name" placeholder="Tên thông số" required data-rule-remote="/infocheck" data-rule-minlength="2" value="@Model.Name" />
+            </div>
+
+
+
+
+            <div class="input--sae">
+                <label for="IsLarger">Có thể so sánh</label>
+                @Html.CheckBoxFor(x => x.Comparable);
+            </div>
+            <div class="submit-container">
+                <a class="btn submit btn-outline-primary" title="Lưu thông số sản phẩm"><i class="fa fa-save"></i>Lưu</a>
+            </div>
+        </form>
+    </div>
+</div>

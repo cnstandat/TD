@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TD.Models.Config>
+@if (Model != null && Model.Any())
+{
+    <div class="menu-bottom">
+        <a class="togger menu-block-item togger-lazy" data-src="/Home/_About" href="#about">Giới thiệu</a>
+        @foreach (var item in Model)
+        {
+            <a class="togger menu-block-item togger-lazy" data-src="/home/_config/@item.Id" href=@("#"+item.Id)>@item.Name</a>
+                @*<div id="@item.Id" class="lazy collapse" data-src="/Home/_Config/@item.Id"></div>*@
+        }
+    </div>
+}

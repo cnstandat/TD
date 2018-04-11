@@ -1,0 +1,16 @@
+﻿@model IEnumerable<TD.Models.Partner>
+<div class="sw sw-clients sw-init">
+    <div class="swiper-wrapper">
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            { i++; }
+            <div class="swiper-slide">
+                <div class="wow fadeIn" data-wow-duration=".3" data-wow-delay="@(i*0.2)s">
+                    <img class="partner" src=@(item.Logo) alt="@item.Name Logo">
+                </div>
+            </div>
+        }
+        <div class="sw-page sw-page-dark"></div>
+    </div>
+</div>

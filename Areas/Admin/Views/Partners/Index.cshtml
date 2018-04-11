@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TD.Models.Partner>
+
+<div class="main">
+   
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Partners" class="breadcrumb-item active">Khách hàng</a>
+            @using (Html.BeginForm("Index", "Partners", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+            {
+                <input type="text" value="@ViewBag.Search" name="id" class="search-input" placeholder="Tìm kiếm khách hàng" />
+            }
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/products" title="Danh sách ứng dụng"><i class="fa fa-cogs"></i> Ứng dụng</a>
+            <a class="btn btn-success" href="/admin/partners/create" title="Thêm mới khách hàng"><i class="fa fa-plus"></i> Thêm mới</a>
+        </div>
+       
+            <h4 class="form-title">Danh sách đối tác</h4>
+            <div class="table">
+                <div class="table-row table-row-header">
+                    <span class="table-cell">
+                        Khách hàng
+                    </span>
+                    <span class="table-cell">
+                        Địa chỉ
+                    </span>
+                    <span class="table-cell">
+                        Điện thoại
+                    </span>
+                    <span class="table-cell">
+                        Ứng dụng
+                    </span>
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="table-row">
+                        <span class="table-cell">
+                            <span><a href="/Admin/Partners/Edit/@item.Id" class="text">@Html.Raw((string.IsNullOrEmpty(item.Name) ? "<i class='fa fa-edit'></i>" : item.Name))</a></span>
+                        </span>
+                        <span class="table-cell">
+                            <span>@item.Address </span>
+                        </span>
+                        <span class="table-cell">
+                            <span>@item.Phone</span>
+                        </span>
+                        <span class="table-cell">
+                            @item.PartnerApps.Count
+                        </span>
+                    </div>
+                }
+
+            </div>
+        </div>
+    

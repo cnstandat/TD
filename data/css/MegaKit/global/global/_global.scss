@@ -1,0 +1,219 @@
+/*----------------------------------
+  Font Size
+------------------------------------*/
+
+@for $i from 10 through 20 {
+  .font-size-#{$i * 1} {
+    font-size: ($i * .0625rem !important);
+  }
+}
+
+@for $i from 11 through 25 {
+  .font-size-#{$i * 2} {
+    font-size: ($i * .125rem !important);
+  }
+}
+
+@for $i from 11 through 30 {
+  .font-size-#{$i * 5} {
+    font-size: ($i * .3125rem !important);
+  }
+}
+
+/* Small screen / phone */
+@include media-breakpoint-up(sm) {
+  @for $i from 10 through 20 {
+  .font-size-#{$i * 1}-sm {
+      font-size: ($i * .0625rem !important);
+    }
+  }
+
+  @for $i from 11 through 25 {
+    .font-size-#{$i * 2}-sm {
+      font-size: ($i * .125rem !important);
+    }
+  }
+
+  @for $i from 11 through 30 {
+    .font-size-#{$i * 5}-sm {
+      font-size: ($i * .3125rem !important);
+    }
+  }
+}
+
+/* Medium screen / tablet */
+@include media-breakpoint-up(md) {
+  @for $i from 10 through 20 {
+  .font-size-#{$i * 1}-md {
+      font-size: ($i * .0625rem !important);
+    }
+  }
+
+  @for $i from 11 through 25 {
+    .font-size-#{$i * 2}-md {
+      font-size: ($i * .125rem !important);
+    }
+  }
+
+  @for $i from 11 through 30 {
+    .font-size-#{$i * 5}-md {
+      font-size: ($i * .3125rem !important);
+    }
+  }
+}
+
+/* Extra large screen / wide desktop */
+@include media-breakpoint-up(lg) {
+  @for $i from 10 through 20 {
+  .font-size-#{$i * 1}-lg {
+      font-size: ($i * .0625rem !important);
+    }
+  }
+
+  @for $i from 11 through 25 {
+    .font-size-#{$i * 2}-lg {
+      font-size: ($i * .125rem !important);
+    }
+  }
+
+  @for $i from 11 through 30 {
+    .font-size-#{$i * 5}-lg {
+      font-size: ($i * .3125rem !important);
+    }
+  }
+}
+
+
+/*----------------------------------
+  Font Family
+------------------------------------*/
+
+.font-f-primary { @include font($family: $font-family-primary !important); }
+.font-f-secondary { @include font($family: $font-family-secondary !important); }
+.font-f-playfair { @include font($family: $font-family-playfair !important); }
+
+
+/*----------------------------------
+  Font Weight
+------------------------------------*/
+
+.font-w-300 { @include font($weight: 300 !important); }
+.font-w-400 { @include font($weight: 400 !important); }
+.font-w-500 { @include font($weight: 500 !important); }
+.font-w-600 { @include font($weight: 600 !important); }
+.font-w-700 { @include font($weight: 700 !important); }
+
+
+/*----------------------------------
+  Letter Spacing
+------------------------------------*/
+
+.letter-sp-1 { letter-spacing: .0625rem; }
+.letter-sp-2 { letter-spacing: .125rem; }
+.letter-sp-3 { letter-spacing: .1875rem; }
+
+
+/*----------------------------------
+  Display
+------------------------------------*/
+
+.dis-none { display: none; }
+.dis-block { display: block; }
+.dis-inline { display: inline; }
+.dis-inline-block { display: inline-block; }
+.dis-inherit { display: inherit; }
+.dis-table { display: table; }
+
+/* Small screen / phone */
+@include media-breakpoint-up(sm) {
+  .dis-none-sm { display: none; }
+  .dis-block-sm { display: block; }
+  .dis-inline-sm { display: inline; }
+	.dis-inline-block-sm { display: inline-block; }
+  .dis-inherit-sm { display: inherit; }
+	.dis-table-sm { display: table; }
+}
+
+/* Medium screen / tablet */
+@include media-breakpoint-up(md) {
+  .dis-none-md { display: none; }
+  .dis-block-md { display: block; }
+  .dis-inline-md { display: inline; }
+  .dis-inline-block-md { display: inline-block; }
+  .dis-inherit-md { display: inherit; }
+  .dis-table-md { display: table; }
+}
+
+/* Extra large screen / wide desktop */
+@include media-breakpoint-up(lg) {
+  .dis-none-lg { display: none; }
+  .dis-block-lg { display: block; }
+  .dis-inline-lg { display: inline; }
+  .dis-inline-block-lg { display: inline-block; }
+  .dis-inherit-lg { display: inherit; }
+  .dis-table-lg { display: table; }
+}
+
+
+/*----------------------------------
+  Text Alignment
+------------------------------------*/
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-inherit { text-align: inherit; }
+
+/* Small screen / phone */
+@include media-breakpoint-up(sm) {
+  .text-center-sm { text-align: center; }
+  .text-left-sm { text-align: left; }
+  .text-right-sm { text-align: right; }
+  .text-inherit-sm { text-align: inherit; }
+}
+
+/* Medium screen / tablet */
+@include media-breakpoint-up(md) {
+  .text-center-md { text-align: center; }
+  .text-left-md { text-align: left; }
+  .text-right-md { text-align: right; }
+  .text-inherit-md { text-align: inherit; }
+}
+
+/* Extra large screen / wide desktop */
+@include media-breakpoint-up(lg) {
+  .text-center-lg { text-align: center; }
+  .text-left-lg { text-align: left; }
+  .text-right-lg { text-align: right; }
+  .text-inherit-lg { text-align: inherit; }
+}
+
+
+/*----------------------------------
+  Pulls
+------------------------------------*/
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+.pull-none { float: none; }
+
+/* Small screen / phone */
+@include media-breakpoint-up(sm) {
+  .pull-left-sm { float: left; }
+  .pull-right-sm { float: right; }
+  .pull-none-sm { float: none; }
+}
+
+/* Medium screen / tablet */
+@include media-breakpoint-up(md) {
+  .pull-left-md { float: left; }
+  .pull-right-md { float: right; }
+  .pull-none-md { float: none; }
+}
+
+/* Extra large screen / wide desktop */
+@include media-breakpoint-up(lg) {
+  .pull-left-lg { float: left; }
+  .pull-right-lg { float: right; }
+  .pull-none-lg { float: none; }
+}

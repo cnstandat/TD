@@ -1,0 +1,290 @@
+﻿$table-bg: $base-red;
+
+.table {
+    margin: 0 0 50px 0;
+    width: 100%;
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);*/
+    display: block;
+    font-size: 14px;
+    /*border:1px solid #eee;*/
+    a {
+        color: #000 !important;
+    }
+
+    &-row {
+        background: #f6f6f6;
+        /*padding: 8px 0;*/
+        display: block;
+        border-bottom: 1px solid $base-red;
+        text-align: center;
+
+
+
+        &-header {
+            overflow: hidden;
+            border-bottom: none;
+
+            a {
+                color: #fff !important;
+            }
+
+            .table-cell {
+                text-align: center;
+                line-height: 24px;
+            }
+
+            & {
+                font-weight: bold;
+                color: #fff;
+                background: $table-bg !important;
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+        &.green {
+            background: #27ae60;
+        }
+
+        &.blue {
+            background: #2980b9;
+        }
+    }
+
+    &-cell {
+        display: block;
+        border: none;
+        position: relative;
+        /*height: 39px;*/
+        line-height: 30px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        padding: 0 8px;
+        vertical-align: middle;
+        overflow: hidden;
+
+        &.small {
+            font-size: .8em;
+            text-align: center;
+        }
+
+        .check-wrap {
+            padding: 0;
+            margin: 0 auto;
+            overflow: hidden;
+            display: inline-block;
+            width: auto;
+            height: 26px;
+            float: right;
+        }
+
+        &.primary {
+            .fa {
+                margin-right: 10px;
+            }
+        }
+
+        a {
+            max-width: 100%;
+            max-height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+
+        &:nth-of-type(n+2) {
+            display: none;
+        }
+
+        .left {
+            border-color: #fff;
+            padding: 5px 1rem;
+            line-height: 5px;
+            float: left;
+            margin-top: 3px;
+
+            &:hover {
+                border-color: $brand-info !important;
+                background: $brand-success !important;
+            }
+            // color:#2980b9 !important;
+        }
+        &.text-right{
+            text-align:right;
+        }
+    }
+
+    input[type="radio"] {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 99%;
+        height: 100%;
+        opacity: 0;
+
+        &:checked {
+            z-index: -1;
+
+            & ~ .table-cell {
+                display: block;
+                border-bottom: 1px solid #eee;
+                /*text-align:right;*/
+                &:nth-of-type(n+2) {
+                    /*background: #e0e0e0;*/
+                    text-align: center;
+
+                    &:before {
+                        position: absolute;
+                        top: 50%;
+                        left: 10px;
+                        transform: translate3d(0,-50%,0);
+                        content: attr(data-label);
+                        display: inline-block;
+                        width: 100px;
+                        overflow: hidden;
+                        background: $base-red;
+                        border-radius: 10px;
+                        /*height: 20px;*/
+                        margin-right: 10px;
+                        padding: 2px 10px;
+                        font-size: 10px;
+                        /*line-height: 20px;*/
+                        text-align: center;
+                        color: white;
+                    }
+                }
+            }
+
+            & ~ .primary {
+                border-bottom: 1px dotted $base-red;
+
+                &:after {
+                    position: absolute;
+                    right: 18px;
+                    top: 22px;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    border-top: 10px solid #ccc;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+.load-more-container {
+    position: absolute;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+
+    .btn {
+        padding: 4px 1rem;
+    }
+}
+
+.table > .btn {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    bottom: 70px;
+    transform: translateY(-50%); //,0,0);
+    /*margin: 1em auto;*/
+    padding: 4px 1rem;
+    .fa{
+        margin-right:10px;
+    }
+}
+
+.sortable {
+    /*@extend .dot;*/
+}
+
+.sort-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    @include transform(translateY(-50%));
+}
+
+@mixin table-md() {
+    .table {
+        display: table;
+
+        input[type="radio"] {
+            display: none;
+
+            &:checked {
+                & ~ .table-cell {
+                    display: table-cell;
+
+                    &:nth-of-type(n+2) {
+                        text-align: left;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                & ~ .primary {
+                    border-bottom: none;
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .table-row {
+        display: table-row;
+        border-bottom: 1px solid $base-red;
+
+        &:nth-of-type(odd) {
+            background: #ccc;
+        }
+    }
+
+    .table-row-header {
+        display: table-row;
+
+        .table-cell {
+            vertical-align: middle;
+        }
+    }
+
+    .table-cell {
+        ~ .table-cell {
+            border-left: 1px solid #eee !important;
+        }
+
+        max-width: 400px;
+        min-width: 80px;
+        max-height: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        /*padding: 6px;*/
+        display: table-cell;
+        text-indent: 4px;
+        vertical-align: middle;
+
+        &:nth-of-type(n+2) {
+            display: table-cell;
+        }
+
+        @include before-after {
+            display: none;
+            width: 0;
+            height: 0;
+            padding: 0;
+            visibility: hidden;
+            content: '';
+        }
+    }
+}

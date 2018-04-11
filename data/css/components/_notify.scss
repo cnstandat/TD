@@ -1,0 +1,67 @@
+﻿/*#region Notity */
+@import "../libs";
+
+.notify {
+    &-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: $ztop-menu + 100;
+    }
+
+    position: relative;
+    background-color: $brand-info;
+    color: $base-dark;
+    border-bottom: 1px solid #eee;
+
+    &-message {
+        opacity: 0;
+        padding: 10px;
+        width: 100%;
+        height: auto;
+        display: block;
+        /*vertical-align: middle;*/
+        text-align: center;
+        /*min-height: $collapse-height;*/
+        &.show {
+            @include transition(opacity .2s);
+            opacity: 1;
+        }
+    }
+
+    &-progress {
+        background-color: $brand-success;
+        height: 3px;
+        width: 0;
+        animation: progress 4s backwards;
+    }
+
+    &.danger {
+        background-color: $brand-danger;
+        color: #fff;
+    }
+}
+
+@include keyframes(progress) {
+    0% {
+        width: 0;
+    }
+
+    25% {
+        width: 25%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 96%;
+    }
+}
+
+/*#endregion */

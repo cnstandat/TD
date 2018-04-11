@@ -1,0 +1,55 @@
+﻿/* Sebastian */
+.menu-sebastian .item-link {
+    position: relative;
+    display: block;
+    margin: 0 1em;
+    text-align: center;
+    color: $menu-item-link-hover-color;
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+.menu-sebastian .item-link:hover,
+.menu-sebastian .item-link:focus {
+    color: #fff;
+}
+
+.menu-sebastian .item-current .item-link {
+    color: $menu-border-color;
+}
+
+.menu-sebastian .item-link::before,
+.menu-sebastian .item-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $menu-border-color;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.menu-sebastian .item-link::before {
+    top: 0;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+
+.menu-sebastian .item-link::after {
+    bottom: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+
+.menu-sebastian .item-current .item-link::before,
+.menu-sebastian .item-current .item-link::after {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}

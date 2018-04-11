@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TD.Models.Views.AppVersionView>
+@if (Model != null && Model.Any())
+{
+    <div class="app-prices">
+        @foreach (var item in Model)
+        {
+            <div class="app-price">
+                <h3>@item.VersionName<span class="app-title">@item.Price</span></h3>
+                <div class="text-center">
+                    <a href="/app/reg/@item.AppId/@item.Version" class="btn btn-success">Sử dụng</a>
+                </div>
+                <ul>
+                    @foreach (var f in item.FeatureApps)
+                    {
+                        <li>
+                            @f.Content
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+}

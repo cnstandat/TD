@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TD.Models.Views.BlogViewModel>
+<div class="bg-header scr-target"></div>
+<div class="main">
+    <div class="lazy" data-src="/home/_gettags"></div>
+    <div class="blogs">
+        <div class="blog-post-container">
+            @foreach (var item in Model)
+            {
+                <div class="blog-post">
+                    <article>
+                        <header>
+                            <div class="post-meta">
+
+                                <span class="fa fa-user"> @item.Creator</span>
+                                <span>
+                                    đăng <time class="timeago" datetime="@item.LastModify.ToUtcString()"></time>
+                                </span>
+                                @if (item.CommentCount > 0)
+                                {
+                                    <span><i class="fa fa-comment"></i> @item.CommentCount lượt bình luận</span>
+                                }
+                                @if (item.Viewed > 0)
+                                {
+                                    <span><i class="fa fa-eye"></i> @item.Viewed lượt xem</span>
+
+                                }
+                            </div>
+                            <h1><a href="/ViewPost/@item.Name">@item.FullName</a></h1>
+
+                            <ul class="blog-socials">
+                                <li><a href="@item.Twitter" class="p-1 btn btn-social btn-twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="@item.Google" class="p-1 btn btn-social btn-google"><i class="fa fa-google"></i></a></li>
+                                <li><a href="@item.Facebook" class="p-1 btn btn-social btn-facebook"><i class="fa fa-facebook"></i></a></li>
+                            </ul>
+                            @if (!string.IsNullOrEmpty(item.Image))
+                {
+                                <div class="post-image">
+                                    <img src='@item.Image' class="wow" alt="Ảnh bài viết">
+                                </div>
+                            }
+                        </header>
+                        <div class="post-contents">
+                            @item.Summary
+                            <div class="text-center">
+                                <a href="/ViewPost/@item.Name" class="btn btn-success read-more">Chi tiết <i class="fa fa-arrow-right"></i></a>
+                            </div>
+
+                        </div>
+                    </article>
+                </div>
+            }
+            @if (ViewBag.HasMore)
+            {
+                <div class="text-center">
+                    <a class="btn btn-info load-on-click" data-src="/blog?id=@ViewBag.TagBlog&page=@ViewBag.Page&month=@ViewBag.Month&year=@ViewBag.Year"><i class="fa fa-checkmark"></i>Xem thêm</a>
+                </div>
+            }
+
+        </div>
+
+        <div class="blog-more">
+            <div class="lazy" data-src="/home/_getnew"></div>
+            <div class="lazy" data-src="/home/_getpopular"></div>
+        </div>
+    </div>
+
+</div>

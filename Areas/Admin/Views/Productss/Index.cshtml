@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TD.Models.App>
+
+<div class="main">
+   
+        <div class="breadcrumb">
+            <a href="/admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item active">Sản phẩm</a>
+            @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+            {
+                <input type="text" name="Search" value="@ViewBag.Search" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+            }
+
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/products/info" title="Danh mục thông số">Thông số</a>
+            <a class="btn btn-success btn-sm" href="/admin/products/create" title="Thêm mới sản phẩm">Thêm mới</a>
+        </div>
+      
+            <h4 class="form-title">
+                Danh sách sản phẩm
+            </h4>
+
+            <div class="table">
+                <div class="table-row table-row-header">
+                    <span class="table-cell">
+                        <a title="Tên sản phẩm" class="sortable" href="/Admin/products?Sort=@ViewBag.Sort&Search=@ViewBag.Search&Page=@ViewBag.Page">
+                            <span class="fa fa-edit"></span>
+                            <span class="table-title hidden-xs-down">Tên sản phẩm</span>
+                            @if (ViewBag.Sort != null)
+                            {
+                                <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng theo A->Z"></span>
+                            }
+                            else
+                            {
+                                <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ Z->A"></span>
+                            }
+                        </a>
+                    </span>
+                    <span class="table-cell">
+                        Đơn giá
+                    </span>
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="table-row">
+                        <span class="table-cell">
+                            <a href="/admin/products/edit/@item.Id" title="Click vào đây để xem chi tiết">
+                                @(string.IsNullOrEmpty(item.FullName)?"-":item.FullName)
+                            </a>
+                        </span>
+                        <span class="table-cell">
+                            @item.Price
+                        </span>
+                    </div>
+                }
+                @if (ViewBag.HasMore)
+                {
+                    <div class="submit-container">
+                        <a data-src="/admin/products/getmore?Page=@ViewBag.Page&Search=@ViewBag.Search&Sort=@ViewBag.Sort" class="btn btn-info load-on-click">Xem thêm</a>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div>
+
+
+        </div>
+    
+

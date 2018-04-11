@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TD.Models.Blog>
+
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Blogs" class="breadcrumb-item active">Bài viết</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/tags" title="Danh sách nhãn">Nhãn</a>
+            <a class="btn btn-success btn-sm" href="/admin/blogs/create" title="Thêm mới sản phẩm">Thêm mới</a>
+        </div>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        <h4 class="form-title">Danh sách bài viết</h4>
+        <div class="table">
+            <div class="table-row table-row-header">
+                <span class="table-cell">
+                    <a title="Tiêu đề" class="sortable" href="/Admin/Blogs?Search=@ViewBag.Search&SortByName=@(string.IsNullOrEmpty(ViewBag.SortByName)?"1":"")&SortByDate=@ViewBag.ShortByDate">
+                        <span class="table-title hidden-xs-down">Tiêu đề</span>
+                        @if (!string.IsNullOrEmpty(ViewBag.SortByName))
+                        {
+                        <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng theo A->Z"></span>
+                        }
+                        else
+                        {
+                        <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ Z->A"></span>
+                        }
+                    </a>
+
+                </span>
+                <span class="table-cell">
+                    <a title="Tiêu đề" class="sortable" href="/Admin/Blogs?Search=@ViewBag.Search&SortByName=@ViewBag.SortByName&SortByDate=@(string.IsNullOrEmpty(ViewBag.SortByDate)?"1":"")&First=1">
+                        <span class="table-title hidden-sm-down">Cập nhật</span>
+                        @if (!string.IsNullOrEmpty(ViewBag.SortByDate))
+                        {
+                            <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng từ ngày cũ nhất - > mới nhất"></span>
+                        }
+                        else
+                        {
+                            <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ ngày mới nhất --> cũ nhất"></span>
+                        }
+                    </a>
+
+                </span>
+                <span class="table-cell">Thảo luận</span>
+                <span class="table-cell">Ảnh</span>
+            </div>
+
+            @foreach (var item in Model)
+                {
+                <div class="table-row">
+                    <input type="radio" name="expand" />
+                    <span class="table-cell primary" data-label="Tiêu đề" >
+                        <span><a href="/Admin/Blogs/Edit/@item.Id" class="text">@item.Name</a></span>
+                    </span>
+                    <span class="table-cell" data-label="Cập nhật" >
+                        <span>@item.LastModify.ToString("dd/MM/yy HH:mm")</span>
+                    </span>
+                    <span class="table-cell" data-label="Thảo luận" >
+                        <span>@item.Comments.Count</span>
+                    </span>
+                    <span class="table-cell">@(item.Galleries.Count>0&&item.Galleries.FirstOrDefault().AppFiles.Count>0)</span>
+                </div>
+            }
+            @if (ViewBag.HasMore)
+                {
+                <div class="form-btn">
+                    <a data-src="/admin/blogs/index?Page=@ViewBag.Page&Search=@ViewBag.Search&SortByName=@ViewBag.SortByName&SortByDate=@ViewBag.SortByDate&First=@ViewBag.First" class="btn btn-info load-on-click">Xem thêm</a>
+                </div>
+            }
+
+        </div>
+
+    }
+    else
+    {
+        <h4 class="form-title">Chưa có bài viêt</h4>
+    }
+</div>
+

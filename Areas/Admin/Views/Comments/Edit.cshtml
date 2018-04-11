@@ -1,0 +1,37 @@
+﻿@model TD.Models.Comment
+
+<div class="collapse collapse-auto-center auto-dispose" id="editcomment">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+
+        <form class="form" data-src="/admin/comments/edit">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            @Html.AntiForgeryToken()
+            <h4 class="form-title">
+                Cập nhật thảo luận
+            </h4>
+            <div>
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Nội dung</span>
+                </label>
+                <textarea name="Content" class="note-editable" required data-rule-minlength="30" value="@Model.Content">@Model.Content</textarea>
+            </div>
+            <div class="input--sae">
+                <input class="input-text" name="Reason" value="@Model.Reason" required data-rule-minlength="3" />
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Lý do cập nhật</span>
+                </label>
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu bài viết"><i class="fa fa-save"></i>Lưu thay đổi</a>
+                <a class="btn delete" title="Xóa thảo luận" data-src="/admin/comments/delete/@Model.Id">
+                    <i class="fa fa-eraser"></i>Xóa
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>

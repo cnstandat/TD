@@ -1,0 +1,41 @@
+﻿<div class="main">
+
+    <div class="form-title">
+        <h3>Liên kết tài khoản @ViewBag.LoginProvider .</h3>
+    </div>
+    <form class="form" id="extconfirm-form" data-src="/Account/ExternalLoginConfirmation?returnUrl=@ViewBag.ReturnUrl">
+        @Html.AntiForgeryToken()
+        <p class="text-helper">
+            Bạn đã đăng nhập bằng tài khoản <strong>@ViewBag.LoginProvider</strong>.
+            Để hoàn tất quá trình đăng ký vui lòng cập nhật thông tin tài khoản của bạn.
+        </p>
+        <div class="input--sae">
+            <i class="fa fa-email fa-fix"></i>
+            <input type="email" id="cfeem" placeholder="Email của bạn" name="Email" value="@ViewBag.Email" required data-rule-email="true" data-rule-remote="/pub/EmailCheckExist" class="input-text" autocomplete="new-password" />
+        </div>
+
+        <div class="input--sae">
+            <i class="fa-fix fa fa-user"></i>
+            <input type="text" id="cfeu" name="UserName" required data-rule-remote="/pub/usercheck" value="@ViewBag.UserName" class="input-text" autocomplete="new-password" placeholder="Tên đăng nhập" />
+
+        </div>
+        <div class="input--sae">
+            <i class="fa-fix fa fa-key"></i>
+            <input type="password" id="cfepw" name="Password" required data-rule-rangelength="4,30" class="input-text" autocomplete="new-password" placeholder="Mật khẩu" />
+
+        </div>
+        <div class="form-btn">
+            <a class="btn btn-success submit">
+                <i class="fa fa-checkmark2"></i>
+                Hoàn tất đăng ký
+            </a>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,126 @@
+﻿@import "../libs";
+
+.accordion {
+    background: transparent;
+    align-self: flex-start;
+    flex: 0 0 auto;
+    list-style: none;
+    padding-left: 0;
+
+    .link-text {
+        display: none;
+    }
+
+    .link {
+        cursor: pointer;
+        display: block;
+        padding: .5em 1.1em;
+        color: inherit;
+        font-weight: $font-weight-bold;
+        border: 1px dotted #CCC;
+        position: relative;
+        transition: background-color 0.25s ease;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        .fa {
+            position: relative;
+            color: inherit;
+            margin-right: 0;
+            font-size: 1.2em;
+            color: $color-primary;
+        }
+
+        @include hover {
+            background: rgba($color-primary,.5);
+            color: #FFF;
+        }
+    }
+
+    .open > .link {
+        background: rgba($color-primary,.5);
+        color: #FFF;
+
+        .wow{
+            min-height:10px;
+            visibility:visible;
+        }
+
+        > .fa {
+            color: $base-red;
+        }
+    }
+
+    .default .submenu {
+        display: block;
+    }
+
+    .submenu {
+        display: none;
+        list-style: none;
+
+        li {
+            border-bottom: 1px dotted #ccc;
+        }
+    }
+}
+
+.accordion-wrap {
+    padding: 2rem 0;
+    display: flex;
+}
+
+.accordion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    > div {
+        display: none;
+
+        &.in {
+            padding: 0 1rem;
+            width: 100%;
+            display: block;
+        }
+    }
+}
+
+@mixin accordion-sm() {
+}
+
+@mixin accordion-md() {
+    .accordion {
+        .submenu {
+            .link {
+                padding-left: 4em;
+
+                .fa {
+                    left: 2.5em;
+                    font-size: .8em;
+                }
+            }
+        }
+
+        .link {
+            border-width: 0 0 1px 0;
+            padding-left: 3em;
+            position: relative;
+            display: block;
+
+            .fa {
+                position: absolute;
+                top: 50%;
+                left: .5em;
+                transform: translateY(-50%);
+            }
+        }
+
+        .link-text {
+            display: block;
+        }
+    }
+}

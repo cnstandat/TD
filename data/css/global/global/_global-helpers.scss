@@ -1,0 +1,216 @@
+/*-----------------
+  Fullheight
+------------------*/
+
+
+
+
+/*-----------------
+  Vertical Center Align
+------------------*/
+
+.g-ver-center {
+  @include position(absolute, $top: 50%, $left: 0, $right: 0);
+  @include translate3d(0,-50%,0);
+}
+
+/* Small screen / phone */
+@include mq(tablet) {
+  .g-ver-center-sm {
+    @include position(absolute, $top: 50%, $left: 0, $right: 0);
+    @include translate3d(0,-50%,0);
+  }
+}
+
+/* Medium screen / tablet */
+@include mq(desktop) {
+  .g-ver-center-md {
+    @include position(absolute, $top: 50%, $left: 0, $right: 0);
+    @include translate3d(0,-50%,0);
+  }
+}
+
+/* Extra large screen / wide desktop */
+@include mq(wide) {
+  .g-ver-center-lg {
+    @include position(absolute, $top: 50%, $left: 0, $right: 0);
+    @include translate3d(0,-50%,0);
+  }
+}
+
+
+/*-----------------
+  Overflow
+------------------*/
+
+.overflow-hidden { overflow: hidden }
+
+
+/*-----------------
+  Overlay
+------------------*/
+
+.g-overlay { @include overlay; }
+
+
+/*-----------------
+  Background Position
+------------------*/
+
+.bg-center { @include bg(center center); }
+.bg-fixed {
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+
+/*-----------------
+  Promo Section
+------------------*/
+
+
+
+/* Small screen / phone */
+
+
+
+/*-----------------
+  Horizontal Center Align
+------------------*/
+
+.g-hor-centered-row {
+  @include hor-center-align-row;
+  
+  .g-hor-centered-row__col {
+    @include hor-center-align-col;
+  }
+}
+
+/* Medium screen / tablet */
+.g-hor-centered-row-sm {
+  @include mq(tablet) {
+    @include hor-center-align-row;
+    
+    .g-hor-centered-row__col {
+      @include hor-center-align-col;
+    }
+  }
+}
+
+/* Large screen / desktop */
+.g-hor-centered-row-md {
+  @include mq(desktop) {
+    @include hor-center-align-row;
+    
+    .g-hor-centered-row__col {
+      @include hor-center-align-col;
+    }
+  }
+}
+
+/* Extra large screen / wide desktop */
+.g-hor-centered-row-lg {
+  @include mq(wide) {
+    @include hor-center-align-row;
+    
+    .g-hor-centered-row__col {
+      @include hor-center-align-col;
+    }
+  }
+}
+
+
+/*-----------------
+  Z-index
+------------------*/
+
+.g-z-index-1 { z-index: 1; }
+.g-z-index-2 { z-index: 2; }
+
+
+/*-----------------
+  Line Height
+------------------*/
+
+.g-line-height-normal { line-height: normal; }
+.g-line-height-exs { line-height: .7; }
+.g-line-height { line-height: 1; }
+.g-line-height-sm { line-height: 1.2; }
+.g-line-height-md { line-height: 1.4; }
+.g-line-height-lg { line-height: 1.6; }
+
+
+/*-----------------
+  Media
+------------------*/
+
+
+
+
+/*-----------------
+  Box Shadow
+------------------*/
+
+.pos-rel { position: relative; }
+.pos-ab { position: absolute; }
+.pos-ov {
+  @include position(relative);
+  z-index: 1;
+}
+
+
+/*-----------------
+  Divider
+------------------*/
+
+
+
+/*-----------------
+  Border
+------------------*/
+
+.g-hor-border-1__solid-primary { border: .0625rem solid $color-primary; }
+.g-hor-border-4__solid-white { border: .25rem solid $color-white; }
+
+
+/*-----------------
+  Box Shadow
+------------------*/
+
+.g-box-shadow__primary-v1 { box-shadow: 0 .3125rem 1rem 0 rgba($color-primary, .2); }
+.g-box-shadow__blueviolet-v1 { box-shadow: 0 0 3.125rem 0 rgba($color-blueviolet, .3); }
+.g-box-shadow__dark-lightest-v1 { box-shadow: 0 -5rem 2.5rem rgba($color-dark, .05); }
+.g-box-shadow__dark-lightest-v2 { box-shadow: 0 1.25rem 1.25rem rgba($color-dark, .05); }
+.g-box-shadow__dark-lightest-v3 { box-shadow: 0 0 2.5rem .3125rem rgba($color-dark, .05); }
+.g-box-shadow__dark-lightest-v4 { box-shadow: 0 .3125rem 1rem 0 rgba($color-dark, .2); }
+
+
+/*-----------------
+  Border Radius
+------------------*/
+
+.g-radius-3 { @include border-radius(.1875rem !important); }
+.g-radius-4 { @include border-radius(.25rem !important); }
+.g-radius-10 { @include border-radius(.625rem !important); }
+.g-radius-50 { @include border-radius(3.125rem !important); }
+.circle { @include border-radius(50% !important); }
+
+.g-radius-left-4 {
+  @include border-top-left-radius(.25rem !important);
+  @include border-bottom-left-radius(.25rem !important);
+}
+
+.g-radius-right-4 {
+  @include border-top-right-radius(.25rem !important);
+  @include border-bottom-right-radius(.25rem !important);
+}
+
+.g-radius-left-50 {
+  @include border-top-left-radius(3.125rem !important);
+  @include border-bottom-left-radius(3.125rem !important);
+}
+
+.g-radius-right-50 {
+  @include border-top-right-radius(3.125rem !important);
+  @include border-bottom-right-radius(3.125rem !important);
+}

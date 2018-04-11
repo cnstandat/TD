@@ -1,0 +1,148 @@
+﻿.apps {
+    /*padding-top: 41px;*/
+    .wrapper {
+        position: relative;
+    }
+    /*.wrapper {
+        min-height: calc(100vh - 41px);
+        display: flex;
+        flex-direction: column;
+    }*/
+}
+$main-menu-heigth:3.5em;
+.main {
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    /*flex: 1 1 auto;*/
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $main-menu-heigth;
+    background-color: $color-primary;
+    z-index: $ztop-menu;
+    border-bottom: 1px solid #fff;
+    @include box-shadow(0 0 5px #000);
+    display: flex;
+    justify-content: space-between;
+    &.on-down {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.shrink {
+        box-shadow: 0 0 .1rem $color-dark;
+        background: rgba($color-primary,.95);
+
+        .logo-link {
+            padding: .5rem 0;
+        }
+    }
+
+    a.togger {
+        min-width: 2.5em;
+        line-height: $main-menu-heigth;
+        margin: 0;
+        color: #fff;
+        margin-right: 1em;
+    }
+
+    .menu-item {
+        line-height: $main-menu-heigth;
+        color: #fff;
+        padding: 0 1em;
+
+        .fa {
+            margin-right: 5px;
+        }
+
+        @include transition(color .3s linear);
+
+        &:hover, &.active, &:focus {
+            color: $brand-warning;
+        }
+    }
+
+    .nav {
+        display: none;
+        width: 3.5em;
+        position: fixed;
+        padding-top: 3.5em;
+    }
+
+    &.open {
+        .togger.self {
+            color: #fff;
+            flex: 0 0 3.5em;
+            /*border-bottom: 1px solid;*/
+            z-index: $ztop-menu + 1;
+        }
+
+        @include flex-direction(col);
+
+        .nav {
+            top: 0;
+            left: 0;
+            /*border-right: 1px solid #fff;*/
+            /*@include box-shadow(0 0 5px);*/
+            /*bottom:0;*/
+            background: inherit;
+            z-index: $ztop-menu -1;
+            @include display-flex();
+            @include flex-direction(column);
+            opacity: 0;
+            animation: fadeIn .3s ease-in-out forwards;
+
+            .menu-item {
+                flex: 0 0 40px;
+                border-bottom: 1px solid;
+
+                .fa {
+                }
+            }
+
+            .menu-text {
+                display: none;
+            }
+        }
+    }
+
+    + .wrapper {
+        padding-top: 50px;
+    }
+}
+
+@mixin main-menu-simple-md {
+    .main {
+        padding: 1rem;
+    }
+
+    .apps .main-menu, .apps .main-menu.open {
+        > .nav {
+            position: relative;
+            display: block;
+            width: auto;
+            box-shadow: none;
+            border: none;
+            padding-top: 0;
+            height: 40px;
+
+            .menu-item {
+                border: none;
+            }
+
+            .menu-text {
+                display: inline;
+            }
+        }
+    }
+}

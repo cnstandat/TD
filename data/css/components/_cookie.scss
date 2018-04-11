@@ -1,0 +1,75 @@
+﻿.cookie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-height: 0;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    background-color: rgba($brand-info,.8);
+    color: $brand-danger;
+    overflow: hidden;
+    padding: 0 10px;
+    @include transition(max-height 1.5s ease-in-out);
+    z-index:9999;
+    p {
+        font-weight:bold;
+        margin: 0.6em 0;
+        display: block;
+    }
+
+    > div {
+        text-align: center;
+    }
+
+    a {
+        color: #000;
+        border-bottom: 1px dashed $brand-success;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .accept {
+        display: block;
+        width: 120px;
+        margin: 10px auto;
+
+        &::-moz-focus-inner {
+            border: none;
+            padding: 0;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        background: transparent;
+        padding: 10px 30px;
+        border: 2px solid $base-red;
+        color: $base-red;
+        text-transform: uppercase;
+        font-size: 11px;
+        transition-property: background,color;
+        transition-duration: .2s;
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover {
+            color: white;
+            background: $base-red;
+            cursor: pointer;
+            transition-property: background,color;
+            transition-duration: .2s;
+        }
+    }
+
+    &.show {
+        max-height: 500px;
+    }
+}
+@mixin cookie-md {
+    .cookie.show {
+        flex-direction: row;
+    }
+}

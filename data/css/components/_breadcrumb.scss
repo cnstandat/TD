@@ -1,0 +1,77 @@
+﻿/*#region BreadCrumb */
+@import "../libs";
+
+
+.breadcrumb {
+    position: relative;
+}
+
+.breadcrumb-item {
+    display: inline-flex;
+    border: 1px solid $breadcrumb-border;
+    margin-right: -5px;
+    text-rendering: optimizeLegibility;
+    line-height: 2em;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0 10px 0 20px;
+    position: relative;
+    color: $breadcrumb-color;
+    background-color: $breadcrumb-base-color;
+
+
+    &.first {
+        padding-left: 16px;
+    }
+
+    &.active {
+        color: $breadcrumb-border;
+        background: $color-primary;
+    }
+
+    @include before-after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 17px solid transparent;
+        border-bottom: 17px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        z-index: 2;
+    }
+
+    @include after {
+        border-left-color: $breadcrumb-base-color;
+    }
+
+    @include before {
+        margin-left: 1px;
+        z-index: 1;
+        border-left-color: $breadcrumb-border;
+    }
+
+    &:last-child {
+        pointer-events: none;
+        cursor: default;
+
+        &:after, &:before {
+            border: none;
+        }
+    }
+
+    .fa {
+        margin-right: 10px;
+    }
+}
+
+.breadcrumb-item:last-child {
+    padding-right: 16px;
+}
+
+/*#endregion */

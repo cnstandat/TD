@@ -1,0 +1,36 @@
+﻿@model TD.Models.Views.UserInfoView
+<div class="collapse" id="userinfo">
+    <a class="collapse-close"><span class="line"></span></a>
+    <div class="collapse-body">
+        <div class="user-profile">
+            <div class="user-avatar">
+                <figure>
+                    <img src="@Model.Avatar" />
+                </figure>
+            </div>
+            <div class="user-others">
+                @if (!string.IsNullOrEmpty(Model.FullName))
+            {
+                    <h4 class="user-fullname @Model.NameClass"><i class="fa fa-edit"></i> @Model.FullName</h4>
+                }
+                <h4 class="user-name @Model.UserNameClass"><i class="fa fa-users"></i>@Model.UserName</h4>
+                @if (!string.IsNullOrEmpty(Model.Phone))
+            {
+                    <h4 class="user-phone @Model.PhoneClass"><i class="fa fa-phone"></i>@Model.Phone</h4>}
+                @if (!string.IsNullOrEmpty(Model.Email))
+            {
+                    <h4 class="user-email @Model.EmailClass"><i class="fa fa-email"></i>@Model.Email</h4>}
+                <h4 class="user-created"><i class="fa fa-locked"></i> @Model.Created.ToString("dd/MM/yy")</h4>
+                <a href="/account" class="btn btn-success"><i class="fa fa-edit"></i>Cập nhật hồ sơ</a>
+                <form class="form" data-src="/account/_logoff">
+                    @Html.AntiForgeryToken()
+
+                    <a class="btn submit"><i class="fa fa-switch"></i>Thoát tài khoản</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

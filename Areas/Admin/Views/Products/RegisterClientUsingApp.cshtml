@@ -1,0 +1,65 @@
+﻿@model TD.Models.Views.ClientAppEditModel
+
+@if (Model != null)
+{
+    <div class="main">
+
+        <div class="tools">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/Edit/@Model.AppId" class="breadcrumb-item">@Model.AppName</a>
+                <a href="#" class="breadcrumb-item active">Thêm mới Khách hàng</a>
+            </div>
+            <div class="collapse-drop">
+                <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+                <a class="fast" href="/admin/products?AppType=@TD.Models.AppType.App"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+                <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            </div>
+        </div>
+        <h4 class="model-title">Ứng dụng @Model.AppName</h4>
+       
+        <form class="form edit">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="AppId" value="@Model.AppId" />
+            <div class="form-title">
+                Thêm mới khách hàng <a class="btn submit" title="Lưu"><i class="fa fa-save"></i></a>
+            </div>
+            <div class="input--sae">
+                @Html.ListBoxFor(x => x.ClientId, Model.Partners, new { @class = "chosen", count = "1", data_placeholder = "Chọn Khách hàng",required=true })
+            </div>
+            <div class="input--sae">
+                <input class="input-text" type="date" name="Start" value="@Model.Start.ToString("yyyy-MM-dd")" required placeholder="Bắt đầu sử dụng" />
+            </div>
+            <div class="input--sae">
+                @Html.DropDownListFor(x => x.LicenseType, Model.LicenseTypes, new { @class = "chosen", count = "1", data_placeholder = "Chọn phiên bản", required = true })
+            </div>
+            <div class="input--sae">
+                <input class="input-text" type="date" name="Expires" placeholder="Hết hạn" />
+            </div>
+        </form>
+    </div>
+
+
+
+
+}
+else
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/Edit/" class="breadcrumb-item">Thêm mới khách hàng</a>
+        </div>
+        <div class="form-title">
+            Không có dữ liệu
+        </div>
+
+    </div>
+
+
+
+
+}
+

@@ -1,0 +1,27 @@
+﻿.s {
+    &-section {
+        padding: 10rem 0;
+        background-color:#fff;
+        color:#000;
+        font-size:16px;
+        &-parallax {
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding:8rem 0;
+        }
+
+        &-title {
+            text-align:center;
+            color:inherit;
+            font-size:3em;
+            margin-bottom:4em;
+            text-transform:uppercase;
+        }
+        &-subtitle{
+            text-align:center;
+            color:#fff;
+            text-transform:uppercase;
+        }
+    }
+}

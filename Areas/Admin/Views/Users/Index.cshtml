@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TD.Models.User>
+
+<div class="main">
+
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Users" class="breadcrumb-item active">Người dùng</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/Users/Roles" title="Danh sách quyền hạn">Quyền hạn</a>
+            <a class="btn btn-success btn-sm" href="/admin/users/create" title="Thêm mới người dùng">Thêm mới</a>
+        </div>
+    </div>
+
+    <h4 class="form-title">Danh sách người dùng</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                <a title="Tên đăng nhập" class="sortable" href="/Admin/users?Sort=@(string.IsNullOrEmpty(ViewBag.Sort)?"1":"")&Search=@ViewBag.Search">
+                    <span class="table-title hidden-xs-down">Tên đăng nhập</span>
+                    @if (!string.IsNullOrEmpty(ViewBag.Sort))
+                    {
+                        <span class="sort-icon fa fa-arrow-up" title="Sắp xếp tăng theo A->Z"></span>
+                    }
+                    else
+                    {
+                        <span class="sort-icon fa fa-arrow-down" title="Sắp xếp giảm từ Z->A"></span>
+                    }
+                </a>
+            </span>
+            <span class="table-cell">
+                Bài viết
+            </span>
+            <span class="table-cell">
+                Thảo luận
+            </span>
+            <span class="table-cell">
+                Cấm viết bài
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="table-row">
+                <span class="table-cell">
+                    <span><a href="/Admin/users/Edit/@item.Id" class="text">@item.UserName</a></span>
+                </span>
+
+                <span class="table-cell">
+                    @item.BlogCreated.Count
+                </span>
+                <span class="table-cell">
+                    @item.CommentCreated.Count
+                </span>
+                <span class="table-cell">
+                    <input type="checkbox" name="CantSay" class="ck readonly" value="@(item.CantSay?"true":"false")" />
+                </span>
+            </div>
+        }
+        @if (ViewBag.HasMore)
+        {
+            <div class="form-btn">
+                <a data-src="/admin/users/getmore?Page=@ViewBag.Page&Search=@ViewBag.Search&Sort=@ViewBag.Sort" class="btn btn-info load-on-click">Xem thêm</a>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@model TD.Models.Views.FeatureProductView
+
+<div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/FeatureProducts" class="breadcrumb-item">Chức năng</a>
+            <a href="/admin/products/ProductFeaturesEdit/@Model.Id" class="breadcrumb-item active">Cập nhật</a>
+
+        </div>
+        <div class="collapse-drop">
+            <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+            <a class="fast" href="/admin/products"><i class="fa fa-cogs"></i><span>Ứng dụng</span></a>
+            <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            <a class="btn btn-success btn-sm" href="/admin/products/FeatureProductsAdd" title="Thêm mới chức năng"><i class="fa fa-plus"></i> <span>Thêm mới</span></a>
+        </div>
+            @if (Model != null)
+            {
+                
+                <form class="form form-center">
+                    <h4 class="form-title">
+                        Cập nhật chức năng : @Model.Name
+                    </h4>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="input--sae">
+                        <i class="fa fa-edit fa-fix"></i>
+                        <input class="input-text auto-focus enter-submit" type="text" value="@Model.Name" name="Name" placeholder="Chức năng" />
+                    </div>
+
+                    <div class="form-btn">
+                        <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                        <a class="btn delete" title="Xóa chức năng" data-src="/admin/products/FeatureProductsDelete/@Model.Id">
+                            <i class="fa fa-cross"></i>Xóa
+                        </a>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <h4 class="form-title">Không tìm thấy chức năng</h4>
+            }
+        </div>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TD.Models.Views.BlogViewModel>
+@if (Model != null)
+{
+    int i = 1;
+    <div class="blog-related">
+        <div class="section-title">
+            <h3 class="wow fadeInLeftBig">Bài viết <span>mới</span></h3>
+        </div>
+        <div class="posts">
+
+            @foreach (var item in Model)
+                {
+                    i = i + 1;
+                <article class="wow fadeInRightBig" data-wow-delay="@(i *0.2)s">
+                    @if (item.Image != null)
+                    {
+                        <figure><img src="@item.Image" alt="@item.FullName"></figure>
+                    }
+                    <h4><a href="/ViewPost/@item.Name">@item.FullName</a></h4>
+                    <time>@item.LastModify.ToString("dd/MM HH:mm") </time>
+                </article>
+
+            }
+        </div>
+    </div>
+}

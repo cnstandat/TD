@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TD.Models.Views.AppEditModel>
+<div class="bg-header"></div>
+<div class="main">
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <div class="app">
+            <img class="app-image" src="~/data/site_svg/noavatar.png" />
+            <div>
+                <h3 class="app-name">@item.Name</h3>
+                <ul class="app-features">
+                    <li class="lazy" data-src="/app/_getFeatureApps/@item.Id"></li>
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="lazy" data-src="/app/_getPrice/@item.Id"></div>
+    }
+
+</div>

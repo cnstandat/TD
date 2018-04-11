@@ -1,0 +1,134 @@
+﻿/* Juliet Styles */
+
+.menu-juliet .item {
+    position: relative;
+    -webkit-transition: color .25s;
+    transition: color .25s;
+}
+
+.menu-juliet .item::before,
+.menu-juliet .item::after,
+.menu-juliet .item-current::before,
+.menu-juliet .item-current::after {
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    content: '';
+    pointer-events: none;
+}
+
+.menu-juliet .item::before,
+.menu-juliet .item::after {
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transform-origin: left left;
+    transform-origin: left left;
+    -webkit-transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.menu-juliet .item-current::before,
+.menu-juliet .item-current::after {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.menu-juliet .item:hover::before,
+.menu-juliet .item:hover::after {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+.menu-juliet .item::before {
+    top: 95%;
+    margin-left: -9px;
+    border-width: 10px;
+    border-top-color: $menu-item-link-color;
+}
+
+.menu-juliet .item-current::before {
+    margin-left: -9px;
+    border-width: 10px;
+    border-top-color: $menu-border-color;
+}
+
+.menu-juliet .item::after,
+.menu-juliet .item-current::after {
+    top: 94%;
+    margin-left: -5px;
+    border-width: 6px;
+    border-top-color: #2a282b;
+}
+
+.menu-juliet .item-link {
+    position: relative;
+    margin: 0 1em;
+    padding-right: 0;
+    padding-left: 0;
+    color: $menu-item-link-color;
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+.menu-juliet .item-current .item-link,
+.menu-juliet .item-current .item-link:hover,
+.menu-juliet .item-current .item-link:focus {
+    color: $menu-item-link-hover-color;
+}
+
+.menu-juliet .item-current .item-link::after,
+.menu-juliet .item-current .item-link::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+.menu-juliet .item-current .item-link::before {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.menu-juliet .item-link:hover,
+.menu-juliet .item-link:focus {
+    color: $menu-item-link-hover-color;
+}
+
+.menu-juliet .item:hover .item-link::before,
+.menu-juliet .item:focus .item-link::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.menu-juliet .item-link::before,
+.menu-juliet .item-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+    -webkit-transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.menu-juliet .item-link::before {
+    background: $menu-item-link-color;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.menu-juliet .item-link::after {
+    background: $menu-border-color;
+}

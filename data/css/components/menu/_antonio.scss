@@ -1,0 +1,105 @@
+﻿/* Antonio */
+.menu-antonio .item {
+    position: relative;
+}
+
+.menu-antonio .item-link {
+    position: relative;
+    display: block;
+    min-width: 110px;
+    text-align: center;
+    color: $menu-item-link-color;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.menu-antonio .item-link:hover,
+.menu-antonio .item-link:focus {
+    color: $menu-item-link-hover-color;
+}
+
+.menu-antonio .item-current .item-link {
+    color: $menu-border-color;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.menu-antonio .item::before,
+.menu-antonio .item::after,
+.menu-antonio .item-link::before,
+.menu-antonio .item-link::after {
+    content: '';
+    position: absolute;
+    background: $menu-border-color;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.menu-antonio .item::before,
+.menu-antonio .item::after {
+    top: 0;
+    width: 4px;
+    height: 100%;
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+}
+
+.menu-antonio .item::before {
+    left: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.menu-antonio .item::after {
+    right: 0;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+
+.menu-antonio .item-link::before,
+.menu-antonio .item-link::after {
+    left: 0;
+    width: 100%;
+    height: 4px;
+    -webkit-transform: scale3d(0, 1, 1);
+    transform: scale3d(0, 1, 1);
+}
+
+.menu-antonio .item-link::before {
+    top: 0;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+
+.menu-antonio .item-link::after {
+    bottom: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+
+.menu-antonio .item-current::before,
+.menu-antonio .item-current::after,
+.menu-antonio .item-current .item-link::before,
+.menu-antonio .item-current .item-link::after {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.menu-antonio .item-current::after {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.menu-antonio .item-current .item-link::before {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.menu-antonio .item-current .item-link::after {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}

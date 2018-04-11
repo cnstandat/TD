@@ -1,0 +1,146 @@
+﻿@import "base";
+@import "loader";
+/*@import "flex-box";*/
+@import "scrollbar";
+@import '_notify.scss';
+
+@import "tab";
+@import "_form_controls.scss";
+@import '_jcrop.scss';
+@import "collapse";
+
+@import '_chosen.scss';
+@import '_input.scss';
+@import "_background";
+@import '_public_editor.scss';
+@import '_checkbox.scss';
+@import '_accordion.scss';
+@import '_cookie.scss';
+@import "_user.scss";
+@import '_breadcrumb.scss';
+@import '_BackToTop.scss';
+@import "_tags.scss";
+@import '_button.scss';
+@import 'blogs/_blog_v1.scss';
+@import 'GoogleMap/_GGMap_mgk.scss';
+@import '_table.scss';
+
+.hide-xs {
+    display: none;
+}
+
+.hide-sm {
+    display: none;
+}
+
+.image-upload {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.auto-height {
+    max-height:150px;
+    height: auto;
+}
+
+.hide {
+    display: none;
+}
+
+.tools {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    .more-action {
+        text-align: center;
+    }
+
+    margin-bottom: 1rem;
+
+    .btn {
+        font-size: 12px;
+        border-width: 1px;
+        padding: 2px 10px;
+    }
+}
+
+
+
+
+
+
+@import "_MainMenu_v1.scss";
+
+.menu {
+    &-bottom {
+        padding: 2em;
+        @include display-flex();
+        @include flex-wrap(wrap);
+        @include justify-content(space-evenly);
+    }
+
+    &-block {
+        padding: 10px;
+
+        &-item {
+            @include nice_a();
+            padding: 10px 0;
+            font-size: .8em;
+            display: block;
+            color: $base-red;
+            @include transition(color .2s);
+
+            &:hover, &:active, &.active {
+                color: #fff;
+            }
+        }
+
+        &-text {
+            padding: 5px 0;
+            font-size: 1.2em;
+            display: block;
+            color: $base-dark;
+
+            a {
+                color: $base-dark;
+            }
+        }
+    }
+}
+
+@mixin core-sm() {
+    @include jcrop-sm();
+    @include user-sm();
+
+    .hide-xs {
+        display: inline-block;
+    }
+}
+
+@mixin core-md() {
+    @include cookie-md();
+    @include base-md();
+    @include jcrop-md();
+    @include collapse-md();
+    .only-xs {
+        display: none;
+    }
+
+    .hide-sm {
+        display: inline-block;
+    }
+    @include tab-md();
+    @include form-md();
+    @include user-md();
+    @include table-md();
+    @include accordion-md();
+    @include wow(); //base
+}
+
+@mixin core-lg() {
+}
+
+@mixin core-xl() {
+}

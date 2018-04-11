@@ -1,0 +1,85 @@
+﻿@model TD.Models.AppTask
+<div class="collapse collapse-auto-center auto-dispose" id="editapptask">
+    <div class="collapse-overlay"></div>
+    <div class="collapse-body">
+        <a class="collapse-close fa fa-cross"></a>
+        <form class="form" data-src="/admin/apptasks/edit">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <h4 class="form-title">
+                Cập nhật công việc
+            </h4>
+            <div class="form-body">
+                <div class="left">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-table"></i>
+                            <span class="text">Gắn nhãn</span>
+                        </label>
+                        @Html.ListBox("TagTaskId", null, new { @class = "chosen", multiple = "multiple", data_placeholder = "Gắn nhãn" })
+                    </div>
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-star"></i>
+                            <span class="text">Độ ưu tiên</span>
+                        </label>
+                        @Html.EnumDropDownListFor(x => x.Level, null, new { @class = "chosen", count = "1", data_placeholder = "Độ ưu tiên" })
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" autocomplete="new-password" name="Name" value="@Model.Name" required data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-cogs"></i>
+                            <span class="text">Công việc</span>
+                        </label>
+                    </div>
+                    <div class="input--sae">
+                        <input class="input-text" type="number" autocomplete="new-password" name="CurrentStep" value="@Model.CurrentStep" />
+                        <label class="label">
+                            <i class="fa fa-checkmark"></i>
+                            <span class="text">Tiến độ</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="right">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-user"></i>
+                            <span class="text">Giao cho</span>
+                        </label>
+                        @Html.ListBox("AcceptId", null, new { @class = "chosen", count = "1", data_placeholder = "Giao cho" })
+                    </div>
+                    <div class="input--sae input--filled">
+                        <input type="date" autocomplete="new-password" class="input-text" name="Created" readonly value="@(Model.Created.ToString("yyyy-MM-dd"))" />
+                        <label class="label">
+                            <i class="fa fa-table"></i>
+                            <span class="text">Ngày giao</span>
+                        </label>
+                    </div>
+                    <div class="input--sae input--filled">
+                        <input type="date" autocomplete="new-password" class="input-text" name="Expired" value="@(Model.Expired!=null?Model.Expired.Value.ToString("yyyy-MM-dd"):"")" />
+                        <label class="label">
+                            <i class="fa fa-table"></i>
+                            <span class="text">Dự kiến hoàn thành</span>
+                        </label>
+                    </div>
+                    <div>
+                        <input class="ck" type="checkbox" title="Xác nhận hoàn thành" value="@(Model.Complete?"true":"false")" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Ghi chú</span>
+                </label>
+                <textarea name="Note" class="input-text autoExpand" value="@Model.Note">@Model.Note</textarea>
+            </div>
+
+            <div class="form-btn">
+                <a class="btn btn-primary submit"><i class="fa fa-save"></i><span class="text">Lưu thay đổi</span></a>
+                <a class="btn delete" href="/admin/apptasks/delete/@Model.Id"><i class="fa fa-eraser"></i><span class="text">Xóa</span></a>
+            </div>
+
+        </form>
+    </div>
+</div>

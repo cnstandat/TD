@@ -1,0 +1,90 @@
+﻿@model TD.Models.Gallery
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Gallery</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Blog.AppId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Blog.AppId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.App.Database)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.App.Database)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Subtitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Subtitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ButtonText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ButtonText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.InHome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.InHome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VideoLink)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VideoLink)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Link)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Link)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

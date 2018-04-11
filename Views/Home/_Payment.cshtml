@@ -1,0 +1,13 @@
+﻿<div id="payment" class="collapse">
+    <a class="collapse-close"><span class="line"></span></a>
+    <h4 class="form-title">
+        <span>Phương thức thanh toán</span>
+        @if (ViewBag.Admin)
+        {
+            <a href="/config/payment" class="btn btn-success"><i class="fa fa-edit"></i></a>
+        }
+    </h4>
+    <div class="form form-dark">
+        @ViewBag.Content
+    </div>
+</div>

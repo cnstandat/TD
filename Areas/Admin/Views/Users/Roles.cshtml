@@ -1,0 +1,43 @@
+﻿@model ICollection<TD.Models.Views.RoleViewModel>
+
+@using System.Collections.Generic;
+<div class="main">
+
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/Users" class="breadcrumb-item">Người dùng</a>
+        <a href="/Admin/Users/roles" class="breadcrumb-item active">Quyền hạn</a>
+    </div>
+    <div class="more-action">
+        <a class="btn" href="/admin/Users" title="Danh sách người dùng">Người dùng</a>
+    </div>
+
+    <h4 class="form-title">Danh sách quyền hạn</h4>
+    <div class="table">
+        <div class="table-row table-row-header">
+            <span class="table-cell">
+                Quyền hạn
+            </span>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="table-row">
+
+                <span class="table-cell">
+                    @item.Name
+                </span>
+
+            </div>
+        }
+
+    </div>
+
+
+
+</div>
+
+
+
+
+

@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@section Menu{
+    <div class="main-menu collapse-wrap sticky" id="main-menu">
+        <a class="togger only-xs self" data-togger="main-menu"><span class="line"></span></a>
+        <div class="nav">
+            <a class="menu-item" href="/">
+                <i class="fa fa-home"></i>
+                <span class="menu-text">
+                    Tấn Đạt
+                </span>
+            </a>
+            <a class="menu-item" href="/Shop">
+                <i class="fa fa-shopping-bag"></i>
+                <span class="menu-text">
+                    Shop
+                </span>
+            </a>
+            <a class="menu-item" href="/App">
+                <i class="fa fa-user"></i>
+                <span class="menu-text">
+                    Ứng dụng
+                </span>
+            </a>
+            <a class="menu-item" href="/Blog">
+                <i class="fa fa-edit"></i>
+                <span class="menu-text">
+                    Bài viết
+                </span>
+            </a>
+
+        </div>
+        <a class="togger slide-right flex-end togger-lazy" data-src="/account/userinfo" href="#userinfo">
+            <i class="fa fa-user"></i>
+            <span class="menu-text">
+                @User.Identity.Name
+            </span>
+        </a>
+    </div>
+}
+
+@section Body{
+    @RenderBody()
+}
+
+@section Cookie{
+    <div class="cookie">
+        <p>Chúng tôi đang sử dụng <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" rel="nofollow" target="_blank">cookie</a> để thống kê số liệu giúp chúng tôi cung cấp cho bạn trải nghiệm tốt nhất trên trang web của chúng tôi. Bạn có thể tìm hiểu thêm hoặc tắt chúng nếu muốn. Tuy nhiên, bằng cách tiếp tục sử dụng trang web mà không thay đổi cài đặt, bạn đồng ý sử dụng cookie của chúng tôi.</p>
+        <div><a class='accept'>Đồng ý</a></div>
+    </div>
+}
+

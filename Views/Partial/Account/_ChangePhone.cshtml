@@ -1,0 +1,32 @@
+﻿
+<div class="form-title">Số điện thoại</div>
+<form class="form form-sm" data-src="/account/changephone">
+    @Html.AntiForgeryToken()
+    <p class="text-helper">
+        Để thay đổi số điện thoại , bạn cần nhập mật khẩu hiện tại , vui lòng chỉ nhập số :
+        <br />
+        VD: Việt Nam: 0985569705 bạn cần nhập : 84985569705
+    </p>
+    <div class="input--sae">
+
+        <input type="tel" autocomplete="new-password" name="PhoneNumber" value="@ViewBag.Number" required class="input-text" minlength="4" data-rule-remote="/Check/Phone" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Điện thoại</span>
+        </label>
+    </div>
+
+    <div class="input--sae">
+        <input type="password" autocomplete="new-password" name="Password" required class="input-text" minlength="4" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mật khẩu hiện tại</span>
+        </label>
+
+    </div>
+    <div class="form-btn">
+        <a class="btn submit"><i class="fa fa-checkmark"></i>Xác nhận</a>
+    </div>
+</form>
+
+

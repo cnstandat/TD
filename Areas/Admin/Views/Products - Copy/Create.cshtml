@@ -1,0 +1,87 @@
+﻿
+@model TD.Models.Views.ProductEditModel
+<div class="main">
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/Products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/create" class="breadcrumb-item active">Thêm mới</a>
+        </div>
+        <div class="more-action">
+            <a class="btn btn-primary" href="/admin/productCategories" title="Danh sách chức năng">Nhóm sản phẩm</a>
+            <a class="btn btn-success" href="/admin/products/features" title="Danh sách chức năng">Chức năng</a>
+            <a class="btn primary" href="/admin/Partners" title="Danh sách khách hàng">Khách hàng</a>
+        </div>
+    </div>
+
+
+    <form class="form">
+        <h4 class="form-title">
+            Thông tin ứng dụng <a class="btn submit btn-primary btn-circle fix right" title="Lưu ứng dụng"><i class="fa fa-save"></i></a>
+        </h4>
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="ImageData" name="ImageData" />
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-body">
+            <div class="left">
+                <figure class="image-fake"
+                        data-width="@CData.AppConfig.ProductW" data-height="@CData.AppConfig.ProductH"
+                        data-upload="1">
+                    <noscript><img src="/data/site_svg/noavatar.png" width="@CData.AppConfig.ProductW" height="@CData.AppConfig.ProductH" /></noscript>
+                </figure>
+            </div>
+            <div class="right edit">
+                <div class="input input--sae">
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">
+                            Nhóm sản phẩm
+                        </span>
+                    </label>
+                    @Html.ListBoxFor(x => x.CategoryId, Model.Categories, new { @class = "chosen", count = 1, data_placeholder = "Nhóm sản phẩm" })
+                </div>
+
+                <div>
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Loại sản phẩm</span>
+                    </label>
+                    @Html.ListBoxFor(x => x.ProductType, Model.ProductTypes, new { @class = "input-text chosen", count = 1, data_placeholder = "Phân loại" })
+                </div>
+                <div>
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Nền tảng hệ điều hành</span>
+                    </label>
+                    @Html.ListBoxFor(x => x.AppType, Model.AppTypes, new { @class = "input-text chosen", data_placeholder = "Chọn nền tảng" })
+                </div>
+                <div class="input--sae">
+                    <input class="input-text" name="Name" required data-rule-minlength="3" />
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Ứng dụng</span>
+                    </label>
+                </div>
+                <div class="input--sae">
+                    <input class="input-text" name="Link" />
+                    <label class="label">
+                        <i class="fa fa-edit"></i>
+                        <span class="text">Liên kết</span>
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="input--sae">
+            <input type="checkbox" class="ck" value=@(Model.AutoFeature?"true":"false") title="Tự động thêm chức năng" />
+        </div>
+
+
+
+
+    </form>
+
+
+</div>

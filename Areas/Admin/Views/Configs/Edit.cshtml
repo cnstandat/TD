@@ -1,0 +1,42 @@
+﻿@model TD.Models.Views.DPageViewModel
+<div class="main">
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/Config" class="breadcrumb-item">Cấu hình</a>
+        <a href="#" class="breadcrumb-item active">@Model.Name</a>
+    </div>
+    <h4 class="form-title">
+        Thêm trang
+    </h4>
+    <form class="form">
+        <h4 class="form-title">
+            Cập nhật nội dung trang
+        </h4>
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="input--sae">
+            <input class="input-text" name="Name" value="@Model.Name" />
+            <label class="label">
+                <i class="fa fa-edit"></i>
+                <span class="text">Tên</span>
+            </label>
+        </div>
+        <div>
+            <label class="label">
+                <i class="fa fa-edit"></i>
+                <span class="text">Nội dung</span>
+            </label>
+            <textarea class="note-editable" name="Content">@Model.Content</textarea>
+        </div>
+
+        <input class="ck" type="checkbox" value=@(Model.isPage?"true":"false") title="Hiển thị trên trang chủ" name="isPage" />
+        <div class="form-btn">
+            <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+            <a class="btn delete" title="Xóa trang" data-src="/admin/configs/delete/@Model.Id">
+                <i class="fa fa-cross"></i>Xóa
+            </a>
+        </div>
+    </form>
+</div>
+
+

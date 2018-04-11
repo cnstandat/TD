@@ -1,0 +1,18 @@
+﻿@model TD.Models.Views.NavBlogViewModel
+<div class="blog-nav">
+    @if (Model.Last != null)
+            {
+        <a href="/ViewPost/@Model.Last.Name" class="blog-nav-pre">
+            <span>Bài trước</span>
+            <h5>@Model.Last.FullName</h5>
+        </a>
+    }
+    @if (Model.Next != null)
+            {
+        <a href="/ViewPost/@Model.Next.Name" class="blog-nav-next">
+            <span>Bài tiếp</span>
+            <h5>@Model.Next.FullName</h5>
+        </a>
+    }
+</div>
+

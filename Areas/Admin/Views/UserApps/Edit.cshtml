@@ -1,0 +1,59 @@
+﻿@model TD.Models.UserApp
+@if (Model != null)
+{
+    <div class="main">
+
+        <div class="tools">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+                <a href="/admin/products/Edit/@Model.AppId" class="breadcrumb-item">@Model.App.Name</a>
+                <a href="#" class="breadcrumb-item active">Thêm mới Khách hàng</a>
+            </div>
+            <div class="collapse-drop">
+                <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+                <a class="fast" href="/admin/products?AppType=@TD.Models.AppType.App"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+                <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+            </div>
+        </div>
+        <h3 class="model-title">Ứng dụng : @Model.App.Name</h3>
+        <h3 class="model-title">Khách hàng : @Model.Client.Name</h3>
+        <h3 class="model-title">Người dung : @Model.User.UserName</h3>
+        <form class="form edit">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="AppId" value="@Model.AppId" />
+            <input type="hidden" name="ClientId" value="@Model.ClientId" />
+            <input type="hidden" name="UserId" value="@Model.UserId" />
+            <div class="form-title">
+                Cập nhật quyền hạn <a class="btn submit" title="Lưu"><i class="fa fa-save"></i></a>
+            </div>
+            <div class="input--sae">
+                @Html.ListBox("RoleId", null, new { @class = "chosen", count = "1", data_placeholder = "Chọn Quyền hạn", required = true })
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+}
+else
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/Edit/" class="breadcrumb-item">Thêm mới khách hàng</a>
+        </div>
+        <div class="form-title">
+            Không có dữ liệu
+        </div>
+
+    </div>
+
+
+
+
+}
+

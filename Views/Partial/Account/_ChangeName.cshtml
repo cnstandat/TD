@@ -1,0 +1,23 @@
+﻿<form class="form form-sm" data-src="/account/changename">
+    @Html.AntiForgeryToken()
+    <div class="input--sae">
+        <input type="text" autocomplete="new-password" name="FullName" value="@ViewBag.FullName" required class="input-text" minlength="2" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Họ tên</span>
+        </label>
+    </div>
+    <div class="input--sae">
+        <input type="password" autocomplete="new-password" name="Password" required class="input-text" minlength="4" />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mật khẩu hiện tại</span>
+        </label>
+    </div>
+
+    <div class="form-btn">
+        <a class="btn submit"><i class="fa fa-checkmark"></i>Xác nhận</a>
+    </div>
+</form>
+
+

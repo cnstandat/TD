@@ -1,0 +1,29 @@
+﻿@model  IEnumerable<TD.Models.Views.AppViewModel>
+<section class="grid grid-loading">
+    <div class="grid__sizer"></div>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="@item.ClassName">
+                <div class="slider">
+                    @foreach (var image in item.Image)
+                    {
+                        <div class="slider__item">
+                            <img src="/data/img/slides/@image" alt="Image" />
+                        </div>
+                    }
+                </div>
+                <div class="meta">
+                    <h3 class="meta__title"><a href="/ViewApp?Id=@item.Id">BlackBerry @item.Name</a></h3>
+                    <span class="meta__brand"></span>
+                    <span class="meta__price">@item.Price</span>
+                </div>
+                <button class="action action-button action-buy" data-id="@item.Id"><i class="fa fa-shopping-bag"></i><span class="text-hidden">Thêm vào giỏ hàng</span></button>
+            </div>
+        }
+
+    }
+
+
+</section>

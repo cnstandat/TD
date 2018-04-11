@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TD.Models.Slide>
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="sw sw-one sw-init">
+        <div class="swiper-wrapper">
+            @foreach (var item in Model)
+            {
+                <div class="bg-center swiper-slide" style='background: url(@("/data/img/slides/Site/"+item.Id+".jpg"))'>
+                    <div class="sw-text">
+                        <h1>@(string.IsNullOrEmpty(item.Name) ? "Tấn Đạt" : item.Name)<br>@(string.IsNullOrEmpty(item.Subtitle) ? "Providing Complete IT Solutions" : item.Subtitle)</h1>
+                        <a class="popup-video btn-primary btn btn-circle" href="@item.Link" title="Intro Video">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <a href="#" class="btn btn-circle btn-primary btn-next"><i class="fa fa-chevron-right"></i></a>
+        <a href="#" class="btn btn-circle btn-primary btn-prev"><i class="fa fa-chevron-left"></i></a>
+        <a href="#scr-promo" class="scrollTo f">
+            <span class="color-white fa fa-angle-double-down"></span>
+            <p>Chi tiết</p>
+        </a>
+    </div>
+}
+
+

@@ -1,0 +1,78 @@
+﻿@*@model TD.Models.Views.UserViewModel*@
+
+<div class="main">
+
+    <div class="tools">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/Admin/users" class="breadcrumb-item">Người dùng</a>
+            <a href="/Admin/users/Create" class="breadcrumb-item active">Thêm mới</a>
+        </div>
+        <div class="more-action">
+            <a class="btn" href="/admin/Users/Roles" title="Danh sách quyền hạn">Quyền hạn</a>
+        </div>
+    </div>
+    <div class="form-body">
+        <form class="form">
+            @Html.AntiForgeryToken()
+            <h4 class="form-title">
+                Thêm mới người dùng <a class="btn submit btn-success" title="Lưu người dùng"><i class="fa fa-save"></i></a>
+            </h4>
+            <div class="form-body">
+                <div class="left">
+                    <div>
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Quyền hạn</span>
+                        </label>
+                        @Html.ListBox("RoleId", null, new { @class = "chosen", multiple = "multiple", data_placeholder = "Quyền hạn" })
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="input--sae">
+
+                        <input class="input-text" autocomplete="new-password" name="UserName" required data-rule-remote="/check/username" data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Tên đăng nhập</span>
+                        </label>
+                    </div>
+                    <div class="input--sae">
+
+                        <input type="password" autocomplete="new-password" class="input-text" name="Password" required data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Mật khẩu</span>
+                        </label>
+                    </div>
+
+                    <div class="input--sae">
+
+                        <input class="input-text" type="email" name="Email" required data-rule-remote="/check/email" data-rule-minlength="4" />
+                        <label class="label">
+                            <i class="fa fa-edit"></i>
+                            <span class="text">Email</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <label class="label">
+                    <i class="fa fa-edit"></i>
+                    <span class="text">Chữ ký</span>
+                </label>
+                <textarea class="note-editable" name="Sign" placeholder="Chữ ký"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" name="CantSay" title="Cấm nói" class="ck" value="@(Model.CantSay?"true":"false")" />
+
+            </div>
+
+        </form>
+    </div>
+
+
+</div>
+

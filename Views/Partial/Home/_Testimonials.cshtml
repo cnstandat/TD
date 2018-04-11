@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TD.Models.PartnerTalk>
+<div class="sw sw-testimonials sw-init">
+    <div class="swiper-wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="swiper-slide">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    @item.Content;
+                </p>
+                <i class="fa fa-quotes-right"></i>
+                <hr />
+                <h4>@item.Partner.Name</h4>
+            </div>
+        }
+    </div>
+    <div class="sw-page"></div>
+    <a href="#" class="fa fa-chevron-right btn-next"></a>
+    <a href="#" class="fa fa-chevron-left btn-prev"></a>
+    <!--End Arrows -->
+</div>

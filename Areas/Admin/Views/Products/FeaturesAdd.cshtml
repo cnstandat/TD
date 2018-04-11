@@ -1,0 +1,33 @@
+﻿@model TD.Models.Views.FeatureAppView
+<div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/FeatureApps" class="breadcrumb-item">Chức năng</a>
+            <a href="/admin/products/FeatureAppsAdd" class="breadcrumb-item active">Thêm mới</a>
+
+        </div>
+        <div class="collapse-drop">
+            <a class="togger circle" data-toggle="more-action"><span class="line"></span></a>
+            <a class="fast" href="/admin/products"><i class="fa fa-users"></i><span>Ứng dụng</span></a>
+            <a class="fast" href="/admin/Partners" title="Danh sách khách hàng"><i class="fa fa-users"></i><span>Khách hàng</span></a>
+        </div>
+          
+            <form class="form form-title">
+                <h4 class="form-title">
+                    Thêm mới chức năng
+                </h4>
+                @Html.AntiForgeryToken()
+                <div class="text-helper text-center">
+                    <i class="fa fa-info"></i>
+                    Chức năng ứng dụng không được trùng lặp
+                </div>
+                <div class="input--sae">
+                    <i class="fa fa-edit fa-fix"></i>
+                    <input class="input-text enter-submit auto-focus" type="text" name="Name" required placeholder="Chức năng"  data-rule-remote="/pub/checkFeatureAppName" />
+                </div>
+                <div class="form-btn">
+                    <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+                </div>
+            </form>
+        </div>

@@ -1,0 +1,59 @@
+﻿@model TD.Models.Views.AppVersionView
+@if (Model != null)
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/edit/@Model.AppId" class="breadcrumb-item">@Model.AppName</a>
+            <a href="/admin/products/appVersionsAdd/@Model.AppId" class="breadcrumb-item active">Thêm mới phiên bản</a>
+        </div>
+        <div class="form-title">
+            Thêm mới phiên bản @Model.AppName
+        </div>
+        <form class="form">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="AppId" value="@Model.AppId" />
+            <div class="input--sae">
+                @Html.DropDownListFor(x => x.Selected, Model.AllVersions, new { @class = "chosen", count = "1", data_placeholder = "Chọn phiên bản" })
+            </div>
+            <div class="input--sae">
+                <i class="fa fa-price-tags fa-fix"></i>
+                <input class="input-text" type="text" name="Price" placeholder="Giá bán" />
+            </div>
+            <div class="input--sae">
+                <i class="fa fa-price-tags fa-fix"></i>
+                <input class="input-text" type="text" name="OldPrice" placeholder="Giá cũ" />
+            </div>
+            <div class="input--sae">
+                <i class="fa fa-award fa-fix"></i>
+                <input class="input-text" type="text" name="Discount" placeholder="Giảm giá" />
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu"><i class="fa fa-save"></i>Lưu</a>
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+}
+else
+{
+    <div class="main">
+        <div class="breadcrumb">
+            <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+            <a href="/admin/products" class="breadcrumb-item">Ứng dụng</a>
+            <a href="/admin/products/edit" class="breadcrumb-item">Thêm phiên bản</a>
+        </div>
+        <h4 class="form-title">
+            Không có dữ liệu
+        </h4>
+    </div>
+
+
+
+
+}

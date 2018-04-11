@@ -1,0 +1,14 @@
+﻿.loader-01 {
+	border: .2em dotted currentcolor;
+	border-radius: 50%;
+	animation: 1s loader-01 linear infinite;
+}
+
+@keyframes loader-01 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

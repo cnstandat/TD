@@ -1,0 +1,153 @@
+﻿.user {
+    &-avatar {
+        width: 200px;
+        text-align: center;
+        margin: 0 auto;
+
+        > figure {
+            display: block;
+            height: 90px;
+            width: 90px;
+            padding: 5px;
+            margin: 0 auto;
+            overflow: hidden;
+
+            img {
+                @include box-shadow(0 0 5px #000);
+                @include border-radius(50%);
+                border: 2px solid #fff;
+            }
+        }
+
+
+        &-submit {
+            margin: 10px auto;
+        }
+    }
+
+    &-others {
+        @include display-flex();
+        @include flex-direction(column);
+    }
+
+    &-fullname,
+    &-name, &-email, &-sign, &-phone {
+        color: $brand-danger;
+        /*margin-bottom: 10px;*/
+        display: block;
+        line-height: 40px;
+        height: 40px;
+
+        &.valid {
+            color: $brand-success;
+        }
+    }
+
+    &-created {
+        font-style: italic;
+        font-size: 12px;
+        color: $base-dark;
+    }
+
+    &-password {
+        float: right;
+    }
+
+    &-sign {
+        min-height: 80px;
+        background: #eee;
+        padding: 10px;
+        height: auto;
+        border: 1px solid $base-red;
+        overflow:hidden;
+    }
+
+    &-action {
+        display: inline;
+
+        .form {
+            display: inline;
+        }
+    }
+}
+
+.user-profile {
+    .accordion {
+        margin-top: 2rem;
+
+        .submenu {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            position: absolute;
+            top: -50px;
+            right: 5px;
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+#userinfo {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color:$brand-info;
+    .user-profile {
+        text-align: center;
+    }
+
+    .user-created {
+        color: $brand-info;
+    }
+
+    .btn {
+        margin: 10px auto;
+    }
+
+    .form {
+        width: auto;
+    }
+}
+
+@mixin user-sm {
+    .user-profile {
+        .accordion {
+            .btn {
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@mixin user-md {
+    .user-avatar {
+        float: left;
+    }
+
+
+
+    #userinfo {
+        width: auto;
+        right: 0;
+        left: initial;
+        padding: 30px;
+        height: auto;
+        animation: fadeInRightBig .7s ease-in-out;
+        border-bottom-left-radius: 10px;
+        background: rgba(#343547,.9);
+
+        .user-avatar {
+            width: auto;
+            padding-left: 20px;
+        }
+        &.collapse{
+            width:100%;
+        }
+    }
+}

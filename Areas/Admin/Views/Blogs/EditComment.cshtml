@@ -1,0 +1,39 @@
+﻿@model TD.Models.Views.CommentEditModel
+
+
+<div class="main">
+    <div class="breadcrumb">
+        <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+        <a href="/Admin/Blogs" class="breadcrumb-item">Bài viết</a>
+        <a href="/admin/blogs/edit/@Model.BlogId" class="breadcrumb-item">Cập nhật</a>
+        <a href="/Admin/Blogs/Editcomment/@Model.Id" class="breadcrumb-item active">Cập nhật thảo luận</a>
+    </div>
+   
+        <h4 class="form-title">
+            Cập nhật thảo luận
+        </h4>
+        <form class="form">
+            <input type="hidden" name="BlogId" value="@Model.BlogId" />
+            @Html.AntiForgeryToken()
+          
+            <div class="head">
+                Nội dung
+            </div>
+            <div class="input--sae">
+                <textarea name="Content" class="note-editable" required data-rule-minlength="30" value="@Model.Content">@Model.Content</textarea>
+            </div>
+            <div class="head">
+                Lý do cập nhật
+            </div>
+            <div class="input--sae">
+                <i class="fa fa-edit fa-fix"></i>
+                <input class="input-text" name="Reason" value="@Model.Reason"  required data-rule-minlength="3" />
+            </div>
+            <div class="form-btn">
+                <a class="btn submit btn-success" title="Lưu bài viết"><i class="fa fa-save"></i>Lưu thay đổi</a>
+                <a class="btn delete" title="Xóa thảo luận" data-src="/admin/blogs/deletecomment/@Model.Id">
+                    <i class="fa fa-cross"></i>Xóa
+                </a>
+            </div>
+        </form>
+    </div>

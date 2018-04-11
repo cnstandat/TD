@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TD.Models.Comment>
+@foreach (var item in Model)
+{
+    <div class="table-row">
+        <input class="ignore" type="radio" />
+        <span class="table-cell primary">
+            <a data-src="/admin/comments/edit/@item.Id" class="togger togger-lazy" href="#editcomment">
+                <i class="fa fa-edit"></i>
+                @Html.Raw(item.Content)
+            </a>
+        </span>
+        <span class="table-cell">
+            @item.User.UserName
+        </span>
+        <span class="table-cell">
+            @item.Created.ToString("dd/MM/yy HH:mm")
+        </span>
+        <span class="table-cell">
+            @item.Children.Count
+        </span>
+
+    </div>
+
+}
+@if (ViewBag.HasMore)
+{
+    <div class="load-more-container">
+
+
+        <a class="btn load-on-click" data-src="/admin/comments/index?@ViewBag.CreateLink&Page=@ViewBag.Page">
+            Xem thêm
+        </a>
+
+    </div>
+
+
+}
+
+
+

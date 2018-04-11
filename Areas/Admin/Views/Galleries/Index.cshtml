@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TD.Models.Gallery>
+
+<h4 class="form-title">
+    Gallery
+</h4>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Tiêu đề
+            <a data-src="/admin/galleries/create" href="#createMainSlide" class="btn left togger togger-lazy" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+        <span class="table-cell">
+            Subtile
+        </span>
+        <span class="table-cell">
+            Liên kết
+        </span>
+        <span class="table-cell">
+            Nút bấm
+        </span>
+        <span class="table-cell">
+            Video
+        </span>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="table-row">
+            <input type="radio" name="expand" />
+            <span class="table-cell primary">
+                @*<a data-src="/admin/galleries/edit/@item.Id" class="togger togger-lazy" href="#editMainSlide" title="Click vào đây để xem chi tiết"><i class="fa fa-edit"></i>   @item.Name                </a>*@
+                <a href="/admin/galleries/editdirect/@item.Id" title="Click vào đây để xem chi tiết"><i class="fa fa-edit"></i>   @Html.Raw(item.Name)                </a>
+            </span>
+            <span class="table-cell" data-label="Subtitle">
+                @Html.Raw(item.Subtitle)
+            </span>
+            <span class="table-cell" data-label="Link">
+                @item.Link
+            </span>
+            <span class="table-cell" data-label="Button">
+                @item.ButtonText
+            </span>
+            <span class="table-cell" data-label="Video">
+                @item.VideoLink
+            </span>
+        </div>
+
+    }
+</div>
+

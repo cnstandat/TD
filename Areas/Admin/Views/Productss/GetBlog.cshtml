@@ -1,0 +1,27 @@
+﻿@model TD.Models.Views.AppBlogViewModel
+<h4 class="form-title">Bài viết</h4>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            Tiêu đề
+            <a href="/admin/blogs/create?AppId=@Model.AppId" class="btn btn-mn left" title="Thêm mới">
+                Viết bài cho sản phẩm
+            </a>
+        </span>
+
+
+    </div>
+
+    @foreach (var item in Model.Blogs)
+    {
+        <div class="table-row">
+            <span class="table-cell">
+                <a href="/admin/blogs/edit/@item.Id" title="Click vào đây để xem chi tiết">
+                    @item.FullName
+                </a>
+            </span>
+
+        </div>
+
+    }
+</div>

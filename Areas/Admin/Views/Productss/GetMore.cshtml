@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TD.Models.App>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="table-row">
+            <span class="table-cell">
+                <a href="/admin/products/edit/@item.Id" title="Click vào đây để xem chi tiết">
+                    @(string.IsNullOrEmpty(item.FullName) ? "-" : item.FullName)
+                </a>
+            </span>
+            <span class="table-cell">
+                @item.Price
+            </span>
+        </div>
+    }
+    if (ViewBag.HasMore)
+    {
+        <div class="submit-container">
+            @if (ViewBag.HasMore)
+            {
+                <div class="submit-container">
+                    <a data-src="/admin/products/getmore?Page=@ViewBag.Page&Search=@ViewBag.Search&Sort=@ViewBag.Sort" class="btn btn-info load-on-click">Xem thêm</a>
+                </div>
+            }
+        </div>
+    }
+}
+
+
+
+

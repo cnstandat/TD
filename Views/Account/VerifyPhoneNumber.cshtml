@@ -1,0 +1,19 @@
+﻿<form class="form" data-src="/account/verifyphone">
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@ViewBag.PhoneNumber" name="PhoneNumber" />
+    <p class="text-helper">
+        Vui lòng nhập mã xác nhận bạn nhận được
+    </p>
+    <div class="input--sae">
+
+        <input type="number" class="input-text" name="Code" required />
+        <label class="label">
+            <i class="fa fa-edit"></i>
+            <span class="text">Mã xác minh</span>
+        </label>
+    </div>
+    <div class="form-btn">
+        <a class="btn submit"><i class="fa fa-checkmark"></i>Xác nhận</a>
+    </div>
+
+</form>

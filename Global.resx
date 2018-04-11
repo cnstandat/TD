@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CantRemoveYourPhoneNumber" xml:space="preserve">
+    <value>Cant remove your phone number</value>
+  </data>
+  <data name="GenericError" xml:space="preserve">
+    <value>Có lỗi xảy ra</value>
+  </data>
+  <data name="HasAlreadyTaken" xml:space="preserve">
+    <value>{0} has already taken!</value>
+  </data>
+  <data name="HelpVerifyAccount" xml:space="preserve">
+    <value>Xin vui lòng mở email bạn đã đăng ký : {0} và xác minh tài khoản</value>
+  </data>
+  <data name="InvalidLoginInfo" xml:space="preserve">
+    <value>Sai tên đăng nhập hoặc mật khẩu</value>
+  </data>
+  <data name="PleaseCheckYourCode" xml:space="preserve">
+    <value>Please check your code</value>
+  </data>
+  <data name="PleaseEnterValidPassword" xml:space="preserve">
+    <value>Please enter valid password</value>
+  </data>
+  <data name="PleaseVerifyYourAccount" xml:space="preserve">
+    <value>Bạn đã tạo thành công tài khoản tại {0} , để trải nghiệm đầy đủ tính năng của chúng tôi, vui lòng &lt;a href="{1}"&gt;xác minh tài khoản&lt;/a&gt;</value>
+  </data>
+  <data name="ResetPasswordHelp" xml:space="preserve">
+    <value>Vui lòng mở email {0} và làm theo hướng dẫn để tạo mới mật khẩu</value>
+  </data>
+  <data name="ResetPasswordMail" xml:space="preserve">
+    <value>Please reset your password by clicking &lt;a href="{0}"&gt;here&lt;/a&gt;</value>
+  </data>
+  <data name="UserHasCreated" xml:space="preserve">
+    <value>UserHasCreated</value>
+  </data>
+  <data name="YourAccountHasBeenDelete" xml:space="preserve">
+    <value>Your account has been delete!</value>
+  </data>
+  <data name="YourAccountHasBeenLockout" xml:space="preserve">
+    <value>Your Account has been lockout</value>
+  </data>
+  <data name="YourAvatarHasBeenSet" xml:space="preserve">
+    <value>Your avatar has been set!</value>
+  </data>
+  <data name="YourPasswordHasBeenSet" xml:space="preserve">
+    <value>Your Password has been set</value>
+  </data>
+  <data name="YourPhoneNumberHasBeenSet" xml:space="preserve">
+    <value>Your phone number has been set!</value>
+  </data>
+  <data name="YourUsernameHasBeenSet" xml:space="preserve">
+    <value>Your username has been set!</value>
+  </data>
+  <data name="TagBlogUsed" xml:space="preserve">
+    <value>Nhãn đã được sử dụng</value>
+  </data>
+  <data name="TagBlogInserted" xml:space="preserve">
+    <value>Thêm mới nhãn thành công</value>
+  </data>
+  <data name="TagBlogRemove" xml:space="preserve">
+    <value>Xóa nhãn thành công</value>
+  </data>
+  <data name="TagBlogChanged" xml:space="preserve">
+    <value>Cập nhật nhãn thành công</value>
+  </data>
+  <data name="BlogRemoved" xml:space="preserve">
+    <value>Đã xóa bài viết</value>
+  </data>
+  <data name="BlogChanged" xml:space="preserve">
+    <value>Cập nhật bài viết thành công</value>
+  </data>
+  <data name="BlogInserted" xml:space="preserve">
+    <value>Thêm mới bài viết thành công</value>
+  </data>
+  <data name="BlogNameUsed" xml:space="preserve">
+    <value>Tiêu đề bài viết này đã được sử dụng</value>
+  </data>
+  <data name="ProductInfoRequire" xml:space="preserve">
+    <value>Vui lòng chọn thông số</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Không tìm thấy sản phẩm</value>
+  </data>
+  <data name="InfoProductRemoved" xml:space="preserve">
+    <value>Xóa thông số kỹ thuật thành công</value>
+  </data>
+  <data name="ProductRemoved" xml:space="preserve">
+    <value>Xóa sản phẩm thành công</value>
+  </data>
+  <data name="ProductInserted" xml:space="preserve">
+    <value>Thêm mới sản phẩm thành công</value>
+  </data>
+  <data name="ProductChanged" xml:space="preserve">
+    <value>Cập nhật thông tin sản phẩm thành công</value>
+  </data>
+  <data name="InfoProductExist" xml:space="preserve">
+    <value>Thông số này đã có dữ liệu </value>
+  </data>
+  <data name="UserNameUsed" xml:space="preserve">
+    <value>Tên đăng nhập đã được sử dụng</value>
+  </data>
+  <data name="UserInserted" xml:space="preserve">
+    <value>Đã thêm mới người dùng</value>
+  </data>
+  <data name="UserChanged" xml:space="preserve">
+    <value>Đã cập nhật thông tin người dùng</value>
+  </data>
+  <data name="UserRemoved" xml:space="preserve">
+    <value>Đã xóa người dùng</value>
+  </data>
+  <data name="EmailUsed" xml:space="preserve">
+    <value>Email đã được sử dụng</value>
+  </data>
+  <data name="EmailChanged" xml:space="preserve">
+    <value>Đã thay đổi email</value>
+  </data>
+  <data name="SignChanged" xml:space="preserve">
+    <value>Đã cập nhật chữ ký</value>
+  </data>
+  <data name="NameChanged" xml:space="preserve">
+    <value>Đã cập nhật họ tên</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Người dùng không tồn tại</value>
+  </data>
+  <data name="PasswordNotValid" xml:space="preserve">
+    <value>Mật khẩu không chính xác</value>
+  </data>
+  <data name="SMSOff" xml:space="preserve">
+    <value>Hệ thống SMS đã tắt</value>
+  </data>
+  <data name="FeatureProductProductExist" xml:space="preserve">
+    <value>Chức năng này đã có sẵn trên ứng dụng</value>
+  </data>
+  <data name="FeatureProductProductAdded" xml:space="preserve">
+    <value>Thêm mới chức năng ứng dụng thành công</value>
+  </data>
+  <data name="FeatureProductProductChanged" xml:space="preserve">
+    <value>Cập nhật chức năng ứng dụng thành công</value>
+  </data>
+  <data name="ProductChanged" xml:space="preserve">
+    <value>Cập nhật thông tin ứng dụng thành công</value>
+  </data>
+  <data name="ProductRemoved" xml:space="preserve">
+    <value>Đã xóa ứng dụng</value>
+  </data>
+  <data name="ProductAdded" xml:space="preserve">
+    <value>Tạo mới ứng dụng thành công</value>
+  </data>
+  <data name="ProductVersionNotFound" xml:space="preserve">
+    <value>Không tìm thấy phiên bản ứng dụng</value>
+  </data>
+  <data name="ProductVersionChanged" xml:space="preserve">
+    <value>Đã cập nhật thông tin phiên bản</value>
+  </data>
+  <data name="ProductVersionExist" xml:space="preserve">
+    <value>Đã tồn tại phiên bản ứng dụng này</value>
+  </data>
+  <data name="ProductVersionAdded" xml:space="preserve">
+    <value>Đã thêm phiên bản ứng dụng</value>
+  </data>
+  <data name="VersionFeatureProductRemoved" xml:space="preserve">
+    <value>Đã xóa chức năng phiên bản</value>
+  </data>
+  <data name="VersionFeatureProductChanged" xml:space="preserve">
+    <value>Đã cập nhật chức năng phiên bản</value>
+  </data>
+  <data name="ProductVersionRemoved" xml:space="preserve">
+    <value>Đã xóa phiên bản</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Không tìm thấy dữ liệu</value>
+  </data>
+  <data name="NeedPartner" xml:space="preserve">
+    <value>Vui lòng chọn khách hàng</value>
+  </data>
+  <data name="PartnerProductExist" xml:space="preserve">
+    <value>Khách hàng này đã sử dụng ứng dụng</value>
+  </data>
+  <data name="PartnerProductAdded" xml:space="preserve">
+    <value>Thêm mới khách hàng thành công</value>
+  </data>
+  <data name="PartnerProductNotFound" xml:space="preserve">
+    <value>Khách hàng này chưa sử dụng ứng dụng</value>
+  </data>
+  <data name="PartnerProductChanged" xml:space="preserve">
+    <value>Cập nhật khách hàng thành công</value>
+  </data>
+  <data name="FeatureProductExits" xml:space="preserve">
+    <value>Đã tồn tại chức năng này</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Không tìm thấy ứng dụng</value>
+  </data>
+  <data name="PartnerExist" xml:space="preserve">
+    <value>PartnerExist</value>
+  </data>
+</root>

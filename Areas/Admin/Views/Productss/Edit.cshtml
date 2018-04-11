@@ -1,0 +1,121 @@
+﻿@model TD.Models.Views.AppEditModel
+@if (Model != null)
+{
+    <div class="main">
+      
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+                <a href="/Admin/Apps/Edit/@Model.Id" class="breadcrumb-item active">Cập nhật</a>
+                @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+                {
+                    <input type="text" name="Search" value="@ViewBag.CurrentFilter" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                }
+            </div>
+           
+                <div >
+                    <div>
+                        <h4 class="form-title">
+                            Thông tin sản phẩm
+                        </h4>
+                        <form class="form" data-src="/Admin/Apps/Edit">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <a class="collapse-close">
+                                <span class="line"></span>
+                            </a>
+                            <div >
+                                <div>
+                                    <div class="head">
+                                        Tên sản phẩm
+                                    </div>
+                                    <div class="input--sae">
+                                        <i class="fa fa-edit fa-fix"></i>
+                                        <input class="input-text" name="FullName" value="@Model.FullName" placeholder="Sản phẩm" required data-rule-remote="/BlogCheck" data-rule-minlength="4" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="head">
+                                        Giá bán
+                                    </div>
+                                    <div class="input--sae">
+                                        <i class="fa fa-price-tags fa-fix"></i>
+                                        <input class="input-text" name="Price" type="text" value="@Model.Price" placeholder="Giá bán" required />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="input--sae">
+                                <textarea name="Content" class="note-editable" value="@Model.Content" required data-rule-minlength="30" placeholder="Giới thiệu sản phẩm">@Model.Content</textarea>
+                            </div>
+                            <div >
+                                <div>
+                                    @if (Model != null)
+                                    {
+                                       
+                                        @Html.ListBoxFor(m => m.Selected, Model.AllType, new { @class = "chosen", multiple = "multiple" })
+                                    }
+                                </div>
+                                <div >
+                                    <label class="d-in">
+                                        Sử dụng ảnh cỡ 600x600
+                                    </label>
+                                    <input type="checkbox" class="ck" name="IsLarge" value="@(Model.IsLarge?"true":"false")" />
+                                  
+                                </div>
+                            </div>
+
+
+
+                            <div class="submit-container">
+                                <a class="btn submit btn-success" title="Lưu sản phẩm"><i class="fa fa-save"></i> Lưu</a>
+
+                                <a class="btn delete" title="Xóa sản phẩm" data-src="/admin/products/delete/@Model.Id">
+                                    <i class="fa fa-cross"></i>Xóa
+                                </a>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div>
+                      
+                        <div class="lazy" data-src="/admin/products/getslide/@Model.Id"></div>
+                    </div>
+                    <div >
+                     
+                        <div class="lazy" data-src="/admin/products/getinfo/@Model.Id"></div>
+                    </div>
+                    <div >
+                     
+                        <div class="lazy" data-src="/admin/products/getblog/@Model.Id"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+      
+}
+else
+{
+    <div class="main">
+      
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/Apps" class="breadcrumb-item">Sản phẩm</a>
+                @using (Html.BeginForm("Index", "Apps", FormMethod.Get, htmlAttributes: new { @class = "search-form" }))
+                {
+                    <input type="text" name="Search" value="@ViewBag.Search" class="search-input" placeholder="Tìm kiếm theo tên sản phẩm" />
+                }
+            </div>
+            
+                <div class="form-title">Không tìm thấy sản phẩm</div>
+            </div>
+
+
+
+       
+   

@@ -1,0 +1,36 @@
+﻿.loader-32 {
+	position: relative;
+	border-radius: 50%;
+	box-shadow: 0 0 1em 0 currentcolor, inset 0 0 1em 0 currentcolor;
+	animation: 1s loader-32 linear infinite;
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		width: inherit;
+		height: inherit;
+		position: absolute;
+		border-radius: 50%;
+	}
+	&:before {
+		border-top: .2em solid currentcolor;
+		border-right: .2em solid transparent;
+		top: .28em;
+		right: calc(50% - .22em);
+	}
+	&:after {
+		border-bottom: .2em solid currentcolor;
+		border-left: .2em solid transparent;
+		bottom: .28em;
+		left: calc(50% - .22em);
+	}
+}
+
+@keyframes loader-32 {
+	0% {
+		transform: rotateX(-60deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(-60deg) rotateZ(360deg);
+	}
+}

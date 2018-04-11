@@ -1,0 +1,86 @@
+﻿@model TD.Models.Views.UserViewModel
+@if (Model != null)
+{
+    <div class="main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/users" class="breadcrumb-item">Người dùng</a>
+                <a href="/Admin/users/Create" class="breadcrumb-item active">Thêm mới</a>
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/Users/Roles" title="Danh sách quyền hạn">Quyền hạn</a>
+            </div>
+            <div class="main-wrap">
+                <h4 class="form-title">
+                    Thêm mới người dùng
+                </h4>
+                <form class="form form-block">
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="input--sae">
+                                <i class="fa fa-user fa-fix"></i>
+                                <input class="input-text" autocomplete="new-password" name="UserName" placeholder="Tên đăng nhập" required data-rule-remote="/pub/usercheck" data-rule-minlength="4" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+
+                            <div class="input--sae">
+                                <i class="fa fa-key fa-fix"></i>
+                                <input type="password" autocomplete="new-password" class="input-text" name="Password" placeholder="Mật khẩu" required data-rule-minlength="4" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+
+                            <div class="input--sae">
+                                <i class="fa fa-email fa-fix"></i>
+                                <input class="input-text" type="email" name="Email" placeholder="Email" required data-rule-remote="/pub/emaicheckexist" data-rule-minlength="4" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div>
+                                <input type="checkbox" name="CantSay" class="ck" value="@(Model.CantSay?"true":"false")" />
+                                <label class="d-in">Cấm viết bài , trao đổi</label>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input--sae">
+                                <textarea class="note-editable" name="Sign" placeholder="Chữ ký" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            @Html.ListBoxFor(m => m.Selected, Model.Roles, new { @class = "chosen", multiple = "multiple" })
+                        </div>
+
+
+                    </div>
+                    <div class="submit-container">
+                        <a class="btn submit btn-success" title="Lưu người dùng"><i class="fa fa-save"></i>Lưu người dùng</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/Admin" class="breadcrumb-item">Bảng điều khiển</a>
+                <a href="/Admin/users" class="breadcrumb-item">Người dùng</a>
+                <a href="/Admin/users/Create" class="breadcrumb-item active">Thêm mới</a>
+            </div>
+            <div class="more-action">
+                <a class="btn" href="/admin/Users/Roles" title="Danh sách quyền hạn">Quyền hạn</a>
+            </div>
+            <div class="main-wrap">
+                <h4 class="form-title">
+                    Không có dữ liệu
+                </h4>
+            </div>
+        </div>
+    </div>
+}

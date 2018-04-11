@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "data/admin.css",
+    "inputFile": "data/css/admin.scss"
+  },
+  {
+    "outputFile": "data/megakit.css",
+    "inputFile": "data/css/megakit.scss"
+  },
+  {
+    "outputFile": "data/cri.css",
+    "inputFile": "data/cri.scss"
+  }
+]

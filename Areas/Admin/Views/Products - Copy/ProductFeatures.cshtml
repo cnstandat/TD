@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TD.Models.ProductFeature>
+<div class="table">
+    <div class="table-row table-row-header">
+        <span class="table-cell">
+            TT
+        </span>
+        <span class="table-cell">
+            Chức năng
+            <a href="/admin/products/ProductFeaturesAdd/@ViewBag.ProductId" class="btn left" title="Thêm mới">
+                Thêm mới
+            </a>
+        </span>
+        <span class="table-cell">
+
+        </span>
+
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="table-row">
+                <span class="table-cell">
+                    @item.Order
+                </span>
+                <span class="table-cell">
+                    <a href="/admin/products/ProductFeaturesEdit?ProductId=@item.ProductId&&FeatureProductId=@item.FeatureProductId" class="product-slide-link" title="Click vào đây để xem chi tiết">
+                        @item.FeatureProduct.Name
+                    </a>
+                </span>
+                <span class="table-cell">
+                    @item.Content
+                </span>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="table-row">
+            <span class="table-cell">
+                Chưa có dữ liệu
+            </span>
+        </div>
+    }
+</div>
